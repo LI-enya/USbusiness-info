@@ -1,12 +1,16 @@
 """
-北美女性消费者洞察 - 自动数据采集脚本
+北美女性消费者洞察 - 自动数据采集脚本 (多平台版)
 Auto-collector for NA Women Consumer Insights Dashboard
 
-使用方式:
-  python collector.py              # 运行一次采集
-  python collector.py --schedule   # 每日定时采集 (每天早上9点)
+支持平台: Reddit / Pinterest / Quora / Threads
 
-无需API Key，使用Reddit公开JSON接口 + 新闻RSS源
+使用方式:
+  python collector.py              # 运行一次采集 (所有平台)
+  python collector.py --reddit     # 仅采集Reddit
+  python collector.py --pinterest  # 仅采集Pinterest
+  python collector.py --quora      # 仅采集Quora
+  python collector.py --threads    # 仅采集Threads
+  python collector.py --schedule   # 每日定时采集
 """
 
 import json
@@ -16,11 +20,13 @@ import re
 import sys
 import argparse
 import hashlib
+import html as html_module
 from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
-from urllib.parse import quote
+from urllib.parse import quote, urlencode
+import xml.etree.ElementTree as ET
 
 # ============================================================
 # 配置
@@ -50,6 +56,56 @@ SUBREDDITS = [
     {"name": "FrugalFemaleFashion", "category_hints": ["pay", "brand"]},
     {"name": "femalefashionadvice", "category_hints": ["emotional", "brand"]},
     {"name": "SubscriptionBoxes", "category_hints": ["emotional", "brand"]},
+]
+
+# Pinterest 来源RSS配置 - 用 /source/ 格式获取优质网站的Pin
+PINTEREST_SOURCES = [
+    # 格式: source域名 → Pinterest自动聚合该网站的所有Pin
+    {"source": "self.com", "hints": ["pay", "premium"]},        # Self Magazine
+    {"source": "byrdie.com", "hints": ["pay", "brand"]},        # 美容护肤
+    {"source": "theeverygirl.com", "hints": ["topic", "hobby"]}, # 女性生活方式
+    {"source": "purewow.com", "hints": ["emotional", "pay"]},   # 女性消费
+    {"source": "wellandgood.com", "hints": ["premium", "hobby"]}, # 健康wellness
+    {"source": "motherly.com", "hints": ["pain", "pay"]},       # 妈妈群体
+]
+
+# Pinterest 搜索关键词
+PINTEREST_QUERIES = [
+    "women self care products 2026",
+    "best skincare routine over 30",
+    "working mom essentials",
+    "home organization must haves",
+    "wellness gifts for women",
+    "clean beauty brands",
+    "postpartum recovery products",
+    "women fitness gear",
+]
+
+# Quora 搜索话题 - 与目标人群匹配
+QUORA_QUERIES = [
+    "What products are worth splurging on for women over 30",
+    "What do working mothers wish existed",
+    "What skincare products actually work for women over 35",
+    "What subscription boxes are worth it for women",
+    "What self care routines do successful women follow",
+    "What are the biggest pain points for working moms in America",
+    "What new brands are disrupting the beauty industry",
+    "What premium experiences are worth paying for",
+    "What wellness trends are women investing in 2026",
+    "What hobby do women pick up in their 30s and 40s",
+]
+
+# Threads 用户/话题配置 - 高互动女性话题账号
+THREADS_TARGETS = [
+    # 话题标签 (高互动讨论帖)
+    {"type": "tag", "value": "workingmom", "hints": ["pain", "topic"]},
+    {"type": "tag", "value": "selfcare", "hints": ["emotional", "premium"]},
+    {"type": "tag", "value": "skincare", "hints": ["pay", "brand"]},
+    {"type": "tag", "value": "momlife", "hints": ["pain", "topic"]},
+    {"type": "tag", "value": "womenempowerment", "hints": ["topic", "hobby"]},
+    {"type": "tag", "value": "cleanbeauty", "hints": ["brand", "pay"]},
+    {"type": "tag", "value": "wellnessjourney", "hints": ["premium", "hobby"]},
+    {"type": "tag", "value": "girlmath", "hints": ["emotional", "pay"]},
 ]
 
 # 搜索关键词 - 用于发现更精准的内容
@@ -388,6 +444,371 @@ def generate_tags(post, category):
 
 
 # ============================================================
+# Pinterest 数据采集 (RSS feeds + 搜索页解析)
+# ============================================================
+def fetch_url(url, retries=2):
+    """通用HTTP GET，返回文本内容"""
+    headers = {
+        "User-Agent": USER_AGENT,
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+    }
+    req = Request(url, headers=headers)
+    for attempt in range(retries):
+        try:
+            with urlopen(req, timeout=15) as resp:
+                return resp.read().decode("utf-8", errors="replace")
+        except Exception as e:
+            if attempt < retries - 1:
+                time.sleep(3)
+            else:
+                print(f"  [错误] {url}: {e}")
+                return None
+    return None
+
+
+def fetch_pinterest_via_ddg(query, domain_hint=""):
+    """通过DuckDuckGo搜索 site:pinterest.com/pin/ 获取公开Pin页面"""
+    search_q = f"site:pinterest.com/pin/ {query}"
+    if domain_hint:
+        search_q += f" {domain_hint}"
+    ddg_url = f"https://html.duckduckgo.com/html/?q={quote(search_q)}"
+    print(f"  搜索 Pinterest (via DDG): \"{query[:50]}\"...")
+    content = fetch_url(ddg_url)
+    if not content:
+        return []
+
+    # 从DDG结果提取Pin ID，构造URL
+    pin_ids = re.findall(r'pinterest\.com/pin/(\d{10,})', content)
+    pin_ids = list(dict.fromkeys(pin_ids))[:5]
+    if not pin_ids:
+        print(f"    未找到Pinterest链接")
+        return []
+
+    pins = []
+    for pid in pin_ids:
+        purl = f"https://www.pinterest.com/pin/{pid}/"
+        page = fetch_url(purl)
+        if not page:
+            continue
+
+        title = ""
+        desc = ""
+
+        # 提取 <title>
+        tm = re.search(r'<title>([^<]+)</title>', page)
+        if tm:
+            title = html_module.unescape(tm.group(1).replace(" | Pinterest", "").strip())
+
+        # 提取 og:description 或 meta description (属性顺序不定)
+        dm = re.search(r'content="([^"]*)"[^>]*property="og:description"', page)
+        if not dm:
+            dm = re.search(r'property="og:description"[^>]*content="([^"]*)"', page)
+        if not dm:
+            dm = re.search(r'<meta\s+name="description"\s+content="([^"]*)"', page)
+        if dm:
+            desc = html_module.unescape(dm.group(1))
+
+        # 尝试从嵌入JSON提取更多数据
+        repin_count = 0
+        comment_count = 0
+        json_m = re.search(r'"repin_count"\s*:\s*(\d+)', page)
+        if json_m:
+            repin_count = int(json_m.group(1))
+        json_c = re.search(r'"comment_count"\s*:\s*(\d+)', page)
+        if json_c:
+            comment_count = int(json_c.group(1))
+
+        if title and len(title) > 5:
+            pins.append({
+                "title": title[:200],
+                "selftext": desc[:500],
+                "url": purl,
+                "score": repin_count,
+                "num_comments": comment_count,
+                "subreddit": "pinterest/search",
+                "created_utc": time.time(),
+            })
+
+        time.sleep(1.5)
+
+    return pins
+
+
+def fetch_pinterest_search(query):
+    """通过DuckDuckGo搜索获取Pinterest相关Pin (替代已失效的RSS)"""
+    return fetch_pinterest_via_ddg(query)
+
+
+def pinterest_post_to_insight(post, category):
+    """将Pinterest数据转换为洞察格式"""
+    url_hash = hashlib.md5(post["url"].encode()).hexdigest()[:8]
+    prefix_map = {
+        "pain": "痛点发现", "topic": "消费趋势", "hobby": "兴趣发现",
+        "pay": "消费推荐", "brand": "品牌发现", "emotional": "情绪消费", "premium": "优质体验",
+    }
+    prefix = prefix_map.get(category, "消费洞察")
+
+    return {
+        "id": f"auto_pin_{url_hash}",
+        "category": category,
+        "title_zh": f"[{prefix}] {post['title'][:80]}",
+        "title_en": post["title"][:120],
+        "summary_zh": f"来自Pinterest。{post.get('selftext', '')[:200]}" if post.get('selftext') else f"来自Pinterest的消费趋势发现。标题：\"{post['title'][:100]}\"",
+        "summary_en": post.get("selftext", "")[:300] or post["title"],
+        "quote_en": "",
+        "source_type": "pinterest",
+        "source_url": post["url"],
+        "tags": generate_tags(post, category),
+        "date": datetime.now().strftime("%Y-%m-%d"),
+    }
+
+
+# ============================================================
+# Quora 数据采集 (公开页面解析)
+# ============================================================
+def fetch_quora_question(query):
+    """通过DuckDuckGo搜索获取女性消费洞察 (Q&A + 编辑内容)
+
+    Quora/知乎等直接访问返回403，改为从DDG搜索结果中提取
+    高质量女性消费相关的Q&A和编辑内容。
+    优先来源: Quora, Reddit, BuzzFeed, HuffPost, Refinery29等
+    """
+    # 使用Bing搜索 (需要旧版UA获取服务器端渲染结果)
+    bing_url = f"https://www.bing.com/search?q={quote(query + ' women recommendation')}&count=10"
+    print(f"  搜索 Q&A: \"{query[:50]}\"...")
+    # 使用IE UA获取传统HTML结果
+    headers = {
+        "User-Agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)",
+        "Accept": "text/html",
+    }
+    req = Request(bing_url, headers=headers)
+    try:
+        with urlopen(req, timeout=15) as resp:
+            content = resp.read().decode("utf-8", errors="replace")
+    except Exception as e:
+        print(f"    [错误] {e}")
+        return []
+
+    posts = []
+    skip_domains = ["amazon.com", "ebay.com", "walmart.com", "target.com", "reddit.com",
+                    "bing.com", "microsoft.com", "go.microsoft"]
+
+    # Bing b_algo块: <li class="b_algo" data-id ...> ... </li>
+    result_blocks = re.findall(r'<li class="b_algo"[^>]*>(.*?)</li>', content, re.DOTALL)
+
+    for block in result_blocks[:10]:
+        # 提取 <cite> 中的URL (Bing显示的真实URL)
+        cite_match = re.search(r'<cite[^>]*>(.*?)</cite>', block, re.DOTALL)
+        cite_url = ""
+        if cite_match:
+            cite_url = re.sub(r'<[^>]+>', '', cite_match.group(1)).strip()
+
+        # 提取<a>中的href
+        link_match = re.search(r'<a[^>]*href="(https?://[^"]+)"[^>]*>(.*?)</a>', block, re.DOTALL)
+        if not link_match:
+            continue
+        actual_url = link_match.group(1)
+        title_raw = re.sub(r'<[^>]+>', '', link_match.group(2)).strip()
+
+        # 如果href是Bing redirect, 解码真实URL
+        if "bing.com/ck/" in actual_url:
+            import base64
+            u_match = re.search(r'[&?]u=a1([^&]+)', actual_url)
+            if u_match:
+                try:
+                    actual_url = base64.b64decode(u_match.group(1) + "==").decode("utf-8", errors="replace")
+                except Exception:
+                    if cite_url:
+                        actual_url = "https://" + cite_url.split()[0]
+                    else:
+                        continue
+
+        # 跳过不需要的域名
+        if any(d in actual_url.lower() for d in skip_domains):
+            continue
+
+        # 提取摘要 (可能在 <p> 或 <span> 中)
+        snippet = ""
+        snippet_match = re.search(r'<p[^>]*>(.*?)</p>', block, re.DOTALL)
+        if not snippet_match:
+            snippet_match = re.search(r'class="[^"]*caption[^"]*"[^>]*>(.*?)</(?:div|span)', block, re.DOTALL)
+        if snippet_match:
+            snippet = re.sub(r'<[^>]+>', '', snippet_match.group(1)).strip()
+
+        title_clean = html_module.unescape(title_raw)
+        snippet_clean = html_module.unescape(snippet)
+
+        # 移除常见后缀
+        for suffix in [" - Quora", " | Quora", " - BuzzFeed", " - HuffPost", " | Refinery29"]:
+            title_clean = title_clean.replace(suffix, "")
+
+        # 跳过空内容
+        if not title_clean or len(title_clean) < 10:
+            continue
+        if "won't allow us" in snippet_clean:
+            continue
+
+        posts.append({
+            "title": title_clean[:200],
+            "selftext": snippet_clean[:1000] if snippet_clean else title_clean,
+            "url": actual_url,
+            "score": 10,
+            "num_comments": 0,
+            "subreddit": "quora/search",
+            "created_utc": time.time(),
+        })
+
+    time.sleep(1.5)
+    return posts
+
+
+def quora_post_to_insight(post, category):
+    """将Quora数据转换为洞察格式"""
+    url_hash = hashlib.md5(post["url"].encode()).hexdigest()[:8]
+    prefix_map = {
+        "pain": "痛点分析", "topic": "专业讨论", "hobby": "兴趣推荐",
+        "pay": "消费建议", "brand": "品牌评价", "emotional": "情绪洞察", "premium": "优质推荐",
+    }
+    prefix = prefix_map.get(category, "专业观点")
+    answer_preview = post.get("selftext", "")[:200]
+
+    return {
+        "id": f"auto_qra_{url_hash}",
+        "category": category,
+        "title_zh": f"[{prefix}] {post['title'][:80]}",
+        "title_en": post["title"][:120],
+        "summary_zh": f"来自Quora专业问答。{answer_preview}" if answer_preview else f"来自Quora的专业讨论。问题：\"{post['title'][:100]}\"",
+        "summary_en": post.get("selftext", "")[:300] or post["title"],
+        "quote_en": extract_key_quote(post.get("selftext", "")),
+        "source_type": "quora",
+        "source_url": post["url"],
+        "tags": generate_tags(post, category),
+        "date": datetime.now().strftime("%Y-%m-%d"),
+    }
+
+
+# ============================================================
+# Threads 数据采集 (公开页面 + 嵌入JSON)
+# ============================================================
+def fetch_threads_tag(tag):
+    """获取Threads话题标签下的热门帖子"""
+    url = f"https://www.threads.net/search?q={quote(tag)}&serp_type=default"
+    print(f"  采集 Threads 话题: #{tag}...")
+    # Threads 对完整的Chrome UA返回JS-only shell (无数据)
+    # 使用简化UA获取SSR完整页面
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "Accept": "text/html",
+    }
+    req = Request(url, headers=headers)
+    try:
+        with urlopen(req, timeout=20) as resp:
+            content = resp.read().decode("utf-8", errors="replace")
+    except Exception as e:
+        print(f"    [错误] {e}")
+        return []
+    if not content:
+        return []
+
+    posts = []
+
+    # 直接正则匹配帖子文本 + 互动数据 (Threads是SPA，所有数据嵌入在JSON中)
+    text_matches = re.findall(r'"text":"([^"]{30,800})"', content)
+    like_matches = re.findall(r'"like_count":(\d+)', content)
+
+    for i, text in enumerate(text_matches[:15]):
+        # 反转义Unicode (处理 \\uXXXX 序列)
+        if r'\u' in text:
+            try:
+                text = text.encode('utf-8', errors='replace').decode('unicode_escape')
+            except (UnicodeDecodeError, UnicodeError):
+                pass
+        # 清除无效的surrogate字符
+        text = text.encode('utf-8', errors='replace').decode('utf-8', errors='replace')
+        text = html_module.unescape(text)
+
+        # 过滤太短的
+        if len(text) < 25:
+            continue
+        # 粗略判断是否英文 (放宽阈值，因为emoji也算非ASCII)
+        ascii_ratio = sum(1 for c in text if ord(c) < 128) / max(len(text), 1)
+        if ascii_ratio < 0.4:
+            continue
+
+        likes = int(like_matches[i]) if i < len(like_matches) else 0
+        posts.append({
+            "title": text[:120],
+            "selftext": text,
+            "url": f"https://www.threads.net/search?q={quote(tag)}",
+            "score": likes,
+            "num_comments": 0,
+            "subreddit": f"threads/#{tag}",
+            "created_utc": time.time(),
+        })
+
+    time.sleep(2)
+    return posts[:10]
+
+
+def _extract_threads_posts(data, tag, depth=0):
+    """递归搜索JSON数据中的帖子内容"""
+    posts = []
+    if depth > 8:
+        return posts
+
+    if isinstance(data, dict):
+        # 检查是否有帖子文本字段
+        text = data.get("text", "") or data.get("caption", "") or data.get("body", "")
+        if isinstance(text, str) and len(text) > 30:
+            likes = data.get("like_count", 0) or data.get("likes", {}).get("count", 0)
+            posts.append({
+                "title": text[:120],
+                "selftext": text[:800],
+                "url": data.get("url", f"https://www.threads.net/search?q={quote(tag)}"),
+                "score": likes if isinstance(likes, int) else 0,
+                "num_comments": data.get("reply_count", 0) or data.get("comments", {}).get("count", 0),
+                "subreddit": f"threads/#{tag}",
+                "created_utc": data.get("taken_at", time.time()),
+            })
+
+        for key, val in data.items():
+            if isinstance(val, (dict, list)):
+                posts.extend(_extract_threads_posts(val, tag, depth + 1))
+    elif isinstance(data, list):
+        for item in data[:30]:
+            if isinstance(item, (dict, list)):
+                posts.extend(_extract_threads_posts(item, tag, depth + 1))
+
+    return posts
+
+
+def threads_post_to_insight(post, category):
+    """将Threads数据转换为洞察格式"""
+    hash_input = (post.get("url", "") + post.get("title", "")).encode("utf-8", errors="replace")
+    url_hash = hashlib.md5(hash_input).hexdigest()[:8]
+    prefix_map = {
+        "pain": "社区心声", "topic": "热门讨论", "hobby": "兴趣分享",
+        "pay": "消费讨论", "brand": "品牌热议", "emotional": "情绪分享", "premium": "品质生活",
+    }
+    prefix = prefix_map.get(category, "社区讨论")
+
+    return {
+        "id": f"auto_thr_{url_hash}",
+        "category": category,
+        "title_zh": f"[{prefix}] {post['title'][:80]}",
+        "title_en": post["title"][:120],
+        "summary_zh": f"来自Threads社区。{post.get('selftext', '')[:200]}",
+        "summary_en": post.get("selftext", "")[:300] or post["title"],
+        "quote_en": post.get("selftext", "")[:200],
+        "source_type": "threads",
+        "source_url": post["url"],
+        "tags": generate_tags(post, category),
+        "date": datetime.now().strftime("%Y-%m-%d"),
+    }
+
+
+# ============================================================
 # 数据管理
 # ============================================================
 def load_existing_data():
@@ -451,47 +872,127 @@ def deduplicate(insights):
 # ============================================================
 # 主采集流程
 # ============================================================
-def run_collection():
+def run_collection(platforms=None):
     """执行一次完整的数据采集"""
+    if platforms is None:
+        platforms = ["reddit", "pinterest", "threads"]  # Quora需要headless browser，默认跳过
+
     print("=" * 60)
-    print(f"北美女性消费者洞察 - 数据采集")
+    print(f"北美女性消费者洞察 - 多平台数据采集")
+    print(f"平台: {', '.join(platforms)}")
     print(f"时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 60)
 
-    all_posts = []
-
-    # 1. 采集各子版块热门帖子
-    print("\n[第1步] 采集子版块热门帖子...")
-    for sub_config in SUBREDDITS:
-        sub_name = sub_config["name"]
-        posts = fetch_subreddit_posts(sub_name, sort="hot", limit=10)
-        for p in posts:
-            p["_hints"] = sub_config["category_hints"]
-        all_posts.extend(posts)
-        print(f"    r/{sub_name}: 获取 {len(posts)} 篇")
-
-    # 2. 搜索特定关键词
-    print("\n[第2步] 搜索关键词...")
-    search_subs = ["AskWomenOver30", "AskWomen", "workingmoms", "30PlusSkinCare"]
-    for query in SEARCH_QUERIES[:8]:  # 限制搜索量避免限速
-        sub = search_subs[SEARCH_QUERIES.index(query) % len(search_subs)]
-        posts = fetch_subreddit_search(sub, query, limit=5)
-        for p in posts:
-            p["_hints"] = ["pay", "topic"]
-        all_posts.extend(posts)
-        print(f"    搜索 \"{query}\" in r/{sub}: {len(posts)} 结果")
-
-    # 3. 分类和转换
-    print(f"\n[第3步] 分类和处理 {len(all_posts)} 篇帖子...")
     new_insights = []
-    for idx, post in enumerate(all_posts):
-        hints = post.pop("_hints", None)
-        category = classify_post(post, hints)
-        insight = post_to_insight(post, category, idx)
-        new_insights.append(insight)
 
-    # 4. 合并现有数据
-    print("\n[第4步] 合并数据...")
+    # ========== Reddit ==========
+    if "reddit" in platforms:
+        print("\n" + "=" * 40)
+        print("[Reddit] 采集开始...")
+        print("=" * 40)
+        reddit_posts = []
+
+        # 1. 采集各子版块热门帖子
+        print("\n  [1/2] 子版块热门帖子...")
+        for sub_config in SUBREDDITS:
+            sub_name = sub_config["name"]
+            posts = fetch_subreddit_posts(sub_name, sort="hot", limit=10)
+            for p in posts:
+                p["_hints"] = sub_config["category_hints"]
+            reddit_posts.extend(posts)
+            print(f"    r/{sub_name}: 获取 {len(posts)} 篇")
+
+        # 2. 搜索特定关键词
+        print("\n  [2/2] 搜索关键词...")
+        search_subs = ["AskWomenOver30", "AskWomen", "workingmoms", "30PlusSkinCare"]
+        for query in SEARCH_QUERIES[:8]:
+            sub = search_subs[SEARCH_QUERIES.index(query) % len(search_subs)]
+            posts = fetch_subreddit_search(sub, query, limit=5)
+            for p in posts:
+                p["_hints"] = ["pay", "topic"]
+            reddit_posts.extend(posts)
+            print(f"    搜索 \"{query}\" in r/{sub}: {len(posts)} 结果")
+
+        # 分类和转换
+        print(f"\n  分类处理 {len(reddit_posts)} 篇Reddit帖子...")
+        for idx, post in enumerate(reddit_posts):
+            hints = post.pop("_hints", None)
+            category = classify_post(post, hints)
+            insight = post_to_insight(post, category, idx)
+            new_insights.append(insight)
+        print(f"  [OK]Reddit: {len(reddit_posts)} 条洞察")
+
+    # ========== Pinterest ==========
+    if "pinterest" in platforms:
+        print("\n" + "=" * 40)
+        print("[Pinterest] 采集开始...")
+        print("=" * 40)
+        pin_posts = []
+
+        # 1. 基于来源域名搜索 (替代已失效的RSS)
+        print("\n  [1/2] 来源域名搜索...")
+        for src in PINTEREST_SOURCES[:4]:  # 限制数量避免限速
+            pins = fetch_pinterest_via_ddg("women", src["source"])
+            for p in pins:
+                p["_hints"] = src["hints"]
+            pin_posts.extend(pins)
+            print(f"    {src['source']}: {len(pins)} pins")
+
+        # 2. 关键词搜索
+        print("\n  [2/2] 搜索关键词...")
+        for query in PINTEREST_QUERIES[:6]:
+            pins = fetch_pinterest_search(query)
+            for p in pins:
+                p["_hints"] = ["pay", "brand"]
+            pin_posts.extend(pins)
+            print(f"    \"{query}\": {len(pins)} pins")
+
+        # 分类和转换
+        print(f"\n  分类处理 {len(pin_posts)} 个Pinterest Pins...")
+        for post in pin_posts:
+            hints = post.pop("_hints", None)
+            category = classify_post(post, hints)
+            insight = pinterest_post_to_insight(post, category)
+            new_insights.append(insight)
+        print(f"  [OK]Pinterest: {len(pin_posts)} 条洞察")
+
+    # ========== Quora ==========
+    # 注意: Quora严格反爬 (403 + JS渲染)，搜索引擎也无法获取可用内容
+    # 保留代码以备未来API或Selenium方案，当前跳过
+    if "quora" in platforms:
+        print("\n" + "=" * 40)
+        print("[Quora] 跳过 (Quora严格反爬，需要headless browser)")
+        print("  提示: 如有Quora API key，可扩展此采集器")
+        print("=" * 40)
+
+    # ========== Threads ==========
+    if "threads" in platforms:
+        print("\n" + "=" * 40)
+        print("[Threads] 采集开始...")
+        print("=" * 40)
+        threads_posts = []
+
+        for target in THREADS_TARGETS[:6]:
+            if target["type"] == "tag":
+                posts = fetch_threads_tag(target["value"])
+                for p in posts:
+                    p["_hints"] = target["hints"]
+                threads_posts.extend(posts)
+                print(f"    #{target['value']}: {len(posts)} 帖子")
+
+        # 分类和转换
+        print(f"\n  分类处理 {len(threads_posts)} 个Threads帖子...")
+        for post in threads_posts:
+            hints = post.pop("_hints", None)
+            category = classify_post(post, hints)
+            insight = threads_post_to_insight(post, category)
+            new_insights.append(insight)
+        print(f"  [OK]Threads: {len(threads_posts)} 条洞察")
+
+    # ========== 合并 ==========
+    print("\n" + "=" * 40)
+    print(f"[合并] 新采集 {len(new_insights)} 条洞察...")
+    print("=" * 40)
     existing_data = load_existing_data()
 
     # 加载seed数据（手动编写的洞察+画像+趋势）
@@ -505,15 +1006,46 @@ def run_collection():
     manual_insights = [i for i in existing_data.get("insights", [])
                        if not str(i.get("id", "")).startswith("auto_")]
 
-    # 合并自动采集的数据
-    all_insights = manual_insights + new_insights
+    # 智能合并: 仅替换本次采集平台的auto数据，保留其他平台的
+    # 平台ID前缀映射
+    platform_prefixes = {
+        "reddit": "auto_",       # auto_ (不含 auto_pin_, auto_qra_, auto_thr_)
+        "pinterest": "auto_pin_",
+        "quora": "auto_qra_",
+        "threads": "auto_thr_",
+    }
+    # 计算本次采集的平台前缀集合
+    active_prefixes = set()
+    for p in (platforms or ["reddit", "pinterest", "quora", "threads"]):
+        active_prefixes.add(platform_prefixes.get(p, ""))
+
+    # 保留未采集平台的旧auto数据
+    preserved_auto = []
+    for i in existing_data.get("insights", []):
+        iid = str(i.get("id", ""))
+        if not iid.startswith("auto_"):
+            continue  # manual, handled above
+        # 判断这条数据属于哪个平台
+        item_platform = "reddit"  # default
+        if iid.startswith("auto_pin_"):
+            item_platform = "pinterest"
+        elif iid.startswith("auto_qra_"):
+            item_platform = "quora"
+        elif iid.startswith("auto_thr_"):
+            item_platform = "threads"
+        # 只保留不在本次采集范围内的平台数据
+        if item_platform not in (platforms or ["reddit", "pinterest", "quora", "threads"]):
+            preserved_auto.append(i)
+
+    # 合并: 手动 + 保留的其他平台auto + 本次新采集
+    all_insights = manual_insights + preserved_auto + new_insights
     all_insights = deduplicate(all_insights)
 
     # 按日期排序(最新在前)
     all_insights.sort(key=lambda x: x.get("date", ""), reverse=True)
 
     # 限制总数(保留最新的150条)
-    all_insights = all_insights[:150]
+    all_insights = all_insights[:300]  # 提高上限，支持多平台
 
     # 更新数据，保留seed中的画像和趋势
     existing_data["insights"] = all_insights
@@ -578,14 +1110,27 @@ def schedule_daily():
 # 入口
 # ============================================================
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="北美女性消费者洞察 - 自动数据采集")
+    parser = argparse.ArgumentParser(description="北美女性消费者洞察 - 多平台自动数据采集")
     parser.add_argument("--schedule", action="store_true", help="启动每日定时采集")
     parser.add_argument("--now", action="store_true", help="配合--schedule使用，先立即运行一次")
+    parser.add_argument("--reddit", action="store_true", help="仅采集Reddit")
+    parser.add_argument("--pinterest", action="store_true", help="仅采集Pinterest")
+    parser.add_argument("--quora", action="store_true", help="仅采集Quora")
+    parser.add_argument("--threads", action="store_true", help="仅采集Threads")
     args = parser.parse_args()
+
+    # 确定要采集的平台
+    platforms = []
+    if args.reddit: platforms.append("reddit")
+    if args.pinterest: platforms.append("pinterest")
+    if args.quora: platforms.append("quora")
+    if args.threads: platforms.append("threads")
+    if not platforms:
+        platforms = None  # 全部采集
 
     if args.schedule:
         if args.now:
             sys.argv.append("--now")
         schedule_daily()
     else:
-        run_collection()
+        run_collection(platforms)

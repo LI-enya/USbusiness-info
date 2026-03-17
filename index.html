@@ -402,6 +402,9 @@ a:hover { text-decoration: underline; }
   font-size: 9px; font-weight: bold;
 }
 .source-reddit { background: #FF4500; color: white; }
+.source-pinterest { background: #E60023; color: white; }
+.source-quora { background: #B92B27; color: white; }
+.source-threads { background: #000000; color: white; }
 .source-twitter { background: #1DA1F2; color: white; }
 .source-news { background: #4CAF50; color: white; }
 .source-report { background: #FF9800; color: white; }
@@ -797,10 +800,13 @@ const CATEGORY_MAP = {
   premium:   { zh: '优质体验', en: 'Premium Experience', class: 'cat-premium', color: '#00B894' }
 };
 const SOURCE_MAP = {
-  reddit:  { label: 'Reddit',  class: 'source-reddit',  icon: 'R' },
-  twitter: { label: 'X/Twitter', class: 'source-twitter', icon: 'X' },
-  news:    { label: 'News', class: 'source-news', icon: 'N' },
-  report:  { label: 'Report', class: 'source-report', icon: 'R' }
+  reddit:    { label: 'Reddit',    class: 'source-reddit',    icon: 'R' },
+  pinterest: { label: 'Pinterest', class: 'source-pinterest', icon: 'P' },
+  quora:     { label: 'Quora',     class: 'source-quora',     icon: 'Q' },
+  threads:   { label: 'Threads',   class: 'source-threads',   icon: 'T' },
+  twitter:   { label: 'X/Twitter', class: 'source-twitter',   icon: 'X' },
+  news:      { label: 'News',      class: 'source-news',      icon: 'N' },
+  report:    { label: 'Report',    class: 'source-report',    icon: 'R' }
 };
 
 // ============================================================
@@ -852,6 +858,12 @@ function updateStats(data, filteredInsights) {
       const match = i.source_url.match(/reddit\.com\/r\/([^/]+)/);
       return match ? 'r/' + match[1] : i.source_type;
     }
+    if (i.source_url && i.source_url.includes('pinterest.com')) {
+      const match = i.source_url.match(/pinterest\.com\/([^/]+)/);
+      return match ? 'pin/' + match[1] : 'pinterest';
+    }
+    if (i.source_url && i.source_url.includes('quora.com')) return 'quora';
+    if (i.source_url && i.source_url.includes('threads.net')) return 'threads';
     return i.source_url || i.source_type;
   }));
   document.getElementById('statSources').textContent = sources.size;
