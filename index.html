@@ -839,9 +839,10 @@ function renderAll(data) {
   applyFilters();
 }
 
-function updateStats(data) {
-  document.getElementById('statTotal').textContent = data.insights.length;
-  const sources = new Set(data.insights.map(i => {
+function updateStats(data, filteredInsights) {
+  const insights = filteredInsights || data.insights;
+  document.getElementById('statTotal').textContent = insights.length;
+  const sources = new Set(insights.map(i => {
     if (i.source_url && i.source_url.includes('reddit.com/r/')) {
       const match = i.source_url.match(/reddit\.com\/r\/([^/]+)/);
       return match ? 'r/' + match[1] : i.source_type;
@@ -850,9 +851,11 @@ function updateStats(data) {
   }));
   document.getElementById('statSources').textContent = sources.size;
   const today = new Date().toISOString().slice(0, 10);
-  const todayCount = data.insights.filter(i => i.date === today).length;
+  const todayCount = insights.filter(i => i.date === today).length;
   document.getElementById('statToday').textContent = todayCount;
-  document.getElementById('statBookmarks').textContent = Object.keys(bookmarks).length;
+  // Bookmarks: count only those in the current filtered set
+  const filteredBookmarks = insights.filter(i => bookmarks[i.id]).length;
+  document.getElementById('statBookmarks').textContent = filteredBookmarks;
   document.getElementById('updateTime').textContent = (currentLang === 'en' ? 'Updated: ' : '最近更新: ') + (data.last_updated || today);
 }
 
@@ -885,11 +888,12 @@ function updateI18N() {
 // ============================================================
 // FILTER TABS with counts
 // ============================================================
-function renderFilterTabs() {
+function renderFilterTabs(filteredInsights) {
+  const insights = filteredInsights || allInsights;
   const counts = {};
-  allInsights.forEach(i => { counts[i.category] = (counts[i.category] || 0) + 1; });
+  insights.forEach(i => { counts[i.category] = (counts[i.category] || 0) + 1; });
   const tabs = document.getElementById('filterTabs');
-  let html = `<button class="filter-tab ${currentFilter === 'all' ? 'active' : ''}" onclick="setFilter('all', this)">${t('allFilter')}<span class="filter-count">(${allInsights.length})</span></button>`;
+  let html = `<button class="filter-tab ${currentFilter === 'all' ? 'active' : ''}" onclick="setFilter('all', this)">${t('allFilter')}<span class="filter-count">(${insights.length})</span></button>`;
   for (const [key, cat] of Object.entries(CATEGORY_MAP)) {
     const count = counts[key] || 0;
     const label = currentLang === 'en' ? cat.en : cat.zh;
@@ -903,9 +907,10 @@ function renderFilterTabs() {
 // ============================================================
 // CHARTS
 // ============================================================
-function renderCharts(data) {
-  renderPieChart(data.insights);
-  renderTimelineChart(data.insights);
+function renderCharts(data, filteredInsights) {
+  const insights = filteredInsights || data.insights;
+  renderPieChart(insights);
+  renderTimelineChart(insights);
 }
 
 function renderPieChart(insights) {
@@ -1072,20 +1077,21 @@ function clearDateFilter() {
   applyFilters();
 }
 
-function getFilteredInsights() {
+// Get date-only filtered insights (no category/search) — used for stats, charts, tab counts
+function getDateFilteredInsights() {
   let results = allInsights;
+  const dateFrom = document.getElementById('dateFrom').value;
+  const dateTo = document.getElementById('dateTo').value;
+  if (dateFrom) results = results.filter(i => (i.date || '') >= dateFrom);
+  if (dateTo) results = results.filter(i => (i.date || '') <= dateTo);
+  return results;
+}
+
+function getFilteredInsights() {
+  let results = getDateFilteredInsights();
   // Category filter
   if (currentFilter !== 'all') {
     results = results.filter(i => i.category === currentFilter);
-  }
-  // Date filter
-  const dateFrom = document.getElementById('dateFrom').value;
-  const dateTo = document.getElementById('dateTo').value;
-  if (dateFrom) {
-    results = results.filter(i => (i.date || '') >= dateFrom);
-  }
-  if (dateTo) {
-    results = results.filter(i => (i.date || '') <= dateTo);
   }
   // Search (within filtered results)
   const q = document.getElementById('searchBox').value.toLowerCase().trim();
@@ -1106,6 +1112,16 @@ function getFilteredInsights() {
 }
 
 function applyFilters() {
+  // Get date-filtered data (no category/search) for stats, charts, tabs
+  const dateFiltered = getDateFilteredInsights();
+  // Update all overview modules with date-filtered data
+  if (allData) {
+    updateStats(allData, dateFiltered);
+    renderCharts(allData, dateFiltered);
+    renderFilterTabs(dateFiltered);
+    renderForecast(allData.forecasts || [], dateFiltered);
+  }
+  // Get fully filtered data (date + category + search) for cards
   const results = getFilteredInsights();
   const totalPages = Math.max(1, Math.ceil(results.length / PAGE_SIZE));
   if (currentPage > totalPages) currentPage = totalPages;
@@ -1196,16 +1212,17 @@ function goPage(p) {
 // ============================================================
 // FORECAST with confidence scores
 // ============================================================
-function renderForecast(forecasts) {
+function renderForecast(forecasts, filteredInsights) {
   const el = document.getElementById('forecastTimeline');
   const confidenceLevels = ['high', 'high', 'mid', 'low'];
   const showZh = currentLang !== 'en';
+  const insightsPool = filteredInsights || allInsights;
   el.innerHTML = forecasts.map((f, i) => {
     const conf = confidenceLevels[i] || 'mid';
     const confLabel = t(`confidence${conf.charAt(0).toUpperCase() + conf.slice(1)}`);
-    // Find related insights
+    // Find related insights from filtered pool
     const keywords = (f.text_zh || '').slice(0, 50).split(/[，、：]/);
-    const related = allInsights.filter(ins =>
+    const related = insightsPool.filter(ins =>
       keywords.some(k => k.length > 2 && (ins.title_zh || '').includes(k.trim().slice(0, 4)))
     ).slice(0, 3);
     return `
@@ -1231,7 +1248,8 @@ function toggleBookmark(id, btn) {
   if (bookmarks[id]) { delete bookmarks[id]; btn.classList.remove('active'); showToast(t('bookmarkRemove')); }
   else { bookmarks[id] = true; btn.classList.add('active'); showToast(t('bookmarkAdd')); }
   localStorage.setItem('na-insights-bookmarks', JSON.stringify(bookmarks));
-  document.getElementById('statBookmarks').textContent = Object.keys(bookmarks).length;
+  const dateFiltered = getDateFilteredInsights();
+  document.getElementById('statBookmarks').textContent = dateFiltered.filter(i => bookmarks[i.id]).length;
 }
 
 // ============================================================
@@ -1279,12 +1297,8 @@ function setLang(lang) {
 
   if (allData) {
     updateI18N();
-    updateStats(allData);
-    renderFilterTabs();
-    renderCharts(allData);
     renderPersonas(allData.personas || []);
-    renderForecast(allData.forecasts || []);
-    applyFilters();
+    applyFilters(); // handles stats, charts, tabs, forecast, cards
   }
 }
 
