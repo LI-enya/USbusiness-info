@@ -113,6 +113,8 @@ a:hover { text-decoration: underline; }
   padding: 14px;
   text-align: center;
 }
+.stat-card-clickable { transition: all 0.3s; }
+.stat-card-clickable:hover { border-color: var(--warning); box-shadow: 0 4px 15px rgba(253,203,110,0.2); transform: translateY(-2px); }
 .stat-number {
   font-size: 26px;
   font-weight: 700;
@@ -588,7 +590,7 @@ a:hover { text-decoration: underline; }
     <div class="stat-number" id="statToday">0</div>
     <div class="stat-label" data-i18n="statToday">今日新增</div>
   </div>
-  <div class="stat-card">
+  <div class="stat-card stat-card-clickable" onclick="toggleBookmarksFilter()" title="点击查看收藏" style="cursor:pointer;">
     <div class="stat-number" id="statBookmarks">0</div>
     <div class="stat-label" data-i18n="statBookmarks">已收藏</div>
   </div>
@@ -710,6 +712,7 @@ const PAGE_SIZE = 20;
 let allInsights = [];
 let allData = null;
 let bookmarks = JSON.parse(localStorage.getItem('na-insights-bookmarks') || '{}');
+let showBookmarksOnly = false;
 let autoRefreshTimer = null;
 
 // ============================================================
@@ -742,6 +745,7 @@ const I18N = {
     bookmarkAdd: '已收藏', bookmarkRemove: '已取消收藏',
     relatedInsights: '相关洞察:',
     dateLabel: '📅 日期筛选:', date7d: '近7天', date30d: '近30天', date90d: '近3个月', dateClear: '✕ 清除日期',
+    myBookmarks: '我的收藏',
     labelAge: '年龄:', labelEthnicity: '族裔:', labelState: '所在州:',
     labelOccupation: '职业:', labelLifeStage: '人生阶段:', labelIncome: '年收入:',
     labelCoreNeeds: '核心需求:',
@@ -772,6 +776,7 @@ const I18N = {
     bookmarkAdd: 'Bookmarked', bookmarkRemove: 'Bookmark removed',
     relatedInsights: 'Related insights:',
     dateLabel: '📅 Date Filter:', date7d: 'Last 7 days', date30d: 'Last 30 days', date90d: 'Last 3 months', dateClear: '✕ Clear Date',
+    myBookmarks: 'My Bookmarks',
     labelAge: 'Age:', labelEthnicity: 'Ethnicity:', labelState: 'States:',
     labelOccupation: 'Occupation:', labelLifeStage: 'Life Stage:', labelIncome: 'Income:',
     labelCoreNeeds: 'Core Needs:',
@@ -892,8 +897,10 @@ function renderFilterTabs(filteredInsights) {
   const insights = filteredInsights || allInsights;
   const counts = {};
   insights.forEach(i => { counts[i.category] = (counts[i.category] || 0) + 1; });
+  const bookmarkCount = insights.filter(i => bookmarks[i.id]).length;
   const tabs = document.getElementById('filterTabs');
-  let html = `<button class="filter-tab ${currentFilter === 'all' ? 'active' : ''}" onclick="setFilter('all', this)">${t('allFilter')}<span class="filter-count">(${insights.length})</span></button>`;
+  let html = `<button class="filter-tab bookmark-filter-tab ${showBookmarksOnly ? 'active' : ''}" onclick="toggleBookmarksFilter()" style="${showBookmarksOnly ? 'background:var(--warning);color:#000;border-color:var(--warning);' : ''}">★ ${t('myBookmarks')}<span class="filter-count">(${bookmarkCount})</span></button>`;
+  html += `<button class="filter-tab ${currentFilter === 'all' && !showBookmarksOnly ? 'active' : ''}" onclick="setFilter('all', this)">${t('allFilter')}<span class="filter-count">(${insights.length})</span></button>`;
   for (const [key, cat] of Object.entries(CATEGORY_MAP)) {
     const count = counts[key] || 0;
     const label = currentLang === 'en' ? cat.en : cat.zh;
@@ -1026,11 +1033,24 @@ function renderPersonas(personas) {
 // ============================================================
 function setFilter(filter, btn) {
   currentFilter = filter;
+  showBookmarksOnly = false; // exit bookmark mode when selecting a category
   currentPage = 1;
-  document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-  else document.querySelector(`.filter-tab[onclick*="'${filter}'"]`)?.classList.add('active');
   applyFilters();
+}
+
+function toggleBookmarksFilter() {
+  showBookmarksOnly = !showBookmarksOnly;
+  if (showBookmarksOnly) {
+    currentFilter = 'all'; // reset category when entering bookmark mode
+  }
+  currentPage = 1;
+  applyFilters();
+  // Scroll to insights section
+  if (showBookmarksOnly) {
+    setTimeout(() => {
+      document.getElementById('section-insights')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
 }
 
 // Date filter functions
@@ -1089,6 +1109,10 @@ function getDateFilteredInsights() {
 
 function getFilteredInsights() {
   let results = getDateFilteredInsights();
+  // Bookmarks filter
+  if (showBookmarksOnly) {
+    results = results.filter(i => bookmarks[i.id]);
+  }
   // Category filter
   if (currentFilter !== 'all') {
     results = results.filter(i => i.category === currentFilter);
