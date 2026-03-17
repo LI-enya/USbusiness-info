@@ -178,6 +178,33 @@ a:hover { text-decoration: underline; }
 .category-dot {
   display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 4px;
 }
+.date-filter-row {
+  display: flex; gap: 10px; align-items: center; margin-bottom: 10px; flex-wrap: wrap;
+}
+.date-filter-row label {
+  font-size: 12px; color: var(--text-muted); white-space: nowrap;
+}
+.date-input {
+  padding: 7px 10px; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--bg-card); color: var(--text); font-size: 12px;
+  outline: none; transition: border-color 0.3s;
+}
+.date-input:focus { border-color: var(--primary); }
+.date-clear-btn {
+  padding: 6px 12px; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--bg-card); color: var(--text-muted); font-size: 12px;
+  cursor: pointer; transition: all 0.3s; white-space: nowrap;
+}
+.date-clear-btn:hover { border-color: var(--danger); color: var(--danger); }
+.date-clear-btn.active { border-color: var(--accent); color: var(--accent); }
+.date-quick-btns { display: flex; gap: 4px; flex-wrap: wrap; }
+.date-quick-btn {
+  padding: 4px 10px; border-radius: 12px; border: 1px solid var(--border);
+  background: var(--bg-card); color: var(--text-muted); font-size: 11px;
+  cursor: pointer; transition: all 0.3s; white-space: nowrap;
+}
+.date-quick-btn:hover { border-color: var(--primary); color: var(--text); }
+.date-quick-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
 .search-sort-row {
   display: flex; gap: 10px; align-items: center;
 }
@@ -494,6 +521,9 @@ a:hover { text-decoration: underline; }
   .nav-bar { padding: 8px 15px; top: 80px; }
   .search-sort-row { flex-wrap: wrap; }
   .sort-select, .export-btn { flex: 1; }
+  .date-filter-row { gap: 6px; }
+  .date-quick-btns { width: 100%; }
+  .date-input { flex: 1; min-width: 0; }
   .pie-chart-container { flex-direction: column; }
 }
 
@@ -579,6 +609,18 @@ a:hover { text-decoration: underline; }
 <!-- Filters + Search -->
 <div class="controls-section">
   <div class="filter-tabs" id="filterTabs"></div>
+  <div class="date-filter-row" id="dateFilterRow">
+    <label data-i18n="dateLabel">📅 日期筛选:</label>
+    <div class="date-quick-btns">
+      <button class="date-quick-btn" onclick="setDateQuick('7d', this)" data-i18n-btn="date7d">近7天</button>
+      <button class="date-quick-btn" onclick="setDateQuick('30d', this)" data-i18n-btn="date30d">近30天</button>
+      <button class="date-quick-btn" onclick="setDateQuick('90d', this)" data-i18n-btn="date90d">近3个月</button>
+    </div>
+    <input class="date-input" type="date" id="dateFrom" onchange="onDateRangeChange()" title="开始日期">
+    <span style="color:var(--text-muted);font-size:12px;">—</span>
+    <input class="date-input" type="date" id="dateTo" onchange="onDateRangeChange()" title="结束日期">
+    <button class="date-clear-btn" id="dateClearBtn" onclick="clearDateFilter()" data-i18n-btn="dateClear">✕ 清除日期</button>
+  </div>
   <div class="search-sort-row">
     <input class="search-box" type="text" id="searchBox" placeholder="搜索关键词... (支持中英文)" oninput="applyFilters()">
     <select class="sort-select" id="sortSelect" onchange="applyFilters()">
@@ -699,6 +741,7 @@ const I18N = {
     exportSuccess: '导出成功! 已下载CSV文件',
     bookmarkAdd: '已收藏', bookmarkRemove: '已取消收藏',
     relatedInsights: '相关洞察:',
+    dateLabel: '📅 日期筛选:', date7d: '近7天', date30d: '近30天', date90d: '近3个月', dateClear: '✕ 清除日期',
     labelAge: '年龄:', labelEthnicity: '族裔:', labelState: '所在州:',
     labelOccupation: '职业:', labelLifeStage: '人生阶段:', labelIncome: '年收入:',
     labelCoreNeeds: '核心需求:',
@@ -728,6 +771,7 @@ const I18N = {
     exportSuccess: 'Export successful! CSV downloaded',
     bookmarkAdd: 'Bookmarked', bookmarkRemove: 'Bookmark removed',
     relatedInsights: 'Related insights:',
+    dateLabel: '📅 Date Filter:', date7d: 'Last 7 days', date30d: 'Last 30 days', date90d: 'Last 3 months', dateClear: '✕ Clear Date',
     labelAge: 'Age:', labelEthnicity: 'Ethnicity:', labelState: 'States:',
     labelOccupation: 'Occupation:', labelLifeStage: 'Life Stage:', labelIncome: 'Income:',
     labelCoreNeeds: 'Core Needs:',
@@ -984,11 +1028,64 @@ function setFilter(filter, btn) {
   applyFilters();
 }
 
+// Date filter functions
+function setDateQuick(range, btn) {
+  // Toggle: if already active, clear it
+  if (btn.classList.contains('active')) {
+    clearDateFilter();
+    return;
+  }
+  document.querySelectorAll('.date-quick-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const now = new Date();
+  const to = now.toISOString().slice(0, 10);
+  let from;
+  if (range === '7d') { const d = new Date(now); d.setDate(d.getDate() - 7); from = d.toISOString().slice(0, 10); }
+  else if (range === '30d') { const d = new Date(now); d.setDate(d.getDate() - 30); from = d.toISOString().slice(0, 10); }
+  else if (range === '90d') { const d = new Date(now); d.setDate(d.getDate() - 90); from = d.toISOString().slice(0, 10); }
+  document.getElementById('dateFrom').value = from;
+  document.getElementById('dateTo').value = to;
+  document.getElementById('dateClearBtn').classList.add('active');
+  currentPage = 1;
+  applyFilters();
+}
+
+function onDateRangeChange() {
+  document.querySelectorAll('.date-quick-btn').forEach(b => b.classList.remove('active'));
+  const from = document.getElementById('dateFrom').value;
+  const to = document.getElementById('dateTo').value;
+  if (from || to) {
+    document.getElementById('dateClearBtn').classList.add('active');
+  } else {
+    document.getElementById('dateClearBtn').classList.remove('active');
+  }
+  currentPage = 1;
+  applyFilters();
+}
+
+function clearDateFilter() {
+  document.getElementById('dateFrom').value = '';
+  document.getElementById('dateTo').value = '';
+  document.querySelectorAll('.date-quick-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('dateClearBtn').classList.remove('active');
+  currentPage = 1;
+  applyFilters();
+}
+
 function getFilteredInsights() {
   let results = allInsights;
   // Category filter
   if (currentFilter !== 'all') {
     results = results.filter(i => i.category === currentFilter);
+  }
+  // Date filter
+  const dateFrom = document.getElementById('dateFrom').value;
+  const dateTo = document.getElementById('dateTo').value;
+  if (dateFrom) {
+    results = results.filter(i => (i.date || '') >= dateFrom);
+  }
+  if (dateTo) {
+    results = results.filter(i => (i.date || '') <= dateTo);
   }
   // Search (within filtered results)
   const q = document.getElementById('searchBox').value.toLowerCase().trim();
