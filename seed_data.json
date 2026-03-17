@@ -1,0 +1,91 @@
+{
+  "personas": [
+    {
+      "name": "职场妈妈 Sarah",
+      "description": "在事业与家庭间拼命平衡的中产阶级职业女性",
+      "age": "32-42岁",
+      "ethnicity": "不限（白人/拉丁裔/亚裔均有代表性）",
+      "state": "加州、德州、纽约州、华盛顿州",
+      "occupation": "科技/金融/医疗/教育行业白领",
+      "life_stage": "已婚有子女，育儿期",
+      "income": "$70K-$120K",
+      "core_needs": "省时间、减轻心理负担、高效育儿、自我关怀",
+      "emoji": "👩‍💼",
+      "color": "linear-gradient(135deg,#6C5CE7,#A29BFE)"
+    },
+    {
+      "name": "独立女性 Mia",
+      "description": "享受生活、注重品质的单身/无孩职业女性",
+      "age": "25-35岁",
+      "ethnicity": "多元（白人/非裔/亚裔）",
+      "state": "纽约、旧金山、西雅图、芝加哥",
+      "occupation": "创意产业/科技/咨询/金融",
+      "life_stage": "单身或恋爱中，无子女，事业上升期",
+      "income": "$65K-$110K",
+      "core_needs": "自我提升、社交体验、情绪价值消费、探索新品牌",
+      "emoji": "💃",
+      "color": "linear-gradient(135deg,#FD79A8,#E17055)"
+    },
+    {
+      "name": "中年焕新者 Jennifer",
+      "description": "重新定义自我、追求健康与长寿的中年女性",
+      "age": "42-55岁",
+      "ethnicity": "白人/非裔为主",
+      "state": "佛罗里达、德州、科罗拉多、北卡",
+      "occupation": "管理层/自由职业/小企业主",
+      "life_stage": "子女已大或空巢期，围绝经期/更年期",
+      "income": "$80K-$150K+（含家庭收入）",
+      "core_needs": "抗衰老/长寿、更年期健康、重新投资自我、优质体验",
+      "emoji": "🌺",
+      "color": "linear-gradient(135deg,#00CEC9,#00B894)"
+    },
+    {
+      "name": "副业创业者 Aaliyah",
+      "description": "身兼数职、追求财务自由的斜杠女性",
+      "age": "28-40岁",
+      "ethnicity": "非裔/拉丁裔为主，各族裔均有",
+      "state": "亚特兰大、休斯顿、迈阿密、洛杉矶",
+      "occupation": "全职工作 + 副业/小型电商/内容创作",
+      "life_stage": "有稳定收入但渴望更多财务自由",
+      "income": "$60K-$100K（含副业收入）",
+      "core_needs": "高效工具、自我品牌建设、社群归属感、被激励",
+      "emoji": "🚀",
+      "color": "linear-gradient(135deg,#FDCB6E,#E17055)"
+    },
+    {
+      "name": "健康优先者 Lisa",
+      "description": "将健康与养生作为生活核心的女性",
+      "age": "30-55岁",
+      "ethnicity": "不限",
+      "state": "科罗拉多、加州、俄勒冈、亚利桑那",
+      "occupation": "各行业，倾向于灵活工作制",
+      "life_stage": "各阶段均有，健康意识觉醒后持续投入",
+      "income": "$60K-$130K",
+      "core_needs": "功能性营养、睡眠优化、身心平衡、科学护肤",
+      "emoji": "🧘‍♀️",
+      "color": "linear-gradient(135deg,#55E6C1,#25CCF7)"
+    }
+  ],
+  "forecasts": [
+    {
+      "year": "2026-2027 近期",
+      "text_zh": "• 女性长寿市场爆发：从\"管理症状\"转向\"根源抗衰\"，卵巢健康成为新焦点\n• \"反过度优化\"运动加速：女性拒绝被数据绑架，回归感性、快乐驱动的健康方式\n• 功能性香氛、情绪化护肤等\"情绪价值\"品类快速增长\n• 中产\"紧张消费\"加剧：女性更精明但仍愿意为真正有价值的产品/体验买单",
+      "text_en": "• Women's longevity market explodes: shifting from symptom management to root-cause anti-aging, ovarian health as new focus\n• Over-optimization backlash accelerates: women reject data-driven wellness, return to sensory, joy-driven health\n• Functional fragrances, emotion-driven skincare and 'emotional value' categories grow rapidly\n• Middle-class 'nervous spending' intensifies: women are savvier but still willing to pay for genuinely valuable products/experiences"
+    },
+    {
+      "year": "2027-2028 中期",
+      "text_zh": "• 个性化营养成为主流：基于DNA/血液数据的定制补剂订阅将覆盖千万级用户\n• 社区型健康体验替代个人化健身：\"健康派对\"、社交型运动成为新常态\n• AI购物助理初步普及：品牌需要优化\"被AI推荐\"的策略\n• 女性生命周期全覆盖服务兴起：从青春期到更年期的一站式健康管理",
+      "text_en": "• Personalized nutrition goes mainstream: DNA/blood-based custom supplement subscriptions will reach tens of millions\n• Community wellness replaces solo fitness: 'wellness parties' and social sports become the new norm\n• AI shopping assistants gain initial adoption: brands need 'AI recommendation' optimization strategies\n• Full female lifecycle services emerge: one-stop health management from puberty through menopause"
+    },
+    {
+      "year": "2028-2030 中远期",
+      "text_zh": "• 孤独经济催生\"归属感品牌\"：能提供真实人际连接的品牌/服务溢价能力极强\n• \"隐形购物\"成为常态：AI代理自动完成日常采购，品牌竞争焦点从\"吸引消费者\"转为\"被AI选中\"\n• 植物基/功能性食品完成主流化：不再是\"替代品\"而是\"首选\"\n• 女性健康市场向6000亿美元迈进，个性化、科学化、全周期成为行业标配",
+      "text_en": "• Loneliness economy spawns 'belonging brands': brands/services offering authentic human connection command premium pricing\n• 'Invisible shopping' becomes normal: AI agents handle routine purchases; brand competition shifts from attracting consumers to being selected by AI\n• Plant-based/functional foods fully mainstream: no longer 'alternatives' but 'first choice'\n• Women's wellness market marches toward $600B, with personalization, science-backing, and full lifecycle coverage as industry standards"
+    },
+    {
+      "year": "2030-2035 远期",
+      "text_zh": "• 混合现实购物体验普及：AR/VR \"试穿/试用\"成为标准消费流程\n• 生物化学级个性化健康：汗液/唾液传感器实时监测+AI实时调整健康方案\n• \"延长的中间人生\"彻底改变市场分层：25-65岁的活跃消费阶段取代传统的\"青年/中年/老年\"分法\n• 体验经济全面超越实物消费：旅行、社交健康、教育成长类支出成为女性最大消费品类",
+      "text_en": "• Mixed reality shopping becomes universal: AR/VR 'try-before-buy' becomes standard\n• Biochemical-level personalized health: real-time sweat/saliva sensors + AI-adjusted wellness plans\n• 'Extended middle' completely reshapes market segmentation: 25-65 active consumption phase replaces traditional youth/middle-age/senior categories\n• Experience economy fully surpasses physical goods: travel, social wellness, education/growth become women's largest spending categories"
+    }
+  ]
+}

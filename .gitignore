@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+archive/
+_check*.txt
+_fallbacks.txt
+_last3.txt
+.claude/

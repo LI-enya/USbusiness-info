@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>北美女性消费者洞察仪表盘 | NA Women Consumer Insights</title>
+<style>
+:root {
+  --primary: #6C5CE7;
+  --primary-light: #A29BFE;
+  --secondary: #FD79A8;
+  --accent: #00CEC9;
+  --bg: #0F0F1A;
+  --bg-card: #1A1A2E;
+  --bg-card-hover: #222240;
+  --text: #E8E8F0;
+  --text-muted: #8888AA;
+  --border: #2A2A45;
+  --success: #00B894;
+  --warning: #FDCB6E;
+  --danger: #FF7675;
+  --tag-topic: #6C5CE7;
+  --tag-pain: #FF7675;
+  --tag-hobby: #00CEC9;
+  --tag-pay: #FDCB6E;
+  --tag-brand: #FD79A8;
+  --tag-emotional: #E17055;
+  --tag-premium: #00B894;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+a { color: var(--primary-light); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.header h1 {
+  font-size: 20px;
+  background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.update-time { color: var(--text-muted); font-size: 12px; }
+.lang-toggle {
+  display: flex;
+  background: var(--bg);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.lang-btn {
+  padding: 5px 12px;
+  cursor: pointer;
+  font-size: 12px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  transition: all 0.3s;
+}
+.lang-btn.active { background: var(--primary); color: white; }
+.auto-refresh-indicator {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 11px; color: var(--text-muted);
+}
+.pulse-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--success);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+/* Stats Bar */
+.stats-bar {
+  max-width: 1400px;
+  margin: 16px auto;
+  padding: 0 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+}
+.stat-number {
+  font-size: 26px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-light), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.stat-label { color: var(--text-muted); font-size: 12px; margin-top: 2px; }
+
+/* Nav Bar */
+.nav-bar {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 8px 30px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 56px;
+  z-index: 99;
+}
+.nav-btn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-btn:hover, .nav-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+/* Filter + Search Row */
+.controls-section {
+  max-width: 1400px;
+  margin: 12px auto;
+  padding: 0 30px;
+}
+.filter-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.filter-tab {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+.filter-tab:hover { border-color: var(--primary); color: var(--text); }
+.filter-tab.active { background: var(--primary); color: white; border-color: var(--primary); }
+.filter-count { font-size: 10px; opacity: 0.7; margin-left: 3px; }
+.category-dot {
+  display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 4px;
+}
+.search-sort-row {
+  display: flex; gap: 10px; align-items: center;
+}
+.search-box {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.search-box:focus { border-color: var(--primary); }
+.search-box::placeholder { color: var(--text-muted); }
+.sort-select {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 12px;
+  outline: none;
+  cursor: pointer;
+  min-width: 120px;
+}
+.export-btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+  background: rgba(0,206,201,0.1);
+  color: var(--accent);
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.export-btn:hover { background: var(--accent); color: #000; }
+
+/* Main Content */
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px 60px;
+}
+
+/* Charts Section */
+.charts-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.chart-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+}
+.chart-title {
+  font-size: 14px; font-weight: 600; margin-bottom: 14px;
+  color: var(--text-muted);
+}
+.pie-chart-container { display: flex; align-items: center; gap: 20px; }
+.pie-svg { width: 160px; height: 160px; }
+.pie-legend { flex: 1; }
+.legend-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; margin-bottom: 6px; color: var(--text-muted);
+  cursor: pointer; transition: color 0.2s;
+}
+.legend-item:hover { color: var(--text); }
+.legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+.timeline-chart { padding: 10px 0; }
+.timeline-bar-row {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 12px;
+}
+.timeline-label { width: 70px; color: var(--text-muted); text-align: right; flex-shrink: 0; }
+.timeline-bar-bg {
+  flex: 1; height: 22px; background: rgba(255,255,255,0.04); border-radius: 4px; overflow: hidden;
+}
+.timeline-bar {
+  height: 100%; border-radius: 4px;
+  display: flex; align-items: center; padding-left: 8px;
+  font-size: 11px; color: white; font-weight: 600; min-width: 30px;
+  transition: width 0.6s ease;
+}
+
+/* Section Title with collapse */
+.section-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 24px; margin-bottom: 14px;
+}
+.section-title {
+  font-size: 18px; font-weight: 700;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-title::before {
+  content: ''; width: 4px; height: 22px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 2px;
+}
+.collapse-btn {
+  padding: 4px 12px; border-radius: 6px;
+  border: 1px solid var(--border); background: var(--bg-card);
+  color: var(--text-muted); font-size: 12px; cursor: pointer;
+  transition: all 0.2s;
+}
+.collapse-btn:hover { border-color: var(--primary); color: var(--text); }
+.collapsible { overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease; }
+.collapsible.collapsed { max-height: 0 !important; opacity: 0; }
+
+/* Persona Cards - horizontal scroll */
+.persona-scroll {
+  display: flex; gap: 14px; overflow-x: auto;
+  padding-bottom: 10px; scroll-snap-type: x mandatory;
+}
+.persona-scroll::-webkit-scrollbar { height: 4px; }
+.persona-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.persona-card {
+  min-width: 280px; max-width: 300px; flex-shrink: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 14px;
+  padding: 18px; transition: all 0.3s; scroll-snap-align: start;
+}
+.persona-card:hover { border-color: var(--secondary); box-shadow: 0 6px 20px rgba(253,121,168,0.1); }
+.persona-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-bottom: 10px;
+}
+.persona-name { font-size: 15px; font-weight: 600; margin-bottom: 3px; }
+.persona-desc { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; }
+.persona-details { font-size: 12px; line-height: 1.9; }
+.persona-detail-label { color: var(--text-muted); margin-right: 4px; }
+
+/* Cards Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 14px;
+}
+.insight-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  transition: all 0.3s;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+.insight-card:hover {
+  border-color: var(--primary);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(108,92,231,0.15);
+}
+.card-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 10px;
+}
+.card-category {
+  display: inline-flex; align-items: center;
+  padding: 3px 10px; border-radius: 10px;
+  font-size: 11px; font-weight: 600;
+}
+.cat-topic { background: rgba(108,92,231,0.2); color: #A29BFE; }
+.cat-pain { background: rgba(255,118,117,0.2); color: #FF7675; }
+.cat-hobby { background: rgba(0,206,201,0.2); color: #00CEC9; }
+.cat-pay { background: rgba(253,203,110,0.2); color: #FDCB6E; }
+.cat-brand { background: rgba(253,121,168,0.2); color: #FD79A8; }
+.cat-emotional { background: rgba(225,112,85,0.2); color: #E17055; }
+.cat-premium { background: rgba(0,184,148,0.2); color: #00B894; }
+.card-actions {
+  display: flex; align-items: center; gap: 6px;
+}
+.bookmark-btn {
+  background: none; border: none; cursor: pointer;
+  font-size: 16px; opacity: 0.4; transition: all 0.2s;
+  padding: 2px;
+}
+.bookmark-btn:hover, .bookmark-btn.active { opacity: 1; }
+.bookmark-btn.active { color: var(--warning); }
+.card-source {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 10px; color: var(--text-muted);
+}
+.source-icon {
+  width: 15px; height: 15px; border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; font-weight: bold;
+}
+.source-reddit { background: #FF4500; color: white; }
+.source-twitter { background: #1DA1F2; color: white; }
+.source-news { background: #4CAF50; color: white; }
+.source-report { background: #FF9800; color: white; }
+.card-title { font-size: 15px; font-weight: 600; margin-bottom: 8px; line-height: 1.5; }
+.card-content { font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 10px; }
+.card-original {
+  background: rgba(255,255,255,0.03);
+  border-left: 3px solid var(--primary);
+  padding: 8px 12px; margin-bottom: 10px;
+  border-radius: 0 8px 8px 0;
+  font-size: 12px; color: #99AAC0; font-style: italic;
+  display: none;
+}
+.card-original.show { display: block; }
+.card-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 10px; border-top: 1px solid var(--border);
+}
+.card-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+.card-tag {
+  padding: 2px 7px; border-radius: 5px; font-size: 10px;
+  background: rgba(255,255,255,0.06); color: var(--text-muted);
+}
+.card-link { font-size: 11px; color: var(--primary-light); display: flex; align-items: center; gap: 3px; }
+.card-link:hover { color: var(--secondary); }
+.card-date { font-size: 10px; color: var(--text-muted); }
+.toggle-original {
+  font-size: 11px; color: var(--accent); cursor: pointer;
+  border: none; background: none; padding: 2px 0; margin-bottom: 6px;
+}
+.toggle-original:hover { text-decoration: underline; }
+
+/* Pagination */
+.pagination {
+  display: flex; justify-content: center; align-items: center;
+  gap: 6px; margin-top: 20px; padding: 15px 0;
+}
+.page-btn {
+  padding: 6px 14px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--bg-card);
+  color: var(--text-muted); font-size: 13px; cursor: pointer;
+  transition: all 0.2s;
+}
+.page-btn:hover { border-color: var(--primary); color: var(--text); }
+.page-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+.page-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.page-info { color: var(--text-muted); font-size: 12px; margin: 0 8px; }
+
+/* Forecast */
+.forecast-timeline { position: relative; padding-left: 30px; margin-top: 12px; }
+.forecast-timeline::before {
+  content: ''; position: absolute; left: 8px; top: 0; bottom: 0;
+  width: 2px; background: linear-gradient(to bottom, var(--primary), var(--accent));
+}
+.forecast-item {
+  position: relative; margin-bottom: 20px; padding: 16px;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+}
+.forecast-item::before {
+  content: ''; position: absolute; left: -26px; top: 20px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--primary); border: 2px solid var(--bg);
+}
+.forecast-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.forecast-year { font-size: 14px; font-weight: 700; color: var(--accent); }
+.confidence-badge {
+  padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 600;
+}
+.confidence-high { background: rgba(0,184,148,0.2); color: var(--success); }
+.confidence-mid { background: rgba(253,203,110,0.2); color: var(--warning); }
+.confidence-low { background: rgba(162,155,254,0.2); color: var(--primary-light); }
+.forecast-text { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+.forecast-related {
+  margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--text-muted);
+}
+.forecast-related a { font-size: 11px; }
+
+/* Modal */
+.modal-overlay {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7); z-index: 200;
+  justify-content: center; align-items: center; padding: 20px;
+}
+.modal-overlay.show { display: flex; }
+.modal {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 16px; max-width: 700px; width: 100%;
+  max-height: 80vh; overflow-y: auto; padding: 28px;
+}
+.modal-close {
+  float: right; background: none; border: none;
+  color: var(--text-muted); font-size: 24px; cursor: pointer;
+}
+.modal-close:hover { color: var(--text); }
+
+/* Back to Top */
+.back-to-top {
+  position: fixed; bottom: 30px; right: 30px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--primary); color: white; border: none;
+  font-size: 20px; cursor: pointer; z-index: 150;
+  display: none; align-items: center; justify-content: center;
+  box-shadow: 0 4px 15px rgba(108,92,231,0.4);
+  transition: all 0.3s;
+}
+.back-to-top:hover { transform: scale(1.1); background: var(--primary-light); }
+.back-to-top.show { display: flex; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-inner { flex-direction: column; align-items: flex-start; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .charts-section { grid-template-columns: 1fr; }
+  .main { padding: 0 15px 60px; }
+  .controls-section { padding: 0 15px; }
+  .stats-bar { padding: 0 15px; }
+  .nav-bar { padding: 8px 15px; top: 80px; }
+  .search-sort-row { flex-wrap: wrap; }
+  .sort-select, .export-btn { flex: 1; }
+  .pie-chart-container { flex-direction: column; }
+}
+
+/* Loading */
+.loading { text-align: center; padding: 40px; color: var(--text-muted); }
+.loading-spinner {
+  width: 36px; height: 36px; border: 3px solid var(--border);
+  border-top-color: var(--primary); border-radius: 50%;
+  animation: spin 1s linear infinite; margin: 0 auto 12px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+  background: var(--bg-card); border: 1px solid var(--accent);
+  color: var(--accent); padding: 10px 24px; border-radius: 10px;
+  font-size: 13px; z-index: 300; opacity: 0; transition: opacity 0.3s;
+  pointer-events: none;
+}
+.toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-inner">
+    <h1 id="mainTitle">北美女性消费者洞察仪表盘</h1>
+    <div class="header-meta">
+      <span class="update-time" id="updateTime"></span>
+      <div class="auto-refresh-indicator" id="autoRefreshIndicator">
+        <span class="pulse-dot"></span>
+        <span id="refreshLabel">自动刷新</span>
+      </div>
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('zh')" id="btnZh">中文</button>
+        <button class="lang-btn" onclick="setLang('en')" id="btnEn">EN</button>
+        <button class="lang-btn" onclick="setLang('both')" id="btnBoth">双语</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Stats -->
+<div class="stats-bar" id="statsBar">
+  <div class="stat-card">
+    <div class="stat-number" id="statTotal">0</div>
+    <div class="stat-label" data-i18n="statTotal">采集洞察总数</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number" id="statSources">0</div>
+    <div class="stat-label" data-i18n="statSources">信息来源数</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number" id="statToday">0</div>
+    <div class="stat-label" data-i18n="statToday">今日新增</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number" id="statBookmarks">0</div>
+    <div class="stat-label" data-i18n="statBookmarks">已收藏</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number" id="statCategories">7</div>
+    <div class="stat-label" data-i18n="statCategories">话题分类</div>
+  </div>
+</div>
+
+<!-- Navigation Bar -->
+<div class="nav-bar" id="navBar">
+  <button class="nav-btn active" onclick="scrollToSection('charts', this)" data-i18n-btn="navCharts">📊 数据概览</button>
+  <button class="nav-btn" onclick="scrollToSection('personas', this)" data-i18n-btn="navPersonas">👤 用户画像</button>
+  <button class="nav-btn" onclick="scrollToSection('insights', this)" data-i18n-btn="navInsights">💡 实时洞察</button>
+  <button class="nav-btn" onclick="scrollToSection('forecasts', this)" data-i18n-btn="navForecasts">🔮 趋势预测</button>
+</div>
+
+<!-- Filters + Search -->
+<div class="controls-section">
+  <div class="filter-tabs" id="filterTabs"></div>
+  <div class="search-sort-row">
+    <input class="search-box" type="text" id="searchBox" placeholder="搜索关键词... (支持中英文)" oninput="applyFilters()">
+    <select class="sort-select" id="sortSelect" onchange="applyFilters()">
+      <option value="date-desc" data-i18n-opt="sortNewest">最新优先</option>
+      <option value="date-asc" data-i18n-opt="sortOldest">最早优先</option>
+      <option value="category" data-i18n-opt="sortCategory">按分类</option>
+      <option value="bookmarked" data-i18n-opt="sortBookmarked">收藏优先</option>
+    </select>
+    <button class="export-btn" onclick="exportCSV()" id="exportBtn">📥 导出CSV</button>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="main">
+  <!-- Charts -->
+  <div id="section-charts">
+    <div class="section-header">
+      <div class="section-title" id="chartsSectionTitle">数据概览</div>
+    </div>
+    <div class="charts-section" id="chartsArea">
+      <div class="chart-card">
+        <div class="chart-title" data-i18n="chartPie">分类分布</div>
+        <div class="pie-chart-container" id="pieChart"></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title" data-i18n="chartTimeline">日期分布 (近30天)</div>
+        <div class="timeline-chart" id="timelineChart"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Personas -->
+  <div id="section-personas">
+    <div class="section-header">
+      <div class="section-title" id="personaSectionTitle">用户画像分类</div>
+      <button class="collapse-btn" onclick="toggleCollapse('personaContent', this)" data-i18n-collapse="collapse">收起 ▲</button>
+    </div>
+    <div class="collapsible" id="personaContent" style="max-height:400px;">
+      <div class="persona-scroll" id="personaGrid"></div>
+    </div>
+  </div>
+
+  <!-- Insights Cards -->
+  <div id="section-insights">
+    <div class="section-header">
+      <div class="section-title" id="insightsSectionTitle">实时洞察 (来自真实社群)</div>
+      <span class="page-info" id="resultCount"></span>
+    </div>
+    <div class="cards-grid" id="cardsGrid">
+      <div class="loading"><div class="loading-spinner"></div><p>正在加载洞察数据...</p></div>
+    </div>
+    <div class="pagination" id="pagination"></div>
+  </div>
+
+  <!-- Future Trends -->
+  <div id="section-forecasts">
+    <div class="section-header">
+      <div class="section-title" id="forecastSectionTitle">未来5~10年需求趋势预测</div>
+      <button class="collapse-btn" onclick="toggleCollapse('forecastContent', this)" data-i18n-collapse="collapse">收起 ▲</button>
+    </div>
+    <div class="collapsible" id="forecastContent" style="max-height:3000px;">
+      <div class="forecast-timeline" id="forecastTimeline"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Detail Modal -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ============================================================
+// STATE
+// ============================================================
+let currentLang = 'zh';
+let currentFilter = 'all';
+let currentPage = 1;
+let currentSort = 'date-desc';
+const PAGE_SIZE = 20;
+let allInsights = [];
+let allData = null;
+let bookmarks = JSON.parse(localStorage.getItem('na-insights-bookmarks') || '{}');
+let autoRefreshTimer = null;
+
+// ============================================================
+// I18N
+// ============================================================
+const I18N = {
+  zh: {
+    title: '北美女性消费者洞察仪表盘',
+    statTotal: '采集洞察总数', statSources: '信息来源数',
+    statToday: '今日新增', statBookmarks: '已收藏', statCategories: '话题分类',
+    navCharts: '📊 数据概览', navPersonas: '👤 用户画像',
+    navInsights: '💡 实时洞察', navForecasts: '🔮 趋势预测',
+    chartPie: '分类分布', chartTimeline: '日期分布 (近30天)',
+    sortNewest: '最新优先', sortOldest: '最早优先',
+    sortCategory: '按分类', sortBookmarked: '收藏优先',
+    searchPlaceholder: '搜索关键词... (支持中英文)',
+    exportBtn: '📥 导出CSV', collapse: '收起 ▲', expand: '展开 ▼',
+    showQuote: '查看原文引用 ▼', hideQuote: '收起原文 ▲',
+    noData: '暂无匹配数据', prev: '← 上一页', next: '下一页 →',
+    pageInfo: '第 {page} 页 / 共 {total} 页 ({count} 条)',
+    resultCount: '共 {count} 条结果',
+    allFilter: '全部', refreshLabel: '自动刷新',
+    personaTitle: '用户画像分类', insightsTitle: '实时洞察 (来自真实社群)',
+    forecastTitle: '未来5~10年需求趋势预测', chartsTitle: '数据概览',
+    confidenceHigh: '确定性: 高', confidenceMid: '确定性: 中', confidenceLow: '确定性: 低-中',
+    viewSource: '来源↗', viewOriginal: '查看原文 ↗',
+    zhSummary: '中文摘要：', enSummary: 'English Summary：',
+    quoteLabel: '原文引用 / Original Quote:',
+    exportSuccess: '导出成功! 已下载CSV文件',
+    bookmarkAdd: '已收藏', bookmarkRemove: '已取消收藏',
+    relatedInsights: '相关洞察:',
+    labelAge: '年龄:', labelEthnicity: '族裔:', labelState: '所在州:',
+    labelOccupation: '职业:', labelLifeStage: '人生阶段:', labelIncome: '年收入:',
+    labelCoreNeeds: '核心需求:',
+  },
+  en: {
+    title: 'NA Women Consumer Insights Dashboard',
+    statTotal: 'Total Insights', statSources: 'Data Sources',
+    statToday: 'New Today', statBookmarks: 'Bookmarked', statCategories: 'Categories',
+    navCharts: '📊 Overview', navPersonas: '👤 Personas',
+    navInsights: '💡 Insights', navForecasts: '🔮 Forecasts',
+    chartPie: 'Category Distribution', chartTimeline: 'Date Distribution (30 Days)',
+    sortNewest: 'Newest First', sortOldest: 'Oldest First',
+    sortCategory: 'By Category', sortBookmarked: 'Bookmarked First',
+    searchPlaceholder: 'Search keywords...',
+    exportBtn: '📥 Export CSV', collapse: 'Collapse ▲', expand: 'Expand ▼',
+    showQuote: 'Show original quote ▼', hideQuote: 'Hide original ▲',
+    noData: 'No matching data', prev: '← Prev', next: 'Next →',
+    pageInfo: 'Page {page} / {total} ({count} items)',
+    resultCount: '{count} results',
+    allFilter: 'All', refreshLabel: 'Auto-refresh',
+    personaTitle: 'User Personas', insightsTitle: 'Real-Time Insights (from Communities)',
+    forecastTitle: '5-10 Year Demand Forecast', chartsTitle: 'Data Overview',
+    confidenceHigh: 'Confidence: High', confidenceMid: 'Confidence: Medium', confidenceLow: 'Confidence: Low-Med',
+    viewSource: 'Source↗', viewOriginal: 'View Source ↗',
+    zhSummary: 'Chinese Summary:', enSummary: 'English Summary:',
+    quoteLabel: 'Original Quote:',
+    exportSuccess: 'Export successful! CSV downloaded',
+    bookmarkAdd: 'Bookmarked', bookmarkRemove: 'Bookmark removed',
+    relatedInsights: 'Related insights:',
+    labelAge: 'Age:', labelEthnicity: 'Ethnicity:', labelState: 'States:',
+    labelOccupation: 'Occupation:', labelLifeStage: 'Life Stage:', labelIncome: 'Income:',
+    labelCoreNeeds: 'Core Needs:',
+  }
+};
+function t(key) {
+  const lang = currentLang === 'both' ? 'zh' : currentLang;
+  return (I18N[lang] && I18N[lang][key]) || I18N.zh[key] || key;
+}
+
+const CATEGORY_MAP = {
+  topic:     { zh: '热门话题', en: 'Hot Topics', class: 'cat-topic', color: '#6C5CE7' },
+  pain:      { zh: '烦恼痛点', en: 'Pain Points', class: 'cat-pain', color: '#FF7675' },
+  hobby:     { zh: '兴趣爱好', en: 'Hobbies & Interests', class: 'cat-hobby', color: '#00CEC9' },
+  pay:       { zh: '付费意愿', en: 'Willingness to Pay', class: 'cat-pay', color: '#FDCB6E' },
+  brand:     { zh: '新品牌/新服务', en: 'New Brands/Services', class: 'cat-brand', color: '#FD79A8' },
+  emotional: { zh: '情绪消费', en: 'Emotional Spending', class: 'cat-emotional', color: '#E17055' },
+  premium:   { zh: '优质体验', en: 'Premium Experience', class: 'cat-premium', color: '#00B894' }
+};
+const SOURCE_MAP = {
+  reddit:  { label: 'Reddit',  class: 'source-reddit',  icon: 'R' },
+  twitter: { label: 'X/Twitter', class: 'source-twitter', icon: 'X' },
+  news:    { label: 'News', class: 'source-news', icon: 'N' },
+  report:  { label: 'Report', class: 'source-report', icon: 'R' }
+};
+
+// ============================================================
+// DATA LOADING
+// ============================================================
+let dataVersion = null;
+async function loadData(silent) {
+  try {
+    const resp = await fetch('data.json?t=' + Date.now());
+    const data = await resp.json();
+    const newVersion = JSON.stringify(data.last_updated) + data.insights.length;
+    if (silent && newVersion === dataVersion) return; // no change
+    dataVersion = newVersion;
+    allData = data;
+    allInsights = data.insights || [];
+    renderAll(data);
+  } catch(e) {
+    if (!silent) {
+      console.error('Failed to load data:', e);
+      document.getElementById('cardsGrid').innerHTML = `<p style="color:var(--text-muted);text-align:center;padding:40px;">${t('noData')}</p>`;
+    }
+  }
+}
+
+// Auto refresh every 5 minutes
+function startAutoRefresh() {
+  if (autoRefreshTimer) clearInterval(autoRefreshTimer);
+  autoRefreshTimer = setInterval(() => loadData(true), 5 * 60 * 1000);
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+function renderAll(data) {
+  updateStats(data);
+  updateI18N();
+  renderFilterTabs();
+  renderCharts(data);
+  renderPersonas(data.personas || []);
+  renderForecast(data.forecasts || []);
+  applyFilters();
+}
+
+function updateStats(data) {
+  document.getElementById('statTotal').textContent = data.insights.length;
+  const sources = new Set(data.insights.map(i => {
+    if (i.source_url && i.source_url.includes('reddit.com/r/')) {
+      const match = i.source_url.match(/reddit\.com\/r\/([^/]+)/);
+      return match ? 'r/' + match[1] : i.source_type;
+    }
+    return i.source_url || i.source_type;
+  }));
+  document.getElementById('statSources').textContent = sources.size;
+  const today = new Date().toISOString().slice(0, 10);
+  const todayCount = data.insights.filter(i => i.date === today).length;
+  document.getElementById('statToday').textContent = todayCount;
+  document.getElementById('statBookmarks').textContent = Object.keys(bookmarks).length;
+  document.getElementById('updateTime').textContent = (currentLang === 'en' ? 'Updated: ' : '最近更新: ') + (data.last_updated || today);
+}
+
+function updateI18N() {
+  const lang = currentLang === 'both' ? 'zh' : currentLang;
+  document.getElementById('mainTitle').textContent = t('title');
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    el.textContent = t(el.dataset.i18n);
+  });
+  document.querySelectorAll('[data-i18n-btn]').forEach(el => {
+    el.textContent = t(el.dataset.i18nBtn);
+  });
+  document.querySelectorAll('[data-i18n-opt]').forEach(el => {
+    el.textContent = t(el.dataset.i18nOpt);
+  });
+  document.getElementById('searchBox').placeholder = t('searchPlaceholder');
+  document.getElementById('exportBtn').textContent = t('exportBtn');
+  document.getElementById('refreshLabel').textContent = t('refreshLabel');
+  document.getElementById('personaSectionTitle').textContent = t('personaTitle');
+  document.getElementById('insightsSectionTitle').textContent = t('insightsTitle');
+  document.getElementById('forecastSectionTitle').textContent = t('forecastTitle');
+  document.getElementById('chartsSectionTitle').textContent = t('chartsTitle');
+  // Collapse buttons
+  document.querySelectorAll('[data-i18n-collapse]').forEach(btn => {
+    const isCollapsed = btn.closest('.section-header')?.nextElementSibling?.classList.contains('collapsed');
+    btn.textContent = isCollapsed ? t('expand') : t('collapse');
+  });
+}
+
+// ============================================================
+// FILTER TABS with counts
+// ============================================================
+function renderFilterTabs() {
+  const counts = {};
+  allInsights.forEach(i => { counts[i.category] = (counts[i.category] || 0) + 1; });
+  const tabs = document.getElementById('filterTabs');
+  let html = `<button class="filter-tab ${currentFilter === 'all' ? 'active' : ''}" onclick="setFilter('all', this)">${t('allFilter')}<span class="filter-count">(${allInsights.length})</span></button>`;
+  for (const [key, cat] of Object.entries(CATEGORY_MAP)) {
+    const count = counts[key] || 0;
+    const label = currentLang === 'en' ? cat.en : cat.zh;
+    html += `<button class="filter-tab ${currentFilter === key ? 'active' : ''}" onclick="setFilter('${key}', this)">
+      <span class="category-dot" style="background:${cat.color}"></span>${label}<span class="filter-count">(${count})</span>
+    </button>`;
+  }
+  tabs.innerHTML = html;
+}
+
+// ============================================================
+// CHARTS
+// ============================================================
+function renderCharts(data) {
+  renderPieChart(data.insights);
+  renderTimelineChart(data.insights);
+}
+
+function renderPieChart(insights) {
+  const counts = {};
+  insights.forEach(i => { counts[i.category] = (counts[i.category] || 0) + 1; });
+  const total = insights.length;
+  const entries = Object.entries(CATEGORY_MAP).map(([key, cat]) => ({
+    key, label: currentLang === 'en' ? cat.en : cat.zh,
+    count: counts[key] || 0, color: cat.color,
+    pct: total ? Math.round((counts[key] || 0) / total * 100) : 0
+  })).sort((a, b) => b.count - a.count);
+
+  // SVG Pie
+  let angle = 0;
+  const paths = entries.filter(e => e.count > 0).map(e => {
+    const sweep = (e.count / total) * 360;
+    const startAngle = angle;
+    angle += sweep;
+    const endAngle = angle;
+    const r = 70, cx = 80, cy = 80;
+    const x1 = cx + r * Math.cos((startAngle - 90) * Math.PI / 180);
+    const y1 = cy + r * Math.sin((startAngle - 90) * Math.PI / 180);
+    const x2 = cx + r * Math.cos((endAngle - 90) * Math.PI / 180);
+    const y2 = cy + r * Math.sin((endAngle - 90) * Math.PI / 180);
+    const largeArc = sweep > 180 ? 1 : 0;
+    return `<path d="M${cx},${cy} L${x1},${y1} A${r},${r} 0 ${largeArc} 1 ${x2},${y2} Z"
+      fill="${e.color}" opacity="0.85" stroke="var(--bg)" stroke-width="1.5"
+      style="cursor:pointer" onclick="setFilter('${e.key}', null)">
+      <title>${e.label}: ${e.count} (${e.pct}%)</title></path>`;
+  }).join('');
+
+  const legend = entries.map(e =>
+    `<div class="legend-item" onclick="setFilter('${e.key}', null)">
+      <span class="legend-dot" style="background:${e.color}"></span>
+      <span>${e.label}</span>
+      <span style="margin-left:auto;font-weight:600;">${e.count}</span>
+      <span style="opacity:0.6">(${e.pct}%)</span>
+    </div>`
+  ).join('');
+
+  document.getElementById('pieChart').innerHTML = `
+    <svg class="pie-svg" viewBox="0 0 160 160">${paths}</svg>
+    <div class="pie-legend">${legend}</div>`;
+}
+
+function renderTimelineChart(insights) {
+  // Group by date, last 30 days
+  const now = new Date();
+  const dateCounts = {};
+  for (let i = 29; i >= 0; i--) {
+    const d = new Date(now); d.setDate(d.getDate() - i);
+    dateCounts[d.toISOString().slice(0, 10)] = 0;
+  }
+  insights.forEach(item => {
+    if (item.date && dateCounts.hasOwnProperty(item.date)) {
+      dateCounts[item.date]++;
+    }
+  });
+  const maxCount = Math.max(...Object.values(dateCounts), 1);
+  // Show weekly aggregated for cleaner display
+  const weeks = {};
+  const dates = Object.keys(dateCounts).sort();
+  dates.forEach(d => {
+    const weekStart = d.slice(5); // MM-DD
+    const weekKey = d.slice(5, 10);
+    // Group by ~5-day buckets
+    const dayIndex = dates.indexOf(d);
+    const bucket = Math.floor(dayIndex / 5);
+    const bucketKey = `${dates[bucket * 5]?.slice(5) || weekKey}`;
+    if (!weeks[bucket]) weeks[bucket] = { label: bucketKey, count: 0 };
+    weeks[bucket].count += dateCounts[d];
+  });
+
+  const maxWeek = Math.max(...Object.values(weeks).map(w => w.count), 1);
+  const colors = ['var(--primary)', 'var(--accent)', 'var(--secondary)', 'var(--success)', 'var(--warning)', 'var(--primary-light)'];
+
+  document.getElementById('timelineChart').innerHTML = Object.values(weeks).map((w, i) =>
+    `<div class="timeline-bar-row">
+      <span class="timeline-label">${w.label}</span>
+      <div class="timeline-bar-bg">
+        <div class="timeline-bar" style="width:${Math.max(w.count / maxWeek * 100, 5)}%;background:${colors[i % colors.length]}">${w.count}</div>
+      </div>
+    </div>`
+  ).join('');
+}
+
+// ============================================================
+// PERSONAS (horizontal scroll, collapsible)
+// ============================================================
+function renderPersonas(personas) {
+  const grid = document.getElementById('personaGrid');
+  const l = currentLang === 'en' ? 'en' : 'zh';
+  grid.innerHTML = personas.map(p => `
+    <div class="persona-card">
+      <div class="persona-avatar" style="background:${p.color || 'linear-gradient(135deg,#6C5CE7,#FD79A8)'}">${p.emoji || '👩'}</div>
+      <div class="persona-name">${p.name}</div>
+      <div class="persona-desc">${p.description}</div>
+      <div class="persona-details">
+        <div><span class="persona-detail-label">${t('labelAge')}</span>${p.age}</div>
+        <div><span class="persona-detail-label">${t('labelEthnicity')}</span>${p.ethnicity}</div>
+        <div><span class="persona-detail-label">${t('labelState')}</span>${p.state}</div>
+        <div><span class="persona-detail-label">${t('labelOccupation')}</span>${p.occupation}</div>
+        <div><span class="persona-detail-label">${t('labelLifeStage')}</span>${p.life_stage}</div>
+        <div><span class="persona-detail-label">${t('labelIncome')}</span>${p.income}</div>
+        <div><span class="persona-detail-label">${t('labelCoreNeeds')}</span>${p.core_needs}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ============================================================
+// FILTER + SEARCH + SORT + PAGINATION
+// ============================================================
+function setFilter(filter, btn) {
+  currentFilter = filter;
+  currentPage = 1;
+  document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  else document.querySelector(`.filter-tab[onclick*="'${filter}'"]`)?.classList.add('active');
+  applyFilters();
+}
+
+function getFilteredInsights() {
+  let results = allInsights;
+  // Category filter
+  if (currentFilter !== 'all') {
+    results = results.filter(i => i.category === currentFilter);
+  }
+  // Search (within filtered results)
+  const q = document.getElementById('searchBox').value.toLowerCase().trim();
+  if (q) {
+    results = results.filter(item => {
+      const text = [item.title_zh, item.title_en, item.summary_zh, item.summary_en, item.quote_en, ...(item.tags || [])].join(' ').toLowerCase();
+      return text.includes(q);
+    });
+  }
+  // Sort
+  const sort = document.getElementById('sortSelect').value;
+  results = [...results];
+  if (sort === 'date-desc') results.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  else if (sort === 'date-asc') results.sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+  else if (sort === 'category') results.sort((a, b) => (a.category || '').localeCompare(b.category || ''));
+  else if (sort === 'bookmarked') results.sort((a, b) => (bookmarks[b.id] ? 1 : 0) - (bookmarks[a.id] ? 1 : 0));
+  return results;
+}
+
+function applyFilters() {
+  const results = getFilteredInsights();
+  const totalPages = Math.max(1, Math.ceil(results.length / PAGE_SIZE));
+  if (currentPage > totalPages) currentPage = totalPages;
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const pageItems = results.slice(start, start + PAGE_SIZE);
+
+  renderCards(pageItems);
+  renderPagination(results.length, totalPages);
+  document.getElementById('resultCount').textContent = t('resultCount').replace('{count}', results.length);
+}
+
+function renderCards(insights) {
+  const grid = document.getElementById('cardsGrid');
+  if (!insights.length) {
+    grid.innerHTML = `<p style="color:var(--text-muted);text-align:center;padding:40px;">${t('noData')}</p>`;
+    return;
+  }
+  const showZh = currentLang === 'zh' || currentLang === 'both';
+  const showEn = currentLang === 'en' || currentLang === 'both';
+  grid.innerHTML = insights.map(item => {
+    const cat = CATEGORY_MAP[item.category] || CATEGORY_MAP.topic;
+    const src = SOURCE_MAP[item.source_type] || SOURCE_MAP.news;
+    const isBookmarked = bookmarks[item.id];
+    const globalIdx = allInsights.indexOf(item);
+    return `
+    <div class="insight-card" data-category="${item.category}" onclick="showDetail(${globalIdx})">
+      <div class="card-header">
+        <span class="card-category ${cat.class}">${showZh ? cat.zh : cat.en}</span>
+        <div class="card-actions">
+          <button class="bookmark-btn ${isBookmarked ? 'active' : ''}" onclick="event.stopPropagation();toggleBookmark('${item.id}', this)" title="收藏">★</button>
+          <div class="card-source">
+            <span class="source-icon ${src.class}">${src.icon}</span>
+            <span>${src.label}</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-title">${showZh ? item.title_zh : item.title_en}</div>
+      ${showEn && showZh ? `<div class="card-content" style="font-style:italic;color:#7788AA;font-size:12px;margin-bottom:6px;">${item.title_en}</div>` : ''}
+      <div class="card-content">${showZh ? item.summary_zh : item.summary_en}</div>
+      ${showEn && showZh ? `<div class="card-content" style="font-style:italic;color:#6677AA;font-size:11px;">${item.summary_en}</div>` : ''}
+      ${item.quote_en ? `
+        <button class="toggle-original" onclick="event.stopPropagation();toggleOriginal(this)">${t('showQuote')}</button>
+        <div class="card-original">"${item.quote_en}"</div>
+      ` : ''}
+      <div class="card-footer">
+        <div class="card-tags">${(item.tags || []).map(tag => `<span class="card-tag">${tag}</span>`).join('')}</div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span class="card-date">${item.date || ''}</span>
+          ${item.source_url ? `<a class="card-link" href="${item.source_url}" target="_blank" onclick="event.stopPropagation()">${t('viewSource')}</a>` : ''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderPagination(totalItems, totalPages) {
+  const el = document.getElementById('pagination');
+  if (totalPages <= 1) { el.innerHTML = ''; return; }
+  let html = `<button class="page-btn" onclick="goPage(${currentPage - 1})" ${currentPage <= 1 ? 'disabled' : ''}>${t('prev')}</button>`;
+  // Show page numbers intelligently
+  const pages = [];
+  if (totalPages <= 7) {
+    for (let i = 1; i <= totalPages; i++) pages.push(i);
+  } else {
+    pages.push(1);
+    if (currentPage > 3) pages.push('...');
+    for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) pages.push(i);
+    if (currentPage < totalPages - 2) pages.push('...');
+    pages.push(totalPages);
+  }
+  pages.forEach(p => {
+    if (p === '...') html += '<span class="page-info">...</span>';
+    else html += `<button class="page-btn ${p === currentPage ? 'active' : ''}" onclick="goPage(${p})">${p}</button>`;
+  });
+  html += `<button class="page-btn" onclick="goPage(${currentPage + 1})" ${currentPage >= totalPages ? 'disabled' : ''}>${t('next')}</button>`;
+  html += `<span class="page-info">${t('pageInfo').replace('{page}', currentPage).replace('{total}', totalPages).replace('{count}', totalItems)}</span>`;
+  el.innerHTML = html;
+}
+
+function goPage(p) {
+  const totalPages = Math.ceil(getFilteredInsights().length / PAGE_SIZE);
+  if (p < 1 || p > totalPages) return;
+  currentPage = p;
+  applyFilters();
+  document.getElementById('section-insights').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ============================================================
+// FORECAST with confidence scores
+// ============================================================
+function renderForecast(forecasts) {
+  const el = document.getElementById('forecastTimeline');
+  const confidenceLevels = ['high', 'high', 'mid', 'low'];
+  const showZh = currentLang !== 'en';
+  el.innerHTML = forecasts.map((f, i) => {
+    const conf = confidenceLevels[i] || 'mid';
+    const confLabel = t(`confidence${conf.charAt(0).toUpperCase() + conf.slice(1)}`);
+    // Find related insights
+    const keywords = (f.text_zh || '').slice(0, 50).split(/[，、：]/);
+    const related = allInsights.filter(ins =>
+      keywords.some(k => k.length > 2 && (ins.title_zh || '').includes(k.trim().slice(0, 4)))
+    ).slice(0, 3);
+    return `
+    <div class="forecast-item">
+      <div class="forecast-header">
+        <div class="forecast-year">${f.year}</div>
+        <span class="confidence-badge confidence-${conf}">${confLabel}</span>
+      </div>
+      <div class="forecast-text">${showZh ? f.text_zh : (f.text_en || f.text_zh)}</div>
+      ${related.length ? `
+        <div class="forecast-related">
+          <span>${t('relatedInsights')}</span>
+          ${related.map(r => `<a href="#" onclick="event.preventDefault();showDetail(${allInsights.indexOf(r)})">${showZh ? r.title_zh : r.title_en}</a>`).join(' | ')}
+        </div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+// ============================================================
+// BOOKMARKS
+// ============================================================
+function toggleBookmark(id, btn) {
+  if (bookmarks[id]) { delete bookmarks[id]; btn.classList.remove('active'); showToast(t('bookmarkRemove')); }
+  else { bookmarks[id] = true; btn.classList.add('active'); showToast(t('bookmarkAdd')); }
+  localStorage.setItem('na-insights-bookmarks', JSON.stringify(bookmarks));
+  document.getElementById('statBookmarks').textContent = Object.keys(bookmarks).length;
+}
+
+// ============================================================
+// EXPORT CSV
+// ============================================================
+function exportCSV() {
+  const results = getFilteredInsights();
+  const headers = ['ID', 'Category', 'Title (ZH)', 'Title (EN)', 'Summary (ZH)', 'Summary (EN)', 'Quote', 'Source', 'URL', 'Date', 'Tags', 'Bookmarked'];
+  const csvRows = [headers.join(',')];
+  results.forEach(item => {
+    const row = [
+      item.id,
+      item.category,
+      `"${(item.title_zh || '').replace(/"/g, '""')}"`,
+      `"${(item.title_en || '').replace(/"/g, '""')}"`,
+      `"${(item.summary_zh || '').replace(/"/g, '""')}"`,
+      `"${(item.summary_en || '').replace(/"/g, '""')}"`,
+      `"${(item.quote_en || '').replace(/"/g, '""')}"`,
+      item.source_type || '',
+      item.source_url || '',
+      item.date || '',
+      `"${(item.tags || []).join('; ')}"`,
+      bookmarks[item.id] ? 'Yes' : 'No'
+    ];
+    csvRows.push(row.join(','));
+  });
+  const BOM = '\uFEFF';
+  const blob = new Blob([BOM + csvRows.join('\n')], { type: 'text/csv;charset=utf-8;' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = `na-women-insights-${new Date().toISOString().slice(0, 10)}.csv`;
+  link.click();
+  showToast(t('exportSuccess'));
+}
+
+// ============================================================
+// LANGUAGE TOGGLE (no re-fetch!)
+// ============================================================
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  if (lang === 'zh') document.getElementById('btnZh').classList.add('active');
+  else if (lang === 'en') document.getElementById('btnEn').classList.add('active');
+  else document.getElementById('btnBoth').classList.add('active');
+
+  if (allData) {
+    updateI18N();
+    updateStats(allData);
+    renderFilterTabs();
+    renderCharts(allData);
+    renderPersonas(allData.personas || []);
+    renderForecast(allData.forecasts || []);
+    applyFilters();
+  }
+}
+
+// ============================================================
+// SECTION NAVIGATION
+// ============================================================
+function scrollToSection(id, btn) {
+  const el = document.getElementById('section-' + id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+}
+
+// ============================================================
+// COLLAPSE/EXPAND
+// ============================================================
+function toggleCollapse(contentId, btn) {
+  const content = document.getElementById(contentId);
+  const isCollapsed = content.classList.toggle('collapsed');
+  btn.textContent = isCollapsed ? t('expand') : t('collapse');
+}
+
+// ============================================================
+// TOGGLE ORIGINAL TEXT
+// ============================================================
+function toggleOriginal(btn) {
+  const original = btn.nextElementSibling;
+  original.classList.toggle('show');
+  btn.textContent = original.classList.contains('show') ? t('hideQuote') : t('showQuote');
+}
+
+// ============================================================
+// DETAIL MODAL
+// ============================================================
+function showDetail(idx) {
+  const item = allInsights[idx];
+  if (!item) return;
+  const cat = CATEGORY_MAP[item.category] || CATEGORY_MAP.topic;
+  const src = SOURCE_MAP[item.source_type] || SOURCE_MAP.news;
+  const isBookmarked = bookmarks[item.id];
+  document.getElementById('modalContent').innerHTML = `
+    <button class="modal-close" onclick="document.getElementById('modalOverlay').classList.remove('show')">&times;</button>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:15px;">
+      <span class="card-category ${cat.class}">${cat.zh} / ${cat.en}</span>
+      <button class="bookmark-btn ${isBookmarked ? 'active' : ''}" onclick="toggleBookmark('${item.id}', this)" style="font-size:20px;">★</button>
+    </div>
+    <h2 style="margin:0 0 6px;font-size:19px;">${item.title_zh}</h2>
+    <p style="color:var(--text-muted);font-style:italic;margin-bottom:15px;font-size:14px;">${item.title_en}</p>
+    <div style="margin-bottom:15px;line-height:1.8;font-size:14px;">
+      <strong style="color:var(--accent);">${t('zhSummary')}</strong><br>${item.summary_zh}
+    </div>
+    <div style="margin-bottom:15px;line-height:1.8;color:#8899BB;font-size:14px;">
+      <strong style="color:var(--primary-light);">${t('enSummary')}</strong><br>${item.summary_en}
+    </div>
+    ${item.quote_en ? `
+    <div style="background:rgba(255,255,255,0.03);border-left:3px solid var(--primary);padding:14px;border-radius:0 10px 10px 0;margin-bottom:15px;">
+      <strong style="color:var(--warning);font-size:12px;">${t('quoteLabel')}</strong>
+      <p style="color:#AABBCC;font-style:italic;margin-top:6px;line-height:1.7;font-size:13px;">"${item.quote_en}"</p>
+    </div>` : ''}
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:15px;">
+      ${(item.tags || []).map(tag => `<span class="card-tag">${tag}</span>`).join('')}
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--border);">
+      <div style="display:flex;align-items:center;gap:6px;">
+        <span class="source-icon ${src.class}">${src.icon}</span>
+        <span style="color:var(--text-muted);font-size:12px;">${src.label}</span>
+        <span style="color:var(--text-muted);font-size:12px;">${item.date || ''}</span>
+      </div>
+      ${item.source_url ? `<a href="${item.source_url}" target="_blank" style="color:var(--primary-light);font-size:13px;">${t('viewOriginal')}</a>` : ''}
+    </div>`;
+  document.getElementById('modalOverlay').classList.add('show');
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modalOverlay')) {
+    document.getElementById('modalOverlay').classList.remove('show');
+  }
+}
+
+// ============================================================
+// TOAST
+// ============================================================
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2000);
+}
+
+// ============================================================
+// BACK TO TOP
+// ============================================================
+window.addEventListener('scroll', () => {
+  document.getElementById('backToTop').classList.toggle('show', window.scrollY > 500);
+  // Update nav highlight
+  const sections = ['charts', 'personas', 'insights', 'forecasts'];
+  for (let i = sections.length - 1; i >= 0; i--) {
+    const el = document.getElementById('section-' + sections[i]);
+    if (el && el.getBoundingClientRect().top < 200) {
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.nav-btn')[i]?.classList.add('active');
+      break;
+    }
+  }
+});
+
+// Keyboard
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') document.getElementById('modalOverlay').classList.remove('show');
+});
+
+// ============================================================
+// INIT
+// ============================================================
+loadData();
+startAutoRefresh();
+</script>
+</body>
+</html>
