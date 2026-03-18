@@ -568,16 +568,13 @@ def pinterest_post_to_insight(post, category):
 # Quora 数据采集 (公开页面解析)
 # ============================================================
 def fetch_quora_question(query):
-    """通过DuckDuckGo搜索获取女性消费洞察 (Q&A + 编辑内容)
+    """通过Bing搜索获取女性消费洞察 (Q&A + 编辑内容)
 
-    Quora/知乎等直接访问返回403，改为从DDG搜索结果中提取
+    Quora直接访问返回403，从Bing搜索结果中提取
     高质量女性消费相关的Q&A和编辑内容。
-    优先来源: Quora, Reddit, BuzzFeed, HuffPost, Refinery29等
     """
-    # 使用Bing搜索 (需要旧版UA获取服务器端渲染结果)
     bing_url = f"https://www.bing.com/search?q={quote(query + ' women recommendation')}&count=10"
     print(f"  搜索 Q&A: \"{query[:50]}\"...")
-    # 使用IE UA获取传统HTML结果
     headers = {
         "User-Agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)",
         "Accept": "text/html",
@@ -592,61 +589,61 @@ def fetch_quora_question(query):
 
     posts = []
     skip_domains = ["amazon.com", "ebay.com", "walmart.com", "target.com", "reddit.com",
-                    "bing.com", "microsoft.com", "go.microsoft"]
+                    "bing.com", "microsoft.com", "google.com", "youtube.com"]
 
-    # Bing b_algo块: <li class="b_algo" data-id ...> ... </li>
-    result_blocks = re.findall(r'<li class="b_algo"[^>]*>(.*?)</li>', content, re.DOTALL)
+    # Split by b_algo class to get individual results
+    parts = content.split('class="b_algo"')
 
-    for block in result_blocks[:10]:
-        # 提取 <cite> 中的URL (Bing显示的真实URL)
-        cite_match = re.search(r'<cite[^>]*>(.*?)</cite>', block, re.DOTALL)
-        cite_url = ""
-        if cite_match:
-            cite_url = re.sub(r'<[^>]+>', '', cite_match.group(1)).strip()
+    for part in parts[1:11]:  # Skip first split (before first result), take up to 10
+        block = part[:3000]
 
-        # 提取<a>中的href
-        link_match = re.search(r'<a[^>]*href="(https?://[^"]+)"[^>]*>(.*?)</a>', block, re.DOTALL)
-        if not link_match:
+        # Extract URL from h2 > a href
+        href_match = re.search(r'<h2[^>]*>.*?<a[^>]*href="(https?://[^"]+)"', block, re.DOTALL)
+        if not href_match:
+            # Try any first link
+            href_match = re.search(r'href="(https?://(?!r\.bing|www\.bing)[^"]+)"', block)
+        if not href_match:
             continue
-        actual_url = link_match.group(1)
-        title_raw = re.sub(r'<[^>]+>', '', link_match.group(2)).strip()
 
-        # 如果href是Bing redirect, 解码真实URL
+        actual_url = html_module.unescape(href_match.group(1))
+
+        # Resolve Bing redirect URLs - extract real URL from cite tag
         if "bing.com/ck/" in actual_url:
-            import base64
-            u_match = re.search(r'[&?]u=a1([^&]+)', actual_url)
-            if u_match:
-                try:
-                    actual_url = base64.b64decode(u_match.group(1) + "==").decode("utf-8", errors="replace")
-                except Exception:
-                    if cite_url:
-                        actual_url = "https://" + cite_url.split()[0]
-                    else:
-                        continue
+            cite_match = re.search(r'<cite[^>]*>(.*?)</cite>', block, re.DOTALL)
+            if cite_match:
+                cite_text = re.sub(r'<[^>]+>', '', cite_match.group(1)).strip()
+                # cite usually shows the real domain/path
+                if cite_text and '.' in cite_text:
+                    actual_url = "https://" + cite_text.split()[0]
+                else:
+                    continue
+            else:
+                continue
 
-        # 跳过不需要的域名
+        # Skip unwanted domains
         if any(d in actual_url.lower() for d in skip_domains):
             continue
 
-        # 提取摘要 (可能在 <p> 或 <span> 中)
-        snippet = ""
-        snippet_match = re.search(r'<p[^>]*>(.*?)</p>', block, re.DOTALL)
-        if not snippet_match:
-            snippet_match = re.search(r'class="[^"]*caption[^"]*"[^>]*>(.*?)</(?:div|span)', block, re.DOTALL)
-        if snippet_match:
-            snippet = re.sub(r'<[^>]+>', '', snippet_match.group(1)).strip()
+        # Extract title from h2 > a
+        h2_match = re.search(r'<h2[^>]*>.*?<a[^>]*>(.*?)</a>', block, re.DOTALL)
+        title_clean = ""
+        if h2_match:
+            title_clean = html_module.unescape(re.sub(r'<[^>]+>', '', h2_match.group(1))).strip()
 
-        title_clean = html_module.unescape(title_raw)
-        snippet_clean = html_module.unescape(snippet)
+        # Extract snippet from <p>
+        snippet_clean = ""
+        p_match = re.search(r'<p[^>]*>(.*?)</p>', block, re.DOTALL)
+        if p_match:
+            snippet_clean = html_module.unescape(re.sub(r'<[^>]+>', '', p_match.group(1))).strip()
+            # Remove date prefix like "2025年7月22日 · "
+            snippet_clean = re.sub(r'^\d{4}年\d+月\d+日\s*·?\s*', '', snippet_clean)
 
-        # 移除常见后缀
-        for suffix in [" - Quora", " | Quora", " - BuzzFeed", " - HuffPost", " | Refinery29"]:
+        # Remove common suffixes
+        for suffix in [" - Quora", " | Quora", " - BuzzFeed", " - HuffPost", " | Refinery29",
+                       " - Vogue", " - Allure", " - Self", " | Byrdie"]:
             title_clean = title_clean.replace(suffix, "")
 
-        # 跳过空内容
         if not title_clean or len(title_clean) < 10:
-            continue
-        if "won't allow us" in snippet_clean:
             continue
 
         posts.append({
@@ -875,7 +872,7 @@ def deduplicate(insights):
 def run_collection(platforms=None):
     """执行一次完整的数据采集"""
     if platforms is None:
-        platforms = ["reddit", "pinterest", "threads"]  # Quora需要headless browser，默认跳过
+        platforms = ["reddit", "pinterest", "quora", "threads"]
 
     print("=" * 60)
     print(f"北美女性消费者洞察 - 多平台数据采集")
@@ -957,13 +954,27 @@ def run_collection(platforms=None):
         print(f"  [OK]Pinterest: {len(pin_posts)} 条洞察")
 
     # ========== Quora ==========
-    # 注意: Quora严格反爬 (403 + JS渲染)，搜索引擎也无法获取可用内容
-    # 保留代码以备未来API或Selenium方案，当前跳过
     if "quora" in platforms:
         print("\n" + "=" * 40)
-        print("[Quora] 跳过 (Quora严格反爬，需要headless browser)")
-        print("  提示: 如有Quora API key，可扩展此采集器")
+        print("[Quora] 采集开始 (via Bing搜索)...")
         print("=" * 40)
+        quora_posts = []
+
+        for query in QUORA_QUERIES[:8]:
+            posts = fetch_quora_question(query)
+            for p in posts:
+                p["_hints"] = ["pay", "topic"]
+            quora_posts.extend(posts)
+            print(f"    \"{query[:40]}\": {len(posts)} 结果")
+
+        # 分类和转换
+        print(f"\n  分类处理 {len(quora_posts)} 条Quora内容...")
+        for post in quora_posts:
+            hints = post.pop("_hints", None)
+            category = classify_post(post, hints)
+            insight = quora_post_to_insight(post, category)
+            new_insights.append(insight)
+        print(f"  [OK]Quora: {len(quora_posts)} 条洞察")
 
     # ========== Threads ==========
     if "threads" in platforms:
