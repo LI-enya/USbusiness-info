@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-18 15:47",
+  "last_updated": "2026-03-18 15:56",
   "personas": [
     {
       "name": "职场妈妈 Sarah",
@@ -1109,406 +1109,347 @@
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_c90e99b0",
-      "category": "topic",
-      "title_zh": "[专业讨论] 20 Trending Products and Things To Sell Online (2026) - Shopify",
-      "title_en": "20 Trending Products and Things To Sell Online (2026) - Shopify",
-      "summary_zh": "来自Quora专业问答。20 Trending Products and Things To Sell Online (2026) From barrel fit jeans to tallow moisturizer, if you’re looking for popular things to sell in 2026, check out these trending products.",
-      "summary_en": "20 Trending Products and Things To Sell Online (2026) From barrel fit jeans to tallow moisturizer, if you’re looking for popular things to sell in 2026, check out these trending products.",
-      "quote_en": "20 Trending Products and Things To Sell Online (2026) From barrel fit jeans to tallow moisturizer, if you’re looking for popular things to sell in 2026, check out these trending products",
+      "id": "auto_qra_eaa3ca74",
+      "category": "pay",
+      "title_zh": "[消费建议] 27 Skincare Products People Over 30 Heartily Recommend",
+      "title_en": "27 Skincare Products People Over 30 Heartily Recommend",
+      "summary_zh": "来自Quora专业问答。Jan 13, 2025 · 27 Skincare Products People Over 30 Heartily Recommend \"I’ve been into skincare since I was 15; I am 37, and for me to say that this product is a gold mine is rare.\"",
+      "summary_en": "Jan 13, 2025 · 27 Skincare Products People Over 30 Heartily Recommend \"I’ve been into skincare since I was 15; I am 37, and for me to say that this product is a gold mine is rare.\"",
+      "quote_en": "Jan 13, 2025 · 27 Skincare Products People Over 30 Heartily Recommend \"I’ve been into skincare since I was 15; I am 37, and for me to say that this product is a gold mine is rare",
       "source_type": "quora",
-      "source_url": "https://https://www.shopify.com",
+      "source_url": "https://https://www.buzzfeed.com",
+      "tags": [
+        "r/quora/search",
+        "recommend",
+        "Skincare Products"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_a085ad72",
+      "category": "pay",
+      "title_zh": "[消费建议] Beauty Skincare for Your 30s and 40s: Top Brands & Best Products",
+      "title_en": "Beauty Skincare for Your 30s and 40s: Top Brands & Best Products",
+      "summary_zh": "来自Quora专业问答。Discover the best skincare brands and products for women in their 30s and 40s. From hydration to anti-aging, these top skincare picks will nourish, protect, and revitalize your skin for a youthful, …",
+      "summary_en": "Discover the best skincare brands and products for women in their 30s and 40s. From hydration to anti-aging, these top skincare picks will nourish, protect, and revitalize your skin for a youthful, …",
+      "quote_en": "Discover the best skincare brands and products for women in their 30s and 40s",
+      "source_type": "quora",
+      "source_url": "https://https://chiefofstyle.com",
+      "tags": [
+        "r/quora/search",
+        "brand",
+        "Beauty Skincare"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_749aea53",
+      "category": "pay",
+      "title_zh": "[消费建议] Beauty Products Totally Worth the Hype and the Splurge",
+      "title_en": "Beauty Products Totally Worth the Hype and the Splurge",
+      "summary_zh": "来自Quora专业问答。May 1, 2023 · We tested bunches of beauty products to find ones worth the splurge. Here are our favorite face masks, creams, haircare products and more.",
+      "summary_en": "May 1, 2023 · We tested bunches of beauty products to find ones worth the splurge. Here are our favorite face masks, creams, haircare products and more.",
+      "quote_en": "May 1, 2023 · We tested bunches of beauty products to find ones worth the splurge",
+      "source_type": "quora",
+      "source_url": "https://https://www.retailmenot.com",
+      "tags": [
+        "r/quora/search",
+        "splurge",
+        "Beauty Products"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_cf8d201f",
+      "category": "pay",
+      "title_zh": "[消费建议] The Best Makeup Products For Women In Their 30s, 40s, & Beyond",
+      "title_en": "The Best Makeup Products For Women In Their 30s, 40s, & Beyond",
+      "summary_zh": "来自Quora专业问答。Oct 8, 2025 · TZR editors and celebrity makeup artists have narrowed down the essential makeup products every woman over 35 needs in her kit.",
+      "summary_en": "Oct 8, 2025 · TZR editors and celebrity makeup artists have narrowed down the essential makeup products every woman over 35 needs in her kit.",
+      "quote_en": "Oct 8, 2025 · TZR editors and celebrity makeup artists have narrowed down the essential makeup products every woman over 35 needs in her kit",
+      "source_type": "quora",
+      "source_url": "https://https://www.thezoereport.com",
+      "tags": [
+        "r/quora/search",
+        "Best Makeup"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_5364fd72",
+      "category": "topic",
+      "title_zh": "[专业讨论] 35 Trendy Gifts Women in Their 30s Say They Really Want",
+      "title_en": "35 Trendy Gifts Women in Their 30s Say They Really Want",
+      "summary_zh": "来自Quora专业问答。Feb 20, 2026 · While the best gifts for women in their 30s depend on the recipient and where she is in life, we've got plenty of unique gift ideas for her that you can shop.",
+      "summary_en": "Feb 20, 2026 · While the best gifts for women in their 30s depend on the recipient and where she is in life, we've got plenty of unique gift ideas for her that you can shop.",
+      "quote_en": "Feb 20, 2026 · While the best gifts for women in their 30s depend on the recipient and where she is in life, we've got plenty of unique gift ideas for her that you can shop",
+      "source_type": "quora",
+      "source_url": "https://https://www.goodhousekeeping.com",
       "tags": [
         "r/quora/search",
         "trend",
-        "Trending Products"
+        "Trendy Gifts"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_c90e99b0",
-      "category": "topic",
-      "title_zh": "[专业讨论] 13 High-Demand Products With Low Competition - Shopify",
-      "title_en": "13 High-Demand Products With Low Competition - Shopify",
-      "summary_zh": "来自Quora专业问答。Finding products with high demand and low competition might sound too good to be true, but these opportunities do exist. New niches, seasonal moments, and trending categories often …",
-      "summary_en": "Finding products with high demand and low competition might sound too good to be true, but these opportunities do exist. New niches, seasonal moments, and trending categories often …",
-      "quote_en": "Finding products with high demand and low competition might sound too good to be true, but these opportunities do exist",
-      "source_type": "quora",
-      "source_url": "https://https://www.shopify.com",
-      "tags": [
-        "r/quora/search",
-        "trend",
-        "High-Demand Products"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_c90e99b0",
+      "id": "auto_qra_c10fe16d",
       "category": "pay",
-      "title_zh": "[消费建议] What Are Products and Services? Definition and Tips - Shopify",
-      "title_en": "What Are Products and Services? Definition and Tips - Shopify",
-      "summary_zh": "来自Quora专业问答。What are products? Products are digital or tangible items businesses manufacture, store, and sell to fulfill customer needs or desires. They range from necessities like toothpaste and …",
-      "summary_en": "What are products? Products are digital or tangible items businesses manufacture, store, and sell to fulfill customer needs or desires. They range from necessities like toothpaste and …",
-      "quote_en": "Products are digital or tangible items businesses manufacture, store, and sell to fulfill customer needs or desires",
+      "title_zh": "[消费建议] The best anti-aging skin care products of 2026 for women in their 40s ...",
+      "title_en": "The best anti-aging skin care products of 2026 for women in their 40s ...",
+      "summary_zh": "来自Quora专业问答。Nov 13, 2025 · From growth factor serums to retinol creams, we've tested, reviewed and chosen the best skin care products to fight the signs of aging — whatever your age.",
+      "summary_en": "Nov 13, 2025 · From growth factor serums to retinol creams, we've tested, reviewed and chosen the best skin care products to fight the signs of aging — whatever your age.",
+      "quote_en": "Nov 13, 2025 · From growth factor serums to retinol creams, we've tested, reviewed and chosen the best skin care products to fight the signs of aging — whatever your age",
       "source_type": "quora",
-      "source_url": "https://https://www.shopify.com",
+      "source_url": "https://https://shopping.yahoo.com",
       "tags": [
         "r/quora/search",
-        "custom",
-        "Products Services?"
+        "best anti-aging"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_c90e99b0",
+      "id": "auto_qra_0942647e",
       "category": "pay",
-      "title_zh": "[消费建议] Consumer Products Guide For 2026: Types and Examples",
-      "title_en": "Consumer Products Guide For 2026: Types and Examples",
-      "summary_zh": "来自Quora专业问答。Consumer Products Guide For 2026: Types and Examples Discover the essential categories of consumer products and how to leverage them in your business strategy. Updated with …",
-      "summary_en": "Consumer Products Guide For 2026: Types and Examples Discover the essential categories of consumer products and how to leverage them in your business strategy. Updated with …",
-      "quote_en": "Consumer Products Guide For 2026: Types and Examples Discover the essential categories of consumer products and how to leverage them in your business strategy",
+      "title_zh": "[消费建议] Makeup Products That Are Worth – Or Not – Splurging On",
+      "title_en": "Makeup Products That Are Worth – Or Not – Splurging On",
+      "summary_zh": "来自Quora专业问答。Jul 27, 2023 · There are makeup products worth spending money on, and then there are drugstore products that are just as good. Let's have a look.",
+      "summary_en": "Jul 27, 2023 · There are makeup products worth spending money on, and then there are drugstore products that are just as good. Let's have a look.",
+      "quote_en": "Jul 27, 2023 · There are makeup products worth spending money on, and then there are drugstore products that are just as good",
       "source_type": "quora",
-      "source_url": "https://https://www.shopify.com",
+      "source_url": "https://https://sixtyandme.com",
       "tags": [
         "r/quora/search",
-        "Consumer Products"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_c90e99b0",
-      "category": "pay",
-      "title_zh": "[消费建议] Things to Sell Online: 21 Most Demanded Products in India",
-      "title_en": "Things to Sell Online: 21 Most Demanded Products in India",
-      "summary_zh": "来自Quora专业问答。We've updated this post with a list of most demanded products and data for 2021! To succeed in eCommerce, you need three things: in-demand products to sell, the skills to market them, …",
-      "summary_en": "We've updated this post with a list of most demanded products and data for 2021! To succeed in eCommerce, you need three things: in-demand products to sell, the skills to market them, …",
-      "quote_en": "We've updated this post with a list of most demanded products and data for 2021",
-      "source_type": "quora",
-      "source_url": "https://https://www.shopify.com",
-      "tags": [
-        "r/quora/search",
-        "Things Sell"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_c90e99b0",
-      "category": "topic",
-      "title_zh": "[专业讨论] Innovative Products: 34 Examples and Trends (2026) - Shopify",
-      "title_en": "Innovative Products: 34 Examples and Trends (2026) - Shopify",
-      "summary_zh": "来自Quora专业问答。Explore innovative products in health tech, sustainability, AI, and more through 34 standout examples, then learn where to discover opportunities.",
-      "summary_en": "Explore innovative products in health tech, sustainability, AI, and more through 34 standout examples, then learn where to discover opportunities.",
-      "quote_en": "Explore innovative products in health tech, sustainability, AI, and more through 34 standout examples, then learn where to discover opportunities",
-      "source_type": "quora",
-      "source_url": "https://https://www.shopify.com",
-      "tags": [
-        "r/quora/search",
-        "trend",
-        "Innovative Products:"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_c90e99b0",
-      "category": "pay",
-      "title_zh": "[消费建议] 革新的な製品の例28選：イノベーション商品一覧（2026年 ...",
-      "title_en": "革新的な製品の例28選：イノベーション商品一覧（2026年 ...",
-      "summary_zh": "来自Quora专业问答。革新的な製品には、健康管理の方法を変えるデバイスや、環境負荷を抑えた日用品、働き方や暮らしを効率化するデジタルツールなどがあります。本記事では、2026年に注目したい …",
-      "summary_en": "革新的な製品には、健康管理の方法を変えるデバイスや、環境負荷を抑えた日用品、働き方や暮らしを効率化するデジタルツールなどがあります。本記事では、2026年に注目したい …",
-      "quote_en": "革新的な製品には、健康管理の方法を変えるデバイスや、環境負荷を抑えた日用品、働き方や暮らしを効率化するデジタルツールなどがあります。本記事では、2026年に注目したい …",
-      "source_type": "quora",
-      "source_url": "https://https://www.shopify.com",
-      "tags": [
-        "r/quora/search",
-        "革新的な製品の例28選：イノベーション商品一覧（2026年 ..."
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_c90e99b0",
-      "category": "pay",
-      "title_zh": "[消费建议] Browse all of Shopify’s products & features - Shopify Canada",
-      "title_en": "Browse all of Shopify’s products & features - Shopify Canada",
-      "summary_zh": "来自Quora专业问答。Explore all the products and tools that make Shopify the most powerful commerce platform in the world.",
-      "summary_en": "Explore all the products and tools that make Shopify the most powerful commerce platform in the world.",
-      "quote_en": "Explore all the products and tools that make Shopify the most powerful commerce platform in the world",
-      "source_type": "quora",
-      "source_url": "https://https://www.shopify.com",
-      "tags": [
-        "r/quora/search",
-        "Browse all"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_c90e99b0",
-      "category": "pay",
-      "title_zh": "[消费建议] Types of Products: A Guide To Classifications (2025) - Shopify",
-      "title_en": "Types of Products: A Guide To Classifications (2025) - Shopify",
-      "summary_zh": "来自Quora专业问答。Types of Products: A Guide To Classifications (2025) Discover the different types of products in commerce and learn how product classification impacts pricing strategies and buying …",
-      "summary_en": "Types of Products: A Guide To Classifications (2025) Discover the different types of products in commerce and learn how product classification impacts pricing strategies and buying …",
-      "quote_en": "Types of Products: A Guide To Classifications (2025) Discover the different types of products in commerce and learn how product classification impacts pricing strategies and buying …",
-      "source_type": "quora",
-      "source_url": "https://https://www.shopify.com",
-      "tags": [
-        "r/quora/search",
-        "class",
-        "Types Products:"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_585da51d",
-      "category": "pay",
-      "title_zh": "[消费建议] 英语中什么时候用助动词do什么时候用be动词？ - 知乎",
-      "title_en": "英语中什么时候用助动词do什么时候用be动词？ - 知乎",
-      "summary_zh": "来自Quora专业问答。二 . 用 助动词 do 的场合：一般现在时的疑问句，否定句、一般过去时的疑问句，否定句，如： 1.一般现在时的否定式：He doesn't get up early everyday. 一般现在时的疑问句： Does he …",
-      "summary_en": "二 . 用 助动词 do 的场合：一般现在时的疑问句，否定句、一般过去时的疑问句，否定句，如： 1.一般现在时的否定式：He doesn't get up early everyday. 一般现在时的疑问句： Does he …",
-      "quote_en": "用 助动词 do 的场合：一般现在时的疑问句，否定句、一般过去时的疑问句，否定句，如： 1",
-      "source_type": "quora",
-      "source_url": "https://https://www.zhihu.com",
-      "tags": [
-        "r/quora/search",
-        "英语中什么时候用助动词do什么时候用be动词？"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_585da51d",
-      "category": "pay",
-      "title_zh": "[消费建议] 如何评价 Microsoft To-Do（微软待办）？ - 知乎",
-      "title_en": "如何评价 Microsoft To-Do（微软待办）？ - 知乎",
-      "summary_zh": "来自Quora专业问答。Microsoft To-Do 是微软推出的待办事项管理工具，旨在取代 Wunderlist，帮助用户高效管理任务和时间。",
-      "summary_en": "Microsoft To-Do 是微软推出的待办事项管理工具，旨在取代 Wunderlist，帮助用户高效管理任务和时间。",
-      "quote_en": "Microsoft To-Do 是微软推出的待办事项管理工具，旨在取代 Wunderlist，帮助用户高效管理任务和时间。",
-      "source_type": "quora",
-      "source_url": "https://https://www.zhihu.com",
-      "tags": [
-        "r/quora/search",
-        "如何评价 Microsoft"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_2a62c113",
-      "category": "pay",
-      "title_zh": "[消费建议] do\\doing\\done\\does\\did这些分别是do的什么时态，一般现在 ...",
-      "title_en": "do\\doing\\done\\does\\did这些分别是do的什么时态，一般现在 ...",
-      "summary_zh": "来自Quora专业问答。do\\doing\\done\\does\\did这些分别是do的什么时态？ 它们不是什么时态，而是动词的几种基本形式。如do是动词原形，doing是 现在分词，done是 过去分词，did是 过去式。 它们是构成 …",
-      "summary_en": "do\\doing\\done\\does\\did这些分别是do的什么时态？ 它们不是什么时态，而是动词的几种基本形式。如do是动词原形，doing是 现在分词，done是 过去分词，did是 过去式。 它们是构成 …",
-      "quote_en": "do\\doing\\done\\does\\did这些分别是do的什么时态？ 它们不是什么时态，而是动词的几种基本形式。如do是动词原形，doing是 现在分词，done是 过去分词，did是 过去式。 它们是构成 …",
-      "source_type": "quora",
-      "source_url": "https://https://zhidao.baidu.com",
-      "tags": [
-        "r/quora/search",
-        "do\\doing\\done\\does\\did这些分别是do的什么时态，一般现在 ..."
+        "Makeup Products"
       ],
       "date": "2026-03-18"
     },
     {
       "id": "auto_qra_36c8991f",
       "category": "pay",
-      "title_zh": "[消费建议] Osteopathic medicine: What kind of doctor is a D.O.? - Mayo ...",
-      "title_en": "Osteopathic medicine: What kind of doctor is a D.O.? - Mayo ...",
-      "summary_zh": "来自Quora专业问答。You know what M.D. means, but what does D.O. mean? What's different and what's alike between these two kinds of health care providers?",
-      "summary_en": "You know what M.D. means, but what does D.O. mean? What's different and what's alike between these two kinds of health care providers?",
-      "quote_en": "What's different and what's alike between these two kinds of health care providers",
+      "title_zh": "[消费建议] Brain MRI (brain magnetic resonance imaging) - Mayo Clinic",
+      "title_en": "Brain MRI (brain magnetic resonance imaging) - Mayo Clinic",
+      "summary_zh": "来自Quora专业问答。Apr 30, 2025 · Brain MRI is one of the tests you may have to determine the cause of headaches, dizziness, seizures, vision problems or hearing loss. This painless imaging test is used to diagnose a …",
+      "summary_en": "Apr 30, 2025 · Brain MRI is one of the tests you may have to determine the cause of headaches, dizziness, seizures, vision problems or hearing loss. This painless imaging test is used to diagnose a …",
+      "quote_en": "Apr 30, 2025 · Brain MRI is one of the tests you may have to determine the cause of headaches, dizziness, seizures, vision problems or hearing loss",
       "source_type": "quora",
       "source_url": "https://https://www.mayoclinic.org",
       "tags": [
         "r/quora/search",
-        "Osteopathic medicine:"
+        "Brain MRI"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_2a62c113",
+      "id": "auto_qra_36c8991f",
       "category": "pay",
-      "title_zh": "[消费建议] do和does的区别和用法 - 百度知道",
-      "title_en": "do和does的区别和用法 - 百度知道",
-      "summary_zh": "来自Quora专业问答。do和does的区别和用法区别是：do 是动词原形，用于第一人称、第三人称的复数 (I/you/we/they)。does 用于第三人称单数 (he/she/it) does 用于第三人称单数。do用于一般现在时且 …",
-      "summary_en": "do和does的区别和用法区别是：do 是动词原形，用于第一人称、第三人称的复数 (I/you/we/they)。does 用于第三人称单数 (he/she/it) does 用于第三人称单数。do用于一般现在时且 …",
-      "quote_en": "do和does的区别和用法区别是：do 是动词原形，用于第一人称、第三人称的复数 (I/you/we/they)。does 用于第三人称单数 (he/she/it) does 用于第三人称单数。do用于一般现在时且 …",
+      "title_zh": "[消费建议] Ileostomy - Mayo Clinic",
+      "title_en": "Ileostomy - Mayo Clinic",
+      "summary_zh": "来自Quora专业问答。May 2, 2025 · Can I swim? How do I shower? Do I need to buy different clothes? How will it affect my intimate life? Once you adjust, you'll likely find that it's possible to do many of the same activi",
+      "summary_en": "May 2, 2025 · Can I swim? How do I shower? Do I need to buy different clothes? How will it affect my intimate life? Once you adjust, you'll likely find that it's possible to do many of the same activities you …",
+      "quote_en": "Do I need to buy different clothes",
       "source_type": "quora",
-      "source_url": "https://https://zhidao.baidu.com",
+      "source_url": "https://https://www.mayoclinic.org",
       "tags": [
         "r/quora/search",
-        "do和does的区别和用法 百度知道"
+        "Ileostomy Mayo"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_585da51d",
+      "id": "auto_qra_36c8991f",
       "category": "pay",
-      "title_zh": "[消费建议] 英语如何区分 to do 和 doing？动词后接 to do 还是 doing？",
-      "title_en": "英语如何区分 to do 和 doing？动词后接 to do 还是 doing？",
-      "summary_zh": "来自Quora专业问答。动词四态 上图中从左到右，动词生命的三过程分别为： 出生 —— to do （不定态） 存续 —— doing （进行态 ） 死亡 —— done （完成态） 好了，现在你已经知道了 to do 和 doing是怎么来的了。 二、to …",
-      "summary_en": "动词四态 上图中从左到右，动词生命的三过程分别为： 出生 —— to do （不定态） 存续 —— doing （进行态 ） 死亡 —— done （完成态） 好了，现在你已经知道了 to do 和 doing是怎么来的了。 二、to …",
-      "quote_en": "动词四态 上图中从左到右，动词生命的三过程分别为： 出生 —— to do （不定态） 存续 —— doing （进行态 ） 死亡 —— done （完成态） 好了，现在你已经知道了 to do 和 doing是怎么来的了。 二、to …",
+      "title_zh": "[消费建议] Statin side effects: Weigh the benefits and risks - Mayo Clinic",
+      "title_en": "Statin side effects: Weigh the benefits and risks - Mayo Clinic",
+      "summary_zh": "来自Quora专业问答。Jul 21, 2025 · Statins lower cholesterol and protect against heart attack and stroke. But they may lead to side effects in some people.",
+      "summary_en": "Jul 21, 2025 · Statins lower cholesterol and protect against heart attack and stroke. But they may lead to side effects in some people.",
+      "quote_en": "Jul 21, 2025 · Statins lower cholesterol and protect against heart attack and stroke",
       "source_type": "quora",
-      "source_url": "https://https://www.zhihu.com",
+      "source_url": "https://https://www.mayoclinic.org",
       "tags": [
         "r/quora/search",
-        "英语如何区分 doing？动词后接"
+        "Statin side"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_585da51d",
+      "id": "auto_qra_36c8991f",
       "category": "pay",
-      "title_zh": "[消费建议] 助动词be 跟do的区别？ - 知乎",
-      "title_en": "助动词be 跟do的区别？ - 知乎",
-      "summary_zh": "来自Quora专业问答。Does he like animals? Did Jim come to school? 强调句： I do know it. 我确实知道。 He did make it. 他的确做到了。 【be动词】 1. be分两种： 1) 助动词be： 用于和实意动词一起，构成 …",
-      "summary_en": "Does he like animals? Did Jim come to school? 强调句： I do know it. 我确实知道。 He did make it. 他的确做到了。 【be动词】 1. be分两种： 1) 助动词be： 用于和实意动词一起，构成 …",
-      "quote_en": "be分两种： 1) 助动词be： 用于和实意动词一起，构成 …",
+      "title_zh": "[消费建议] Hydronephrosis - Diagnosis and treatment - Mayo Clinic",
+      "title_en": "Hydronephrosis - Diagnosis and treatment - Mayo Clinic",
+      "summary_zh": "来自Quora专业问答。Nov 6, 2024 · Diagnosis Diagnosis involves the steps that your healthcare team takes to find out if hydronephrosis is the cause of your symptoms. Your healthcare professional starts by asking you …",
+      "summary_en": "Nov 6, 2024 · Diagnosis Diagnosis involves the steps that your healthcare team takes to find out if hydronephrosis is the cause of your symptoms. Your healthcare professional starts by asking you …",
+      "quote_en": "Nov 6, 2024 · Diagnosis Diagnosis involves the steps that your healthcare team takes to find out if hydronephrosis is the cause of your symptoms",
       "source_type": "quora",
-      "source_url": "https://https://www.zhihu.com",
+      "source_url": "https://https://www.mayoclinic.org",
       "tags": [
         "r/quora/search",
-        "助动词be 跟do的区别？"
+        "Hydronephrosis Diagnosis"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_2a62c113",
+      "id": "auto_qra_36c8991f",
       "category": "pay",
-      "title_zh": "[消费建议] do does did 分别在什么时候用.有什么区别_百度知道",
-      "title_en": "do does did 分别在什么时候用.有什么区别_百度知道",
-      "summary_zh": "来自Quora专业问答。do does did 分别在什么时候用.有什么区别1、do,does和did都是助动词，do和does一般用于现在时。2、do是原形用于第一人称或第二人称，表示一般动作或是习惯性动作。3、does则 …",
-      "summary_en": "do does did 分别在什么时候用.有什么区别1、do,does和did都是助动词，do和does一般用于现在时。2、do是原形用于第一人称或第二人称，表示一般动作或是习惯性动作。3、does则 …",
-      "quote_en": "有什么区别1、do,does和did都是助动词，do和does一般用于现在时。2、do是原形用于第一人称或第二人称，表示一般动作或是习惯性动作。3、does则 …",
+      "title_zh": "[消费建议] Fatty liver disease (MASLD) - Symptoms and causes - Mayo Clinic",
+      "title_en": "Fatty liver disease (MASLD) - Symptoms and causes - Mayo Clinic",
+      "summary_zh": "来自Quora专业问答。Compared with a healthy liver (top), a fatty liver (bottom) appears bigger and discolored. Tissue samples show extra fat in fatty liver disease, while inflammation and advanced scarring are seen in me",
+      "summary_en": "Compared with a healthy liver (top), a fatty liver (bottom) appears bigger and discolored. Tissue samples show extra fat in fatty liver disease, while inflammation and advanced scarring are seen in metabolic …",
+      "quote_en": "Compared with a healthy liver (top), a fatty liver (bottom) appears bigger and discolored",
       "source_type": "quora",
-      "source_url": "https://https://zhidao.baidu.com",
+      "source_url": "https://https://www.mayoclinic.org",
       "tags": [
         "r/quora/search",
-        "does did"
+        "Fatty liver"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_585da51d",
+      "id": "auto_qra_36c8991f",
       "category": "pay",
-      "title_zh": "[消费建议] for、while、do while三种循环的流程图画法总结（附案例）",
-      "title_en": "for、while、do while三种循环的流程图画法总结（附案例）",
-      "summary_zh": "来自Quora专业问答。do while循环 循环执行步骤： 第一，先进行循环控制变量初始化（在do while之前）； 第二，执行循环体； 第三，执行循环控制变量增量； 第四，判断循环终止条件，如果判断结果为 …",
-      "summary_en": "do while循环 循环执行步骤： 第一，先进行循环控制变量初始化（在do while之前）； 第二，执行循环体； 第三，执行循环控制变量增量； 第四，判断循环终止条件，如果判断结果为 …",
-      "quote_en": "do while循环 循环执行步骤： 第一，先进行循环控制变量初始化（在do while之前）； 第二，执行循环体； 第三，执行循环控制变量增量； 第四，判断循环终止条件，如果判断结果为 …",
+      "title_zh": "[消费建议] Potty training: How to get the job done - Mayo Clinic",
+      "title_en": "Potty training: How to get the job done - Mayo Clinic",
+      "summary_zh": "来自Quora专业问答。Nov 7, 2024 · Your guide on how to teach your child to use the toilet, including when to start and what to do.",
+      "summary_en": "Nov 7, 2024 · Your guide on how to teach your child to use the toilet, including when to start and what to do.",
+      "quote_en": "Nov 7, 2024 · Your guide on how to teach your child to use the toilet, including when to start and what to do",
       "source_type": "quora",
-      "source_url": "https://https://www.zhihu.com",
+      "source_url": "https://https://www.mayoclinic.org",
       "tags": [
         "r/quora/search",
-        "for、while、do while三种循环的流程图画法总结（附案例）"
+        "Potty training:"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_36c8991f",
+      "category": "pay",
+      "title_zh": "[消费建议] A guide to basic stretches - Mayo Clinic",
+      "title_en": "A guide to basic stretches - Mayo Clinic",
+      "summary_zh": "来自Quora专业问答。Jun 18, 2024 · Before stretching, warm up with 5 to 10 minutes of light activity. It's usually best to stretch after a workout. Keep stretches gentle and slow. Don't bounce. Breathe through your stret",
+      "summary_en": "Jun 18, 2024 · Before stretching, warm up with 5 to 10 minutes of light activity. It's usually best to stretch after a workout. Keep stretches gentle and slow. Don't bounce. Breathe through your stretches. If …",
+      "quote_en": "It's usually best to stretch after a workout",
+      "source_type": "quora",
+      "source_url": "https://https://www.mayoclinic.org",
+      "tags": [
+        "r/quora/search",
+        "workout",
+        "guide basic"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_36c8991f",
+      "category": "pay",
+      "title_zh": "[消费建议] How well do face masks protect against COVID-19? - Mayo Clinic",
+      "title_en": "How well do face masks protect against COVID-19? - Mayo Clinic",
+      "summary_zh": "来自Quora专业问答。Oct 29, 2025 · Face masks can help slow the spread of coronavirus disease 2019 (COVID-19). Learn about mask types, which masks to use and how to use them.",
+      "summary_en": "Oct 29, 2025 · Face masks can help slow the spread of coronavirus disease 2019 (COVID-19). Learn about mask types, which masks to use and how to use them.",
+      "quote_en": "Oct 29, 2025 · Face masks can help slow the spread of coronavirus disease 2019 (COVID-19)",
+      "source_type": "quora",
+      "source_url": "https://https://www.mayoclinic.org",
+      "tags": [
+        "r/quora/search",
+        "well face"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_36c8991f",
+      "category": "pay",
+      "title_zh": "[消费建议] Urinary tract infection (UTI) - Symptoms and causes - Mayo Clinic",
+      "title_en": "Urinary tract infection (UTI) - Symptoms and causes - Mayo Clinic",
+      "summary_zh": "来自Quora专业问答。Learn about symptoms of urinary tract infections. Find out what causes UTIs, how infections are treated and ways to prevent repeat UTIs.",
+      "summary_en": "Learn about symptoms of urinary tract infections. Find out what causes UTIs, how infections are treated and ways to prevent repeat UTIs.",
+      "quote_en": "Learn about symptoms of urinary tract infections",
+      "source_type": "quora",
+      "source_url": "https://https://www.mayoclinic.org",
+      "tags": [
+        "r/quora/search",
+        "vent",
+        "Urinary tract"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_6c17706e",
+      "category": "pay",
+      "title_zh": "[消费建议] Bubble Skincare | Bubble | Face The Day",
+      "title_en": "Bubble Skincare | Bubble | Face The Day",
+      "summary_zh": "来自Quora专业问答。Extremely Effective, Research-backed Formulations that won't Irritate Skin. Fragrance Free always. Cruelty Free, Vegan and Dermatologist Tested. Affordable, science-backed skincare formulated …",
+      "summary_en": "Extremely Effective, Research-backed Formulations that won't Irritate Skin. Fragrance Free always. Cruelty Free, Vegan and Dermatologist Tested. Affordable, science-backed skincare formulated …",
+      "quote_en": "Extremely Effective, Research-backed Formulations that won't Irritate Skin",
+      "source_type": "quora",
+      "source_url": "https://https://hellobubble.com",
+      "tags": [
+        "r/quora/search",
+        "affordable",
+        "Bubble Skincare"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_ca10af2a",
+      "category": "pay",
+      "title_zh": "[消费建议] Skincare Products | Ulta Beauty",
+      "title_en": "Skincare Products | Ulta Beauty",
+      "summary_zh": "来自Quora专业问答。Find recommended skincare products from top brands to add to your skincare routine.",
+      "summary_en": "Find recommended skincare products from top brands to add to your skincare routine.",
+      "quote_en": "Find recommended skincare products from top brands to add to your skincare routine",
+      "source_type": "quora",
+      "source_url": "https://https://www.ulta.com",
+      "tags": [
+        "r/quora/search",
+        "recommend",
+        "brand",
+        "Skincare Products"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_d0afafc2",
+      "category": "pay",
+      "title_zh": "[消费建议] 29 Best Skincare Products 2026, According To Dermatologist",
+      "title_en": "29 Best Skincare Products 2026, According To Dermatologist",
+      "summary_zh": "来自Quora专业问答。Mar 4, 2026 · Skincare products consist of serums, moisturizers, cleansers, sunscreen, treatments, toners, and exfoliators among others. These products are used in daily skincare health routines …",
+      "summary_en": "Mar 4, 2026 · Skincare products consist of serums, moisturizers, cleansers, sunscreen, treatments, toners, and exfoliators among others. These products are used in daily skincare health routines …",
+      "quote_en": "Mar 4, 2026 · Skincare products consist of serums, moisturizers, cleansers, sunscreen, treatments, toners, and exfoliators among others",
+      "source_type": "quora",
+      "source_url": "https://https://www.consumerhealthdigest.com",
+      "tags": [
+        "r/quora/search",
+        "Best Skincare"
       ],
       "date": "2026-03-18"
     },
     {
       "id": "auto_qra_7abc5a3b",
       "category": "topic",
-      "title_zh": "[专业讨论] 2026 Skincare Trends Forecast: The Year of Inner Calm ...",
-      "title_en": "2026 Skincare Trends Forecast: The Year of Inner Calm ...",
-      "summary_zh": "来自Quora专业问答。Explore the newest trends in skincare this year, from AI skin analysis building custom skincare routines to facial massages & sustainable products to use.",
-      "summary_en": "Explore the newest trends in skincare this year, from AI skin analysis building custom skincare routines to facial massages & sustainable products to use.",
-      "quote_en": "Explore the newest trends in skincare this year, from AI skin analysis building custom skincare routines to facial massages & sustainable products to use",
+      "title_zh": "[专业讨论] Skincare Tips, Guides, Trends & Reviews | Skincare.com",
+      "title_en": "Skincare Tips, Guides, Trends & Reviews | Skincare.com",
+      "summary_zh": "来自Quora专业问答。Discover science-backed skincare guidance, personalized product picks, and expert tips designed to make every routine feel effortless and glow a little brighter.",
+      "summary_en": "Discover science-backed skincare guidance, personalized product picks, and expert tips designed to make every routine feel effortless and glow a little brighter.",
+      "quote_en": "Discover science-backed skincare guidance, personalized product picks, and expert tips designed to make every routine feel effortless and glow a little brighter",
       "source_type": "quora",
       "source_url": "https://https://www.skincare.com",
       "tags": [
         "r/quora/search",
         "trend",
-        "custom",
-        "2026 Skincare"
+        "dance",
+        "personalized",
+        "Skincare Tips,"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_7abc5a3b",
+      "id": "auto_qra_18e458a7",
       "category": "pay",
-      "title_zh": "[消费建议] How To Get Dewy Skin: 7 Tips For A Natural Glow",
-      "title_en": "How To Get Dewy Skin: 7 Tips For A Natural Glow",
-      "summary_zh": "来自Quora专业问答。Dewy skin is hydrated, smooth, and naturally radiant—never greasy. Learn how to get the glow with seven skincare tips, exfoliation, and a glow-boosting regimen.",
-      "summary_en": "Dewy skin is hydrated, smooth, and naturally radiant—never greasy. Learn how to get the glow with seven skincare tips, exfoliation, and a glow-boosting regimen.",
-      "quote_en": "Dewy skin is hydrated, smooth, and naturally radiant—never greasy",
+      "title_zh": "[消费建议] 38 Best Skin Care Products of 2025, According to Our Editors | Vogue",
+      "title_en": "38 Best Skin Care Products of 2025, According to Our Editors | Vogue",
+      "summary_zh": "来自Quora专业问答。Oct 3, 2025 · Expect to find everything from hydrating peptide serums and replenishing face masks to rich creams to combat dryness and rejuvenating beauty tools —all suited to a wide range of skin …",
+      "summary_en": "Oct 3, 2025 · Expect to find everything from hydrating peptide serums and replenishing face masks to rich creams to combat dryness and rejuvenating beauty tools —all suited to a wide range of skin …",
+      "quote_en": "Oct 3, 2025 · Expect to find everything from hydrating peptide serums and replenishing face masks to rich creams to combat dryness and rejuvenating beauty tools —all suited to a wide range of skin …",
       "source_type": "quora",
-      "source_url": "https://https://www.skincare.com",
-      "tags": [
-        "r/quora/search",
-        "Get Dewy"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_7abc5a3b",
-      "category": "pay",
-      "title_zh": "[消费建议] Skin Detox: What It Really Means and How To Do It Right",
-      "title_en": "Skin Detox: What It Really Means and How To Do It Right",
-      "summary_zh": "来自Quora专业问答。Detoxing skin doesn’t require foregoing skincare products altogether; it’s about focusing on a few, effective steps that can help support your skin’s needs. Start with a gentle yet …",
-      "summary_en": "Detoxing skin doesn’t require foregoing skincare products altogether; it’s about focusing on a few, effective steps that can help support your skin’s needs. Start with a gentle yet …",
-      "quote_en": "Detoxing skin doesn’t require foregoing skincare products altogether; it’s about focusing on a few, effective steps that can help support your skin’s needs",
-      "source_type": "quora",
-      "source_url": "https://https://www.skincare.com",
-      "tags": [
-        "r/quora/search",
-        "Skin Detox:"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_7abc5a3b",
-      "category": "pay",
-      "title_zh": "[消费建议] Latest Articles | Skincare.com powered by L'Oréal",
-      "title_en": "Latest Articles | Skincare.com powered by L'Oréal",
-      "summary_zh": "来自Quora专业问答。Learn more about the article category Latest Articles on the Skincare.com website.",
-      "summary_en": "Learn more about the article category Latest Articles on the Skincare.com website.",
-      "quote_en": "Learn more about the article category Latest Articles on the Skincare",
-      "source_type": "quora",
-      "source_url": "https://https://www.skincare.com",
-      "tags": [
-        "r/quora/search",
-        "Latest Articles"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_7abc5a3b",
-      "category": "pay",
-      "title_zh": "[消费建议] 10 of The Best Face Moisturizers For Dry Skin to Try in 2025",
-      "title_en": "10 of The Best Face Moisturizers For Dry Skin to Try in 2025",
-      "summary_zh": "来自Quora专业问答。Slathering on moisturizer isn’t just a daily skincare step, it’s a necessity for anyone with dry skin. The best face moisturizers for dry skin do more than just provide a quick fix—they help …",
-      "summary_en": "Slathering on moisturizer isn’t just a daily skincare step, it’s a necessity for anyone with dry skin. The best face moisturizers for dry skin do more than just provide a quick fix—they help …",
-      "quote_en": "The best face moisturizers for dry skin do more than just provide a quick fix—they help …",
-      "source_type": "quora",
-      "source_url": "https://https://www.skincare.com",
-      "tags": [
-        "r/quora/search",
-        "Best Face"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_7abc5a3b",
-      "category": "pay",
-      "title_zh": "[消费建议] Skin Care Advice | Skincare.com powered by L'Oréal",
-      "title_en": "Skin Care Advice | Skincare.com powered by L'Oréal",
-      "summary_zh": "来自Quora专业问答。Learn more about the article category Skin Care Advice on the Skincare.com website.",
-      "summary_en": "Learn more about the article category Skin Care Advice on the Skincare.com website.",
-      "quote_en": "Learn more about the article category Skin Care Advice on the Skincare",
-      "source_type": "quora",
-      "source_url": "https://https://www.skincare.com",
-      "tags": [
-        "r/quora/search",
-        "Skin Care"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_7abc5a3b",
-      "category": "pay",
-      "title_zh": "[消费建议] The Best Skin Care Routine & Products For Your Age ...",
-      "title_en": "The Best Skin Care Routine & Products For Your Age ...",
-      "summary_zh": "来自Quora专业问答。The Best Skin Care Routine & Products For Your Age | Skincare.com | Skincare.com",
-      "summary_en": "The Best Skin Care Routine & Products For Your Age | Skincare.com | Skincare.com",
-      "quote_en": "The Best Skin Care Routine & Products For Your Age | Skincare",
-      "source_type": "quora",
-      "source_url": "https://https://www.skincare.com",
+      "source_url": "https://https://www.vogue.com",
       "tags": [
         "r/quora/search",
         "Best Skin"
@@ -1516,478 +1457,440 @@
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_7abc5a3b",
+      "id": "auto_qra_543bd188",
       "category": "pay",
-      "title_zh": "[消费建议] 10 Best-Selling Kiehl’s Products of All Time | Skincare.com",
-      "title_en": "10 Best-Selling Kiehl’s Products of All Time | Skincare.com",
-      "summary_zh": "来自Quora专业问答。Today, the brand remains a dermatologist-favorite skincare brand, with thousands of five-star reviews and products that have stood the test of time. To celebrate some of Kiehl’s most …",
-      "summary_en": "Today, the brand remains a dermatologist-favorite skincare brand, with thousands of five-star reviews and products that have stood the test of time. To celebrate some of Kiehl’s most …",
-      "quote_en": "Today, the brand remains a dermatologist-favorite skincare brand, with thousands of five-star reviews and products that have stood the test of time",
+      "title_zh": "[消费建议] The Best Skincare Products of 2025 - The Dermatology Review",
+      "title_en": "The Best Skincare Products of 2025 - The Dermatology Review",
+      "summary_zh": "来自Quora专业问答。Here’s a look at the best skincare products of 2025. Our top picks address a multitude of common skin issues, such as dry skin, oily skin or anti-aging concerns. We’ve also included a wide range of pr",
+      "summary_en": "Here’s a look at the best skincare products of 2025. Our top picks address a multitude of common skin issues, such as dry skin, oily skin or anti-aging concerns. We’ve also included a wide range of prices, …",
+      "quote_en": "Here’s a look at the best skincare products of 2025",
       "source_type": "quora",
-      "source_url": "https://https://www.skincare.com",
+      "source_url": "https://https://thedermreview.com",
+      "tags": [
+        "r/quora/search",
+        "Best Skincare"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_5d75d3d2",
+      "category": "pay",
+      "title_zh": "[消费建议] The 14 Best Skincare Brands of 2026, Hands Down - Dermstore",
+      "title_en": "The 14 Best Skincare Brands of 2026, Hands Down - Dermstore",
+      "summary_zh": "来自Quora专业问答。It's almost 2025, and it's high time to elevate your skincare routine. Shop the best skincare brands at the forefront of luxury, medical-grade skincare.",
+      "summary_en": "It's almost 2025, and it's high time to elevate your skincare routine. Shop the best skincare brands at the forefront of luxury, medical-grade skincare.",
+      "quote_en": "Shop the best skincare brands at the forefront of luxury, medical-grade skincare",
+      "source_type": "quora",
+      "source_url": "https://https://www.dermstore.com",
       "tags": [
         "r/quora/search",
         "brand",
-        "Best-Selling Kiehl’s"
+        "Best Skincare"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_7abc5a3b",
+      "id": "auto_qra_c525b4e5",
       "category": "pay",
-      "title_zh": "[消费建议] The CeraVe Products to Use at Night | Skincare.com",
-      "title_en": "The CeraVe Products to Use at Night | Skincare.com",
-      "summary_zh": "来自Quora专业问答。While most of the ceramide-packed products in the expansive range can be used at any time of the day, there are certain formulas that Skincare.com editors specifically love to use in …",
-      "summary_en": "While most of the ceramide-packed products in the expansive range can be used at any time of the day, there are certain formulas that Skincare.com editors specifically love to use in …",
-      "quote_en": "While most of the ceramide-packed products in the expansive range can be used at any time of the day, there are certain formulas that Skincare",
+      "title_zh": "[消费建议] Skin Care | Wirecutter",
+      "title_en": "Skin Care | Wirecutter",
+      "summary_zh": "来自Quora专业问答。5 days ago · Whether you’re looking to start a basic skin-care routine or trying to make sense of confusing ingredients and overhyped promises, we’re here to help. Our experts have spent hundreds …",
+      "summary_en": "5 days ago · Whether you’re looking to start a basic skin-care routine or trying to make sense of confusing ingredients and overhyped promises, we’re here to help. Our experts have spent hundreds …",
+      "quote_en": "5 days ago · Whether you’re looking to start a basic skin-care routine or trying to make sense of confusing ingredients and overhyped promises, we’re here to help",
       "source_type": "quora",
-      "source_url": "https://https://www.skincare.com",
+      "source_url": "https://https://www.nytimes.com",
       "tags": [
         "r/quora/search",
-        "CeraVe Products"
+        "Skin Care"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_683b8284",
+      "id": "auto_qra_5690300e",
       "category": "pay",
-      "title_zh": "[消费建议] 俺じゃなきゃ見逃しちゃうねの元ネタを教えてください - HUN ...",
-      "title_en": "俺じゃなきゃ見逃しちゃうねの元ネタを教えてください - HUN ...",
-      "summary_zh": "来自Quora专业问答。俺じゃなきゃ見逃しちゃうねの元ネタを教えてください HUNTER×HUNTER iPhoneのクイックスタートができず困っています。 先程iPhone12からiPhone15に変えてクイックスタートしようと思っ …",
-      "summary_en": "俺じゃなきゃ見逃しちゃうねの元ネタを教えてください HUNTER×HUNTER iPhoneのクイックスタートができず困っています。 先程iPhone12からiPhone15に変えてクイックスタートしようと思っ …",
-      "quote_en": "俺じゃなきゃ見逃しちゃうねの元ネタを教えてください HUNTER×HUNTER iPhoneのクイックスタートができず困っています。 先程iPhone12からiPhone15に変えてクイックスタートしようと思っ …",
+      "title_zh": "[消费建议] View and manage your subscriptions on Xbox | Xbox Support",
+      "title_en": "View and manage your subscriptions on Xbox | Xbox Support",
+      "summary_zh": "来自Quora专业问答。Get info on how to sign up for, extend, or check the latest offers on subscriptions on your Xbox console.",
+      "summary_en": "Get info on how to sign up for, extend, or check the latest offers on subscriptions on your Xbox console.",
+      "quote_en": "Get info on how to sign up for, extend, or check the latest offers on subscriptions on your Xbox console",
       "source_type": "quora",
-      "source_url": "https://https://detail.chiebukuro.yahoo.co.jp",
+      "source_url": "https://https://support.xbox.com",
       "tags": [
         "r/quora/search",
-        "俺じゃなきゃ見逃しちゃうねの元ネタを教えてください HUN"
+        "subscription",
+        "View manage"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_683b8284",
+      "id": "auto_qra_5690300e",
       "category": "pay",
-      "title_zh": "[消费建议] ハンターハンターの「おそろしく速い手刀オレでなきゃ見逃し ...",
-      "title_en": "ハンターハンターの「おそろしく速い手刀オレでなきゃ見逃し ...",
-      "summary_zh": "来自Quora专业问答。ハンターハンターの「おそろしく速い手刀オレでなきゃ見逃しちゃうね」の人って 読者からはネタキャラ扱いされてますが普通に強いし有能ですよね？・クラピカにシルバとゼノに対 …",
-      "summary_en": "ハンターハンターの「おそろしく速い手刀オレでなきゃ見逃しちゃうね」の人って 読者からはネタキャラ扱いされてますが普通に強いし有能ですよね？・クラピカにシルバとゼノに対 …",
-      "quote_en": "ハンターハンターの「おそろしく速い手刀オレでなきゃ見逃しちゃうね」の人って 読者からはネタキャラ扱いされてますが普通に強いし有能ですよね？・クラピカにシルバとゼノに対 …",
+      "title_zh": "[消费建议] Subscriptions & billing | Xbox Support",
+      "title_en": "Subscriptions & billing | Xbox Support",
+      "summary_zh": "来自Quora专业问答。Get more information about managing your Xbox subscriptions, issues with billing, and more.",
+      "summary_en": "Get more information about managing your Xbox subscriptions, issues with billing, and more.",
+      "quote_en": "Get more information about managing your Xbox subscriptions, issues with billing, and more",
       "source_type": "quora",
-      "source_url": "https://https://detail.chiebukuro.yahoo.co.jp",
+      "source_url": "https://https://support.xbox.com",
       "tags": [
         "r/quora/search",
-        "ハンターハンターの「おそろしく速い手刀オレでなきゃ見逃し ..."
+        "subscription",
+        "Subscriptions billing"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_683b8284",
+      "id": "auto_qra_5690300e",
       "category": "pay",
-      "title_zh": "[消费建议] 『俺じゃなきゃ見逃しちゃうね』の上手い返しってなんすか ...",
-      "title_en": "『俺じゃなきゃ見逃しちゃうね』の上手い返しってなんすか ...",
-      "summary_zh": "来自Quora专业问答。Radwimpsを歌えるようになりたいです。 大学1年の男です。いつかボーカルでRADWIMPSをしたいです。 とりあえず歌えるようになりたい曲は、ラストバージンで、「終わり …",
-      "summary_en": "Radwimpsを歌えるようになりたいです。 大学1年の男です。いつかボーカルでRADWIMPSをしたいです。 とりあえず歌えるようになりたい曲は、ラストバージンで、「終わり …",
-      "quote_en": "Radwimpsを歌えるようになりたいです。 大学1年の男です。いつかボーカルでRADWIMPSをしたいです。 とりあえず歌えるようになりたい曲は、ラストバージンで、「終わり …",
+      "title_zh": "[消费建议] Purchasing an Xbox subscription | Xbox Support",
+      "title_en": "Purchasing an Xbox subscription | Xbox Support",
+      "summary_zh": "来自Quora专业问答。Learn how to purchase Game Pass subscription on an Xbox console or a Windows device.",
+      "summary_en": "Learn how to purchase Game Pass subscription on an Xbox console or a Windows device.",
+      "quote_en": "Learn how to purchase Game Pass subscription on an Xbox console or a Windows device",
       "source_type": "quora",
-      "source_url": "https://https://detail.chiebukuro.yahoo.co.jp",
+      "source_url": "https://https://support.xbox.com",
       "tags": [
         "r/quora/search",
-        "『俺じゃなきゃ見逃しちゃうね』の上手い返しってなんすか ..."
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_683b8284",
-      "category": "pay",
-      "title_zh": "[消费建议] 鬼舞辻無惨が浅草鬼を作った引っ掻き攻撃と、クロロの ...",
-      "title_en": "鬼舞辻無惨が浅草鬼を作った引っ掻き攻撃と、クロロの ...",
-      "summary_zh": "来自Quora专业问答。鬼舞辻無惨が浅草鬼を作った引っ掻き攻撃と、クロロの恐ろしく速い手刀-俺でなきゃ見逃しちゃうね-はどちらが速いでしょうか？鬼滅の刃HUNTER×HUNTER クロロも到底全力 …",
-      "summary_en": "鬼舞辻無惨が浅草鬼を作った引っ掻き攻撃と、クロロの恐ろしく速い手刀-俺でなきゃ見逃しちゃうね-はどちらが速いでしょうか？鬼滅の刃HUNTER×HUNTER クロロも到底全力 …",
-      "quote_en": "鬼舞辻無惨が浅草鬼を作った引っ掻き攻撃と、クロロの恐ろしく速い手刀-俺でなきゃ見逃しちゃうね-はどちらが速いでしょうか？鬼滅の刃HUNTER×HUNTER クロロも到底全力 …",
-      "source_type": "quora",
-      "source_url": "https://https://detail.chiebukuro.yahoo.co.jp",
-      "tags": [
-        "r/quora/search",
-        "鬼舞辻無惨が浅草鬼を作った引っ掻き攻撃と、クロロの ..."
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_683b8284",
-      "category": "pay",
-      "title_zh": "[消费建议] 恐ろしく速い手刀、俺でなきゃ見逃しちゃうね… っていう ...",
-      "title_en": "恐ろしく速い手刀、俺でなきゃ見逃しちゃうね… っていう ...",
-      "summary_zh": "来自Quora专业问答。恐ろしく速い手刀、俺でなきゃ見逃しちゃうね… っていうハンターハンター(?)の名言があるらしいですが、この名言の素晴らしさを説明して欲しいです自分、ハンターハンター読まな …",
-      "summary_en": "恐ろしく速い手刀、俺でなきゃ見逃しちゃうね… っていうハンターハンター(?)の名言があるらしいですが、この名言の素晴らしさを説明して欲しいです自分、ハンターハンター読まな …",
-      "quote_en": "恐ろしく速い手刀、俺でなきゃ見逃しちゃうね… っていうハンターハンター(",
-      "source_type": "quora",
-      "source_url": "https://https://detail.chiebukuro.yahoo.co.jp",
-      "tags": [
-        "r/quora/search",
-        "恐ろしく速い手刀、俺でなきゃ見逃しちゃうね… っていう"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_683b8284",
-      "category": "pay",
-      "title_zh": "[消费建议] 英訳してください！ - 恐ろしく速い手刀、俺じゃなきゃ見逃し ...",
-      "title_en": "英訳してください！ - 恐ろしく速い手刀、俺じゃなきゃ見逃し ...",
-      "summary_zh": "来自Quora专业问答。英訳してください！ 恐ろしく速い手刀、俺じゃなきゃ見逃しちゃうね。気になって朝も起きれません。お願いします。 ハンターハンター？Extremelyfastknifehand …",
-      "summary_en": "英訳してください！ 恐ろしく速い手刀、俺じゃなきゃ見逃しちゃうね。気になって朝も起きれません。お願いします。 ハンターハンター？Extremelyfastknifehand …",
-      "quote_en": "英訳してください！ 恐ろしく速い手刀、俺じゃなきゃ見逃しちゃうね。気になって朝も起きれません。お願いします。 ハンターハンター？Extremelyfastknifehand …",
-      "source_type": "quora",
-      "source_url": "https://https://detail.chiebukuro.yahoo.co.jp",
-      "tags": [
-        "r/quora/search",
-        "英訳してください！ 恐ろしく速い手刀、俺じゃなきゃ見逃し"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_683b8284",
-      "category": "pay",
-      "title_zh": "[消费建议] ハンターハンターの恐ろしく早い手刀、俺でなきゃ見逃し ...",
-      "title_en": "ハンターハンターの恐ろしく早い手刀、俺でなきゃ見逃し ...",
-      "summary_zh": "来自Quora专业问答。ハンターハンターの恐ろしく早い手刀、俺でなきゃ見逃しちゃうねの人はなんであんなに人気あるのですか？ コミック | アニメ ・ 349 閲覧 1人 が共感しています 知恵コレ",
-      "summary_en": "ハンターハンターの恐ろしく早い手刀、俺でなきゃ見逃しちゃうねの人はなんであんなに人気あるのですか？ コミック | アニメ ・ 349 閲覧 1人 が共感しています 知恵コレ",
-      "quote_en": "ハンターハンターの恐ろしく早い手刀、俺でなきゃ見逃しちゃうねの人はなんであんなに人気あるのですか？ コミック | アニメ ・ 349 閲覧 1人 が共感しています 知恵コレ",
-      "source_type": "quora",
-      "source_url": "https://https://detail.chiebukuro.yahoo.co.jp",
-      "tags": [
-        "r/quora/search",
-        "ハンターハンターの恐ろしく早い手刀、俺でなきゃ見逃し ..."
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_683b8284",
-      "category": "pay",
-      "title_zh": "[消费建议] ハンターハンター「オレでなきゃ見逃しちゃうね」のセリフは ...",
-      "title_en": "ハンターハンター「オレでなきゃ見逃しちゃうね」のセリフは ...",
-      "summary_zh": "来自Quora专业问答。最近の話であれば多分M-1で「オレでなきゃ見逃しちゃうね」という台詞を使ったから。 博多大吉「高齢者に気を使わなくていい」の深い背景。 M-1で人気漫画のセリフが伝わらな …",
-      "summary_en": "最近の話であれば多分M-1で「オレでなきゃ見逃しちゃうね」という台詞を使ったから。 博多大吉「高齢者に気を使わなくていい」の深い背景。 M-1で人気漫画のセリフが伝わらな …",
-      "quote_en": "最近の話であれば多分M-1で「オレでなきゃ見逃しちゃうね」という台詞を使ったから。 博多大吉「高齢者に気を使わなくていい」の深い背景。 M-1で人気漫画のセリフが伝わらな …",
-      "source_type": "quora",
-      "source_url": "https://https://detail.chiebukuro.yahoo.co.jp",
-      "tags": [
-        "r/quora/search",
-        "ハンターハンター「オレでなきゃ見逃しちゃうね」のセリフは ..."
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_683b8284",
-      "category": "pay",
-      "title_zh": "[消费建议] 「恐ろしく速い手刀 俺でなきゃ見逃しちゃうね」 これって ...",
-      "title_en": "「恐ろしく速い手刀 俺でなきゃ見逃しちゃうね」 これって ...",
-      "summary_zh": "来自Quora专业问答。「恐ろしく速い手刀俺でなきゃ見逃しちゃうね」 これってクロロの手刀を撮っているカメラの方が凄くないですか？ 操作 ...",
-      "summary_en": "「恐ろしく速い手刀俺でなきゃ見逃しちゃうね」 これってクロロの手刀を撮っているカメラの方が凄くないですか？ 操作 ...",
-      "quote_en": "「恐ろしく速い手刀俺でなきゃ見逃しちゃうね」 これってクロロの手刀を撮っているカメラの方が凄くないですか？ 操作",
-      "source_type": "quora",
-      "source_url": "https://https://detail.chiebukuro.yahoo.co.jp",
-      "tags": [
-        "r/quora/search",
-        "「恐ろしく速い手刀 俺でなきゃ見逃しちゃうね」"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_2a62c113",
-      "category": "pay",
-      "title_zh": "[消费建议] 遵循什么原则向境外合作方提供国家秘密 - 百度知道",
-      "title_en": "遵循什么原则向境外合作方提供国家秘密 - 百度知道",
-      "summary_zh": "来自Quora专业问答。向境外合作方提供国家秘密，需遵循合理、合法、适度、对等的原则，同时还要做到以下几点： 从国家整体利益出发权衡利弊：在对外交往合作中，要全面考量提供国家秘密可能带来的 …",
-      "summary_en": "向境外合作方提供国家秘密，需遵循合理、合法、适度、对等的原则，同时还要做到以下几点： 从国家整体利益出发权衡利弊：在对外交往合作中，要全面考量提供国家秘密可能带来的 …",
-      "quote_en": "向境外合作方提供国家秘密，需遵循合理、合法、适度、对等的原则，同时还要做到以下几点： 从国家整体利益出发权衡利弊：在对外交往合作中，要全面考量提供国家秘密可能带来的 …",
-      "source_type": "quora",
-      "source_url": "https://https://zhidao.baidu.com",
-      "tags": [
-        "r/quora/search",
-        "遵循什么原则向境外合作方提供国家秘密 百度知道"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_2a62c113",
-      "category": "pay",
-      "title_zh": "[消费建议] 下列做法不符合秘密保密管理要求的是 - 百度知道",
-      "title_en": "下列做法不符合秘密保密管理要求的是 - 百度知道",
-      "summary_zh": "来自Quora专业问答。不符合秘密保密管理要求的行为包括以下方面： 载体管理违规：非法获取、持有国家秘密载体；买卖、转送或者私自销毁国家秘密载体；通过普通邮政、快递等无保密措施的渠道传递国家 …",
-      "summary_en": "不符合秘密保密管理要求的行为包括以下方面： 载体管理违规：非法获取、持有国家秘密载体；买卖、转送或者私自销毁国家秘密载体；通过普通邮政、快递等无保密措施的渠道传递国家 …",
-      "quote_en": "不符合秘密保密管理要求的行为包括以下方面： 载体管理违规：非法获取、持有国家秘密载体；买卖、转送或者私自销毁国家秘密载体；通过普通邮政、快递等无保密措施的渠道传递国家 …",
-      "source_type": "quora",
-      "source_url": "https://https://zhidao.baidu.com",
-      "tags": [
-        "r/quora/search",
-        "下列做法不符合秘密保密管理要求的是 百度知道"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_2a62c113",
-      "category": "pay",
-      "title_zh": "[消费建议] open day是什么意思？_百度知道",
-      "title_en": "open day是什么意思？_百度知道",
-      "summary_zh": "来自Quora专业问答。open day意思是开放日，接待日。 open的英式读法是 ['əʊpən]；美式读法是 ['oʊpən]。 作形容词意思有开着的；开放的；公开的。作动词意思有打开；张开；展开；摊开；开始 (某事物)；开张；营业； …",
-      "summary_en": "open day意思是开放日，接待日。 open的英式读法是 ['əʊpən]；美式读法是 ['oʊpən]。 作形容词意思有开着的；开放的；公开的。作动词意思有打开；张开；展开；摊开；开始 (某事物)；开张；营业； …",
-      "quote_en": "open day意思是开放日，接待日。 open的英式读法是 ['əʊpən]；美式读法是 ['oʊpən]。 作形容词意思有开着的；开放的；公开的。作动词意思有打开；张开；展开；摊开；开始 (某事物)；开张；营业； …",
-      "source_type": "quora",
-      "source_url": "https://https://zhidao.baidu.com",
-      "tags": [
-        "r/quora/search",
-        "open day是什么意思？_百度知道"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_2a62c113",
-      "category": "pay",
-      "title_zh": "[消费建议] Saint Catherine's Day 是什么节日 - 百度知道",
-      "title_en": "Saint Catherine's Day 是什么节日 - 百度知道",
-      "summary_zh": "来自Quora专业问答。Saint Catherine&#39;s Day 是什么节日你好这位朋友，圣凯瑟琳日是爱沙尼亚的传统节日。每年11月25日，爱沙尼亚人都会庆祝，这个节日也标志着爱沙尼亚冬天的来临。 St. …",
-      "summary_en": "Saint Catherine&#39;s Day 是什么节日你好这位朋友，圣凯瑟琳日是爱沙尼亚的传统节日。每年11月25日，爱沙尼亚人都会庆祝，这个节日也标志着爱沙尼亚冬天的来临。 St. …",
-      "quote_en": "Saint Catherine&#39;s Day 是什么节日你好这位朋友，圣凯瑟琳日是爱沙尼亚的传统节日。每年11月25日，爱沙尼亚人都会庆祝，这个节日也标志着爱沙尼亚冬天的来临。 St",
-      "source_type": "quora",
-      "source_url": "https://https://zhidao.baidu.com",
-      "tags": [
-        "r/quora/search",
-        "Saint Catherine's"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_2a62c113",
-      "category": "pay",
-      "title_zh": "[消费建议] 真心话100道犀利问题 真心话100个问题刺激又比较狠_百度知道",
-      "title_en": "真心话100道犀利问题 真心话100个问题刺激又比较狠_百度知道",
-      "summary_zh": "来自Quora专业问答。真心话100道犀利问题 真心话100个问题刺激又比较狠不管是同学聚会还是同事聚会大多都会玩一种游戏它就是真心话，所以今天小编来分享真心话100道犀利刺激的问题，欢迎阅读收藏 …",
-      "summary_en": "真心话100道犀利问题 真心话100个问题刺激又比较狠不管是同学聚会还是同事聚会大多都会玩一种游戏它就是真心话，所以今天小编来分享真心话100道犀利刺激的问题，欢迎阅读收藏 …",
-      "quote_en": "真心话100道犀利问题 真心话100个问题刺激又比较狠不管是同学聚会还是同事聚会大多都会玩一种游戏它就是真心话，所以今天小编来分享真心话100道犀利刺激的问题，欢迎阅读收藏 …",
-      "source_type": "quora",
-      "source_url": "https://https://zhidao.baidu.com",
-      "tags": [
-        "r/quora/search",
-        "真心话100道犀利问题 真心话100个问题刺激又比较狠_百度知道"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_2a62c113",
-      "category": "pay",
-      "title_zh": "[消费建议] 凡人修仙传动漫一共多少集 - 百度知道",
-      "title_en": "凡人修仙传动漫一共多少集 - 百度知道",
-      "summary_zh": "来自Quora专业问答。凡人修仙传动漫目前共拍了60集。以下是具体分集情况： 第1季《凡人风起天南》：全17话。 特别篇《燕家堡之战》：4话。 第2季及后续：从第二季开始为年番，目前更新到了第四季。 …",
-      "summary_en": "凡人修仙传动漫目前共拍了60集。以下是具体分集情况： 第1季《凡人风起天南》：全17话。 特别篇《燕家堡之战》：4话。 第2季及后续：从第二季开始为年番，目前更新到了第四季。 …",
-      "quote_en": "凡人修仙传动漫目前共拍了60集。以下是具体分集情况： 第1季《凡人风起天南》：全17话。 特别篇《燕家堡之战》：4话。 第2季及后续：从第二季开始为年番，目前更新到了第四季。 …",
-      "source_type": "quora",
-      "source_url": "https://https://zhidao.baidu.com",
-      "tags": [
-        "r/quora/search",
-        "凡人修仙传动漫一共多少集 百度知道"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_2a62c113",
-      "category": "pay",
-      "title_zh": "[消费建议] 英语的1~12月的缩写是什么？_百度知道",
-      "title_en": "英语的1~12月的缩写是什么？_百度知道",
-      "summary_zh": "来自Quora专业问答。1~12月的英文简写分别是：Jan、Feb、Mar、Apr 、May、Jun、Jul、Aug、Sept、Oct、Nov、Dec。 我们常常能够看到日历上就会有英文的简写，因此学会相关的英文简写，我们能够在看日历的时候就不 …",
-      "summary_en": "1~12月的英文简写分别是：Jan、Feb、Mar、Apr 、May、Jun、Jul、Aug、Sept、Oct、Nov、Dec。 我们常常能够看到日历上就会有英文的简写，因此学会相关的英文简写，我们能够在看日历的时候就不 …",
-      "quote_en": "1~12月的英文简写分别是：Jan、Feb、Mar、Apr 、May、Jun、Jul、Aug、Sept、Oct、Nov、Dec。 我们常常能够看到日历上就会有英文的简写，因此学会相关的英文简写，我们能够在看日历的时候就不 …",
-      "source_type": "quora",
-      "source_url": "https://https://zhidao.baidu.com",
-      "tags": [
-        "r/quora/search"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_2a62c113",
-      "category": "pay",
-      "title_zh": "[消费建议] 圆通快递快递单号查询YT 4074001096045_百度知道",
-      "title_en": "圆通快递快递单号查询YT 4074001096045_百度知道",
-      "summary_zh": "来自Quora专业问答。圆通快递快递单号查询YT 4074001096045去支付宝可以自己查询，还可以随时查看物流，支付宝首页我的快递，点进去，输入单号和快递公司，就可以查看了，很方便的",
-      "summary_en": "圆通快递快递单号查询YT 4074001096045去支付宝可以自己查询，还可以随时查看物流，支付宝首页我的快递，点进去，输入单号和快递公司，就可以查看了，很方便的",
-      "quote_en": "圆通快递快递单号查询YT 4074001096045去支付宝可以自己查询，还可以随时查看物流，支付宝首页我的快递，点进去，输入单号和快递公司，就可以查看了，很方便的",
-      "source_type": "quora",
-      "source_url": "https://https://zhidao.baidu.com",
-      "tags": [
-        "r/quora/search",
-        "圆通快递快递单号查询YT 4074001096045_百度知道"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_2a62c113",
-      "category": "pay",
-      "title_zh": "[消费建议] 上海身份证中的区号是多少？_百度知道",
-      "title_en": "上海身份证中的区号是多少？_百度知道",
-      "summary_zh": "来自Quora专业问答。上海各区行政代码：黄浦区310101，徐汇区310104，长宁区310105，静安区310106，普陀区310107，虹口区310109，杨浦区310110，浦东新区310115，闵行区310112，宝山区310113 嘉定 …",
-      "summary_en": "上海各区行政代码：黄浦区310101，徐汇区310104，长宁区310105，静安区310106，普陀区310107，虹口区310109，杨浦区310110，浦东新区310115，闵行区310112，宝山区310113 嘉定 …",
-      "quote_en": "上海各区行政代码：黄浦区310101，徐汇区310104，长宁区310105，静安区310106，普陀区310107，虹口区310109，杨浦区310110，浦东新区310115，闵行区310112，宝山区310113 嘉定 …",
-      "source_type": "quora",
-      "source_url": "https://https://zhidao.baidu.com",
-      "tags": [
-        "r/quora/search"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_2a62c113",
-      "category": "pay",
-      "title_zh": "[消费建议] bilibili官网入口（b站网页版入口地址）_百度知道",
-      "title_en": "bilibili官网入口（b站网页版入口地址）_百度知道",
-      "summary_zh": "来自Quora专业问答。b站（哔哩哔哩）网页版官网入口为： https://www.bilibili.com。用户可通过电脑或手机浏览器直接访问该地址，无需下载APP即可享受视频观看、弹幕互动、内容搜索等服务。以下为详细 …",
-      "summary_en": "b站（哔哩哔哩）网页版官网入口为： https://www.bilibili.com。用户可通过电脑或手机浏览器直接访问该地址，无需下载APP即可享受视频观看、弹幕互动、内容搜索等服务。以下为详细 …",
-      "quote_en": "com。用户可通过电脑或手机浏览器直接访问该地址，无需下载APP即可享受视频观看、弹幕互动、内容搜索等服务。以下为详细 …",
-      "source_type": "quora",
-      "source_url": "https://https://zhidao.baidu.com",
-      "tags": [
-        "r/quora/search"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_2a62c113",
-      "category": "pay",
-      "title_zh": "[消费建议] 哔哩哔哩官网电脑版入口网址 - 百度知道",
-      "title_en": "哔哩哔哩官网电脑版入口网址 - 百度知道",
-      "summary_zh": "来自Quora专业问答。B站还有一个特色功能，即“弹幕”系统，允许用户在观看视频的同时发送实时评论，这些评论会以弹幕的形式悬浮在视频上方，为观众提供了一种独特的交互体验。 B站的电脑版网址是其主要的访问入口，用 …",
-      "summary_en": "B站还有一个特色功能，即“弹幕”系统，允许用户在观看视频的同时发送实时评论，这些评论会以弹幕的形式悬浮在视频上方，为观众提供了一种独特的交互体验。 B站的电脑版网址是其主要的访问入口，用 …",
-      "quote_en": "B站还有一个特色功能，即“弹幕”系统，允许用户在观看视频的同时发送实时评论，这些评论会以弹幕的形式悬浮在视频上方，为观众提供了一种独特的交互体验。 B站的电脑版网址是其主要的访问入口，用 …",
-      "source_type": "quora",
-      "source_url": "https://https://zhidao.baidu.com",
-      "tags": [
-        "r/quora/search",
-        "哔哩哔哩官网电脑版入口网址 百度知道"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_2a62c113",
-      "category": "pay",
-      "title_zh": "[消费建议] 哔哩哔哩b站官网入口 bilibili网站主页进入_百度知道",
-      "title_en": "哔哩哔哩b站官网入口 bilibili网站主页进入_百度知道",
-      "summary_zh": "来自Quora专业问答。哔哩哔哩b站官网入口 bilibili网站主页进入哔哩哔哩（B站）官网入口为：https://www.bilibili.com/，用户可通过该链接直接进入平台主页。 以下从平台内容生态、观看与交 …",
-      "summary_en": "哔哩哔哩b站官网入口 bilibili网站主页进入哔哩哔哩（B站）官网入口为：https://www.bilibili.com/，用户可通过该链接直接进入平台主页。 以下从平台内容生态、观看与交 …",
-      "quote_en": "哔哩哔哩b站官网入口 bilibili网站主页进入哔哩哔哩（B站）官网入口为：https://www",
-      "source_type": "quora",
-      "source_url": "https://https://zhidao.baidu.com",
-      "tags": [
-        "r/quora/search",
-        "哔哩哔哩b站官网入口 bilibili网站主页进入_百度知道"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_2a62c113",
-      "category": "pay",
-      "title_zh": "[消费建议] b站官网是什么？ - 百度知道",
-      "title_en": "b站官网是什么？ - 百度知道",
-      "summary_zh": "来自Quora专业问答。B站的网址是： https://www.bilibili.com。 B站，全称为哔哩哔哩，是一个知名的视频分享平台。这个平台成立于2009年，为国内及海外用户提供丰富多样的视频内容，包括动画、漫画、 …",
-      "summary_en": "B站的网址是： https://www.bilibili.com。 B站，全称为哔哩哔哩，是一个知名的视频分享平台。这个平台成立于2009年，为国内及海外用户提供丰富多样的视频内容，包括动画、漫画、 …",
-      "quote_en": "com。 B站，全称为哔哩哔哩，是一个知名的视频分享平台。这个平台成立于2009年，为国内及海外用户提供丰富多样的视频内容，包括动画、漫画、 …",
-      "source_type": "quora",
-      "source_url": "https://https://zhidao.baidu.com",
-      "tags": [
-        "r/quora/search",
-        "b站官网是什么？ 百度知道"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_2a62c113",
-      "category": "pay",
-      "title_zh": "[消费建议] 百度官方网址 - 百度知道",
-      "title_en": "百度官方网址 - 百度知道",
-      "summary_zh": "来自Quora专业问答。文暄生活科普 2024-05-18 · 百度认证:宜昌文暄生活服务科技官方账号",
-      "summary_en": "文暄生活科普 2024-05-18 · 百度认证:宜昌文暄生活服务科技官方账号",
-      "quote_en": "文暄生活科普 2024-05-18 · 百度认证:宜昌文暄生活服务科技官方账号",
-      "source_type": "quora",
-      "source_url": "https://https://zhidao.baidu.com",
-      "tags": [
-        "r/quora/search",
-        "百度官方网址 百度知道"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_585da51d",
-      "category": "pay",
-      "title_zh": "[消费建议] b站充电专属怎么免费看? - 知乎",
-      "title_en": "b站充电专属怎么免费看? - 知乎",
-      "summary_zh": "来自Quora专业问答。B站 的 充电专属 视频是一点意思也没有，没有更多的擦边，更没有直接的暴露，这个充电，就是用来让粉丝支持爱豆的，说人话就是赚粉丝钱。 你一个外人，不想给爱豆付钱，那就没有必要想办法免费 …",
-      "summary_en": "B站 的 充电专属 视频是一点意思也没有，没有更多的擦边，更没有直接的暴露，这个充电，就是用来让粉丝支持爱豆的，说人话就是赚粉丝钱。 你一个外人，不想给爱豆付钱，那就没有必要想办法免费 …",
-      "quote_en": "B站 的 充电专属 视频是一点意思也没有，没有更多的擦边，更没有直接的暴露，这个充电，就是用来让粉丝支持爱豆的，说人话就是赚粉丝钱。 你一个外人，不想给爱豆付钱，那就没有必要想办法免费 …",
-      "source_type": "quora",
-      "source_url": "https://https://www.zhihu.com",
-      "tags": [
-        "r/quora/search",
-        "b站充电专属怎么免费看?"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_585da51d",
-      "category": "pay",
-      "title_zh": "[消费建议] B站大会员、超级会员怎么买划算？‌",
-      "title_en": "B站大会员、超级会员怎么买划算？‌",
-      "summary_zh": "来自Quora专业问答。第三方平台价格 ‌大会员‌：在第三方平台，如淘宝、京东的一些卡商店铺，经常会有优惠活动，如年卡可能低至88元，季卡和月卡也有相应折扣。 ‌超级会员‌：同样，在第三方平台购买超级会员也能享受到比 …",
-      "summary_en": "第三方平台价格 ‌大会员‌：在第三方平台，如淘宝、京东的一些卡商店铺，经常会有优惠活动，如年卡可能低至88元，季卡和月卡也有相应折扣。 ‌超级会员‌：同样，在第三方平台购买超级会员也能享受到比 …",
-      "quote_en": "第三方平台价格 ‌大会员‌：在第三方平台，如淘宝、京东的一些卡商店铺，经常会有优惠活动，如年卡可能低至88元，季卡和月卡也有相应折扣。 ‌超级会员‌：同样，在第三方平台购买超级会员也能享受到比 …",
-      "source_type": "quora",
-      "source_url": "https://https://www.zhihu.com",
-      "tags": [
-        "r/quora/search"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_585da51d",
-      "category": "pay",
-      "title_zh": "[消费建议] 如何评价B站2025年百大UP主名单？",
-      "title_en": "如何评价B站2025年百大UP主名单？",
-      "summary_zh": "来自Quora专业问答。如何评价B站2025年百大UP主名单？ 2025百大UP主查看全部信息 个人整理的全部获奖名单，含各种单项奖，包括官宣短评供参考： https://b23.tv/5Pl6K1X 显示全部 关注者 499",
-      "summary_en": "如何评价B站2025年百大UP主名单？ 2025百大UP主查看全部信息 个人整理的全部获奖名单，含各种单项奖，包括官宣短评供参考： https://b23.tv/5Pl6K1X 显示全部 关注者 499",
-      "quote_en": "如何评价B站2025年百大UP主名单？ 2025百大UP主查看全部信息 个人整理的全部获奖名单，含各种单项奖，包括官宣短评供参考： https://b23",
-      "source_type": "quora",
-      "source_url": "https://https://www.zhihu.com",
-      "tags": [
-        "r/quora/search"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_2a62c113",
-      "category": "pay",
-      "title_zh": "[消费建议] byrut.rog怎么进入 俄罗斯游戏网站byrut进入方法最新_百度知道",
-      "title_en": "byrut.rog怎么进入 俄罗斯游戏网站byrut进入方法最新_百度知道",
-      "summary_zh": "来自Quora专业问答。byrut.rog怎么进入 俄罗斯游戏网站byrut进入方法最新俄罗斯游戏网站byrut的进入方法如下：一、直接访问网站网址：https://byrut.org ...",
-      "summary_en": "byrut.rog怎么进入 俄罗斯游戏网站byrut进入方法最新俄罗斯游戏网站byrut的进入方法如下：一、直接访问网站网址：https://byrut.org ...",
-      "quote_en": "rog怎么进入 俄罗斯游戏网站byrut进入方法最新俄罗斯游戏网站byrut的进入方法如下：一、直接访问网站网址：https://byrut",
-      "source_type": "quora",
-      "source_url": "https://https://zhidao.baidu.com",
-      "tags": [
-        "r/quora/search",
-        "byrut.rog怎么进入 俄罗斯游戏网站byrut进入方法最新_百度知道"
+        "subscription",
+        "Purchasing Xbox"
       ],
       "date": "2026-03-18"
     },
     {
       "id": "auto_qra_1d57da12",
       "category": "pay",
-      "title_zh": "[消费建议] What is the 'new' keyword in JavaScript? - Stack Overflow",
-      "title_en": "What is the 'new' keyword in JavaScript? - Stack Overflow",
-      "summary_zh": "来自Quora专业问答。The new keyword in JavaScript can be quite confusing when it is first encountered, as people tend to think that JavaScript is not an object-oriented programming language. What is it? What problems ...",
-      "summary_en": "The new keyword in JavaScript can be quite confusing when it is first encountered, as people tend to think that JavaScript is not an object-oriented programming language. What is it? What problems ...",
-      "quote_en": "The new keyword in JavaScript can be quite confusing when it is first encountered, as people tend to think that JavaScript is not an object-oriented programming language",
+      "title_zh": "[消费建议] What is the purpose of the `self` parameter? Why is it needed?",
+      "title_en": "What is the purpose of the `self` parameter? Why is it needed?",
+      "summary_zh": "来自Quora专业问答。For a language-agnostic consideration of the design decision, see What is the advantage of having this/self pointer mandatory explicit?. To close debugging questions where OP omitted a self …",
+      "summary_en": "For a language-agnostic consideration of the design decision, see What is the advantage of having this/self pointer mandatory explicit?. To close debugging questions where OP omitted a self …",
+      "quote_en": "For a language-agnostic consideration of the design decision, see What is the advantage of having this/self pointer mandatory explicit",
       "source_type": "quora",
       "source_url": "https://https://stackoverflow.com",
       "tags": [
         "r/quora/search",
-        "'new' keyword"
+        "purpose `self`"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_cd85ddc6",
+      "category": "pay",
+      "title_zh": "[消费建议] ¿Para qué sirve Self y This en PHP? - Stack Overflow en español",
+      "title_en": "¿Para qué sirve Self y This en PHP? - Stack Overflow en español",
+      "summary_zh": "来自Quora专业问答。Jan 10, 2018 · quería saber el uso de estos dos y sus diferencias. He visto que tienen un uso parecido, pero lo que he visto no explican realmente cuál es mejor usar y por qué.",
+      "summary_en": "Jan 10, 2018 · quería saber el uso de estos dos y sus diferencias. He visto que tienen un uso parecido, pero lo que he visto no explican realmente cuál es mejor usar y por qué.",
+      "quote_en": "Jan 10, 2018 · quería saber el uso de estos dos y sus diferencias",
+      "source_type": "quora",
+      "source_url": "https://https://es.stackoverflow.com",
+      "tags": [
+        "r/quora/search",
+        "¿Para qué"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_1d57da12",
+      "category": "pay",
+      "title_zh": "[消费建议] What does \"\\\\.self\" actually do in Swift/SwiftUI? - Stack Overflow",
+      "title_en": "What does \"\\\\.self\" actually do in Swift/SwiftUI? - Stack Overflow",
+      "summary_zh": "来自Quora专业问答。Jul 4, 2020 · id: \\.self tells Swift to use as unique id (keypath) the hash of the object. It explains why the name \"self\" is used. id: \\.self is especially useful for the basic Swift types like Integ",
+      "summary_en": "Jul 4, 2020 · id: \\.self tells Swift to use as unique id (keypath) the hash of the object. It explains why the name \"self\" is used. id: \\.self is especially useful for the basic Swift types like Integer and String. On …",
+      "quote_en": "self tells Swift to use as unique id (keypath) the hash of the object",
+      "source_type": "quora",
+      "source_url": "https://https://stackoverflow.com",
+      "tags": [
+        "r/quora/search",
+        "does \"\\\\.self\""
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_aaebe296",
+      "category": "pay",
+      "title_zh": "[消费建议] Для чего в python нужен self? - Stack Overflow на русском",
+      "title_en": "Для чего в python нужен self? - Stack Overflow на русском",
+      "summary_zh": "来自Quora专业问答。Mar 22, 2020 · Ребят, кто может нормально объяснить для чего в языке python нужен self? Уже несколько статей перечитала и все никак не могу понять. Буду крайне благодарна...",
+      "summary_en": "Mar 22, 2020 · Ребят, кто может нормально объяснить для чего в языке python нужен self? Уже несколько статей перечитала и все никак не могу понять. Буду крайне благодарна...",
+      "quote_en": "Mar 22, 2020 · Ребят, кто может нормально объяснить для чего в языке python нужен self",
+      "source_type": "quora",
+      "source_url": "https://https://ru.stackoverflow.com",
+      "tags": [
+        "r/quora/search",
+        "Для чего"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_1d57da12",
+      "category": "pay",
+      "title_zh": "[消费建议] dotnet publish --self-contained -> running the app still asks for .net ...",
+      "title_en": "dotnet publish --self-contained -> running the app still asks for .net ...",
+      "summary_zh": "来自Quora专业问答。Nov 1, 2022 · As the subject suggests, even if publishing with &quot;--self-contained true&quot; (and with a specific -r option), the runtime still asks for missing .net installation. I've now studied",
+      "summary_en": "Nov 1, 2022 · As the subject suggests, even if publishing with &quot;--self-contained true&quot; (and with a specific -r option), the runtime still asks for missing .net installation. I've now studied the subjec...",
+      "quote_en": "Nov 1, 2022 · As the subject suggests, even if publishing with &quot;--self-contained true&quot; (and with a specific -r option), the runtime still asks for missing",
+      "source_type": "quora",
+      "source_url": "https://https://stackoverflow.com",
+      "tags": [
+        "r/quora/search",
+        "running",
+        "dotnet publish"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_1d57da12",
+      "category": "pay",
+      "title_zh": "[消费建议] css - Flexbox: flex-start/flex-end, self-start/self-end, and start/end ...",
+      "title_en": "css - Flexbox: flex-start/flex-end, self-start/self-end, and start/end ...",
+      "summary_zh": "来自Quora专业问答。Jun 19, 2018 · self-start and self-end align flex items at the start or end of the direction text flows in the writing mode of the individual flex item. This means they’re generally only needed if you",
+      "summary_en": "Jun 19, 2018 · self-start and self-end align flex items at the start or end of the direction text flows in the writing mode of the individual flex item. This means they’re generally only needed if you are mixing …",
+      "quote_en": "Jun 19, 2018 · self-start and self-end align flex items at the start or end of the direction text flows in the writing mode of the individual flex item",
+      "source_type": "quora",
+      "source_url": "https://https://stackoverflow.com",
+      "tags": [
+        "r/quora/search",
+        "css Flexbox:"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_1d57da12",
+      "category": "pay",
+      "title_zh": "[消费建议] Why do I get \"TypeError: Missing 1 required positional argument: 'self'\"?",
+      "title_en": "Why do I get \"TypeError: Missing 1 required positional argument: 'self'\"?",
+      "summary_zh": "来自Quora专业问答。See Why do I get 'takes exactly 1 argument (2 given)' when trying to call a method? for the opposite problem.",
+      "summary_en": "See Why do I get 'takes exactly 1 argument (2 given)' when trying to call a method? for the opposite problem.",
+      "quote_en": "See Why do I get 'takes exactly 1 argument (2 given)' when trying to call a method",
+      "source_type": "quora",
+      "source_url": "https://https://stackoverflow.com",
+      "tags": [
+        "r/quora/search",
+        "get \"TypeError:"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_1d57da12",
+      "category": "pay",
+      "title_zh": "[消费建议] dom - What does \"self\" mean in javascript? - Stack Overflow",
+      "title_en": "dom - What does \"self\" mean in javascript? - Stack Overflow",
+      "summary_zh": "来自Quora专业问答。Jun 2, 2015 · self refers to the global scope - If the context is a window it will refer to window.self, while in case of a non-windowed context it will refer to the global scope of that context (e.g.",
+      "summary_en": "Jun 2, 2015 · self refers to the global scope - If the context is a window it will refer to window.self, while in case of a non-windowed context it will refer to the global scope of that context (e.g. in service …",
+      "quote_en": "Jun 2, 2015 · self refers to the global scope - If the context is a window it will refer to window",
+      "source_type": "quora",
+      "source_url": "https://https://stackoverflow.com",
+      "tags": [
+        "r/quora/search",
+        "dom does"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_1d57da12",
+      "category": "pay",
+      "title_zh": "[消费建议] git - SSL certificate problem: self signed certificate in certificate ...",
+      "title_en": "git - SSL certificate problem: self signed certificate in certificate ...",
+      "summary_zh": "来自Quora专业问答。Aug 2, 2019 · If the self-signed certificated has been imported to the Windows certificate store, you can simply execute these commands: git config --global http.sslbackend schannel",
+      "summary_en": "Aug 2, 2019 · If the self-signed certificated has been imported to the Windows certificate store, you can simply execute these commands: git config --global http.sslbackend schannel",
+      "quote_en": "Aug 2, 2019 · If the self-signed certificated has been imported to the Windows certificate store, you can simply execute these commands: git config --global http",
+      "source_type": "quora",
+      "source_url": "https://https://stackoverflow.com",
+      "tags": [
+        "r/quora/search",
+        "git SSL"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_88a9cd4c",
+      "category": "pay",
+      "title_zh": "[消费建议] Global Risks Report 2025: Conflict, Environment and Disinformation …",
+      "title_en": "Global Risks Report 2025: Conflict, Environment and Disinformation …",
+      "summary_zh": "来自Quora专业问答。Jan 15, 2025 · State-based armed conflict emerges as the top immediate risk for 2025, identified by nearly a quarter of respondents, reflecting heightened geopolitical tensions and fragmentation …",
+      "summary_en": "Jan 15, 2025 · State-based armed conflict emerges as the top immediate risk for 2025, identified by nearly a quarter of respondents, reflecting heightened geopolitical tensions and fragmentation …",
+      "quote_en": "Jan 15, 2025 · State-based armed conflict emerges as the top immediate risk for 2025, identified by nearly a quarter of respondents, reflecting heightened geopolitical tensions and fragmentation …",
+      "source_type": "quora",
+      "source_url": "https://https://www.weforum.org",
+      "tags": [
+        "r/quora/search",
+        "Global Risks"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_88a9cd4c",
+      "category": "pay",
+      "title_zh": "[消费建议] The Global Risks Report 2026 | World Economic Forum",
+      "title_en": "The Global Risks Report 2026 | World Economic Forum",
+      "summary_zh": "来自Quora专业问答。Jan 14, 2026 · The Global Risks Report 2026 analyses global risks through three timeframes to support decision-makers in balancing current crises and longer-term priorities.",
+      "summary_en": "Jan 14, 2026 · The Global Risks Report 2026 analyses global risks through three timeframes to support decision-makers in balancing current crises and longer-term priorities.",
+      "quote_en": "Jan 14, 2026 · The Global Risks Report 2026 analyses global risks through three timeframes to support decision-makers in balancing current crises and longer-term priorities",
+      "source_type": "quora",
+      "source_url": "https://https://www.weforum.org",
+      "tags": [
+        "r/quora/search",
+        "Global Risks"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_88a9cd4c",
+      "category": "pay",
+      "title_zh": "[消费建议] The Future of Jobs Report 2025 | World Economic Forum",
+      "title_en": "The Future of Jobs Report 2025 | World Economic Forum",
+      "summary_zh": "来自Quora专业问答。Jan 7, 2025 · Technological change, geoeconomic fragmentation, economic uncertainty, demographic shifts and the green transition – individually and in combination are among the major drivers …",
+      "summary_en": "Jan 7, 2025 · Technological change, geoeconomic fragmentation, economic uncertainty, demographic shifts and the green transition – individually and in combination are among the major drivers …",
+      "quote_en": "Jan 7, 2025 · Technological change, geoeconomic fragmentation, economic uncertainty, demographic shifts and the green transition – individually and in combination are among the major drivers …",
+      "source_type": "quora",
+      "source_url": "https://https://www.weforum.org",
+      "tags": [
+        "r/quora/search",
+        "Future Jobs"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_88a9cd4c",
+      "category": "pay",
+      "title_zh": "[消费建议] Global Risks Report 2025 | World Economic Forum",
+      "title_en": "Global Risks Report 2025 | World Economic Forum",
+      "summary_zh": "来自Quora专业问答。Jan 15, 2025 · The Global Risks Report 2025 analyses global risks to support decision-makers in balancing current crises and longer-term priorities.",
+      "summary_en": "Jan 15, 2025 · The Global Risks Report 2025 analyses global risks to support decision-makers in balancing current crises and longer-term priorities.",
+      "quote_en": "Jan 15, 2025 · The Global Risks Report 2025 analyses global risks to support decision-makers in balancing current crises and longer-term priorities",
+      "source_type": "quora",
+      "source_url": "https://https://www.weforum.org",
+      "tags": [
+        "r/quora/search",
+        "Global Risks"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_88a9cd4c",
+      "category": "pay",
+      "title_zh": "[消费建议] These are the biggest risks we face now and in the next 10 years",
+      "title_en": "These are the biggest risks we face now and in the next 10 years",
+      "summary_zh": "来自Quora专业问答。Jan 15, 2025 · After a volatile and challenging 2024, the latest Global Risks report uncovers leaders’ key concerns – now and in the future. Here’s what you need to know.",
+      "summary_en": "Jan 15, 2025 · After a volatile and challenging 2024, the latest Global Risks report uncovers leaders’ key concerns – now and in the future. Here’s what you need to know.",
+      "quote_en": "Jan 15, 2025 · After a volatile and challenging 2024, the latest Global Risks report uncovers leaders’ key concerns – now and in the future",
+      "source_type": "quora",
+      "source_url": "https://https://www.weforum.org",
+      "tags": [
+        "r/quora/search",
+        "These biggest"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_88a9cd4c",
+      "category": "pay",
+      "title_zh": "[消费建议] These are the biggest global risks we face in 2024 and beyond",
+      "title_en": "These are the biggest global risks we face in 2024 and beyond",
+      "summary_zh": "来自Quora专业问答。Jan 10, 2024 · The World Economic Forum’s Global Risks Report 2024 says the biggest short-term risk stems from misinformation and disinformation. In the longer term, climate-related threats dominate …",
+      "summary_en": "Jan 10, 2024 · The World Economic Forum’s Global Risks Report 2024 says the biggest short-term risk stems from misinformation and disinformation. In the longer term, climate-related threats dominate …",
+      "quote_en": "Jan 10, 2024 · The World Economic Forum’s Global Risks Report 2024 says the biggest short-term risk stems from misinformation and disinformation",
+      "source_type": "quora",
+      "source_url": "https://https://www.weforum.org",
+      "tags": [
+        "r/quora/search",
+        "These biggest"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_88a9cd4c",
+      "category": "pay",
+      "title_zh": "[消费建议] These are the world's 10 biggest corporate giants",
+      "title_en": "These are the world's 10 biggest corporate giants",
+      "summary_zh": "来自Quora专业问答。Jan 16, 2017 · These are the world's biggest corporations, based on market capitalization.",
+      "summary_en": "Jan 16, 2017 · These are the world's biggest corporations, based on market capitalization.",
+      "quote_en": "Jan 16, 2017 · These are the world's biggest corporations, based on market capitalization",
+      "source_type": "quora",
+      "source_url": "https://https://www.weforum.org",
+      "tags": [
+        "r/quora/search",
+        "These world's"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_88a9cd4c",
+      "category": "pay",
+      "title_zh": "[消费建议] The biggest news events of 2022 - in pictures | World Economic Forum",
+      "title_en": "The biggest news events of 2022 - in pictures | World Economic Forum",
+      "summary_zh": "来自Quora专业问答。Dec 16, 2022 · The year 2022 has been full of rapid and unexpected changes. From severe flooding in Pakistan to the death of Queen Elizabeth II, these 10 pictures cover major news events from the past",
+      "summary_en": "Dec 16, 2022 · The year 2022 has been full of rapid and unexpected changes. From severe flooding in Pakistan to the death of Queen Elizabeth II, these 10 pictures cover major news events from the past …",
+      "quote_en": "Dec 16, 2022 · The year 2022 has been full of rapid and unexpected changes",
+      "source_type": "quora",
+      "source_url": "https://https://www.weforum.org",
+      "tags": [
+        "r/quora/search",
+        "vent",
+        "biggest news"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_88a9cd4c",
+      "category": "pay",
+      "title_zh": "[消费建议] One of China’s biggest megacities is building a giant waste-to-energy ...",
+      "title_en": "One of China’s biggest megacities is building a giant waste-to-energy ...",
+      "summary_zh": "来自Quora专业问答。Jul 1, 2019 · The giant waste-to-energy plant, which will be covered in 40,000 square metres of solar panels, will be able to combust around a third of Shenzhen’s waste.",
+      "summary_en": "Jul 1, 2019 · The giant waste-to-energy plant, which will be covered in 40,000 square metres of solar panels, will be able to combust around a third of Shenzhen’s waste.",
+      "quote_en": "Jul 1, 2019 · The giant waste-to-energy plant, which will be covered in 40,000 square metres of solar panels, will be able to combust around a third of Shenzhen’s waste",
+      "source_type": "quora",
+      "source_url": "https://https://www.weforum.org",
+      "tags": [
+        "r/quora/search",
+        "One China’s"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_1d57da12",
+      "category": "pay",
+      "title_zh": "[消费建议] c# - What does new () mean? - Stack Overflow",
+      "title_en": "c# - What does new () mean? - Stack Overflow",
+      "summary_zh": "来自Quora专业问答。Jul 20, 2013 · It's the new constraint. It specifies that T must not be abstract and must expose a public parameterless constructor in order to be used as a generic type argument for the …",
+      "summary_en": "Jul 20, 2013 · It's the new constraint. It specifies that T must not be abstract and must expose a public parameterless constructor in order to be used as a generic type argument for the …",
+      "quote_en": "Jul 20, 2013 · It's the new constraint",
+      "source_type": "quora",
+      "source_url": "https://https://stackoverflow.com",
+      "tags": [
+        "r/quora/search",
+        "does new"
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_1d57da12",
+      "category": "pay",
+      "title_zh": "[消费建议] Is JavaScript's \"new\" keyword considered harmful?",
+      "title_en": "Is JavaScript's \"new\" keyword considered harmful?",
+      "summary_zh": "来自Quora专业问答。It is NOT 'bad' to use the new keyword. But if you forget it, you will be calling the object constructor as a regular function. If your constructor doesn't check its execution context then it won't no",
+      "summary_en": "It is NOT 'bad' to use the new keyword. But if you forget it, you will be calling the object constructor as a regular function. If your constructor doesn't check its execution context then it won't notice that 'this' …",
+      "quote_en": "It is NOT 'bad' to use the new keyword",
+      "source_type": "quora",
+      "source_url": "https://https://stackoverflow.com",
+      "tags": [
+        "r/quora/search",
+        "JavaScript's \"new\""
+      ],
+      "date": "2026-03-18"
+    },
+    {
+      "id": "auto_qra_1d57da12",
+      "category": "pay",
+      "title_zh": "[消费建议] How does the new operator work in JavaScript? - Stack Overflow",
+      "title_en": "How does the new operator work in JavaScript? - Stack Overflow",
+      "summary_zh": "来自Quora专业问答。The new operator uses the internal [[Construct]] method, and it basically does the following: Initializes a new native object Sets the internal [[Prototype]] of this object, pointing to the Function p",
+      "summary_en": "The new operator uses the internal [[Construct]] method, and it basically does the following: Initializes a new native object Sets the internal [[Prototype]] of this object, pointing to the Function prototype …",
+      "quote_en": "The new operator uses the internal [[Construct]] method, and it basically does the following: Initializes a new native object Sets the internal [[Prototype]] of this object, pointing to the Function p",
+      "source_type": "quora",
+      "source_url": "https://https://stackoverflow.com",
+      "tags": [
+        "r/quora/search",
+        "does new"
       ],
       "date": "2026-03-18"
     },
@@ -1996,9 +1899,9 @@
       "category": "pay",
       "title_zh": "[消费建议] Difference between 'new operator' and 'operator new'?",
       "title_en": "Difference between 'new operator' and 'operator new'?",
-      "summary_zh": "来自Quora专业问答。The question is worded correctly, see answers below. The method for dynamically allocating memory is to use the new operator. This operator can be overloaded. To distinguish …",
-      "summary_en": "The question is worded correctly, see answers below. The method for dynamically allocating memory is to use the new operator. This operator can be overloaded. To distinguish …",
-      "quote_en": "The question is worded correctly, see answers below",
+      "summary_zh": "来自Quora专业问答。Dec 11, 2009 · A new expression is the whole phrase that begins with new. So what do you call just the \"new\" part of it? If it's wrong to call that the new operator, then we should not call \"sizeof\" t",
+      "summary_en": "Dec 11, 2009 · A new expression is the whole phrase that begins with new. So what do you call just the \"new\" part of it? If it's wrong to call that the new operator, then we should not call \"sizeof\" the sizeof …",
+      "quote_en": "Dec 11, 2009 · A new expression is the whole phrase that begins with new",
       "source_type": "quora",
       "source_url": "https://https://stackoverflow.com",
       "tags": [
@@ -2010,193 +1913,188 @@
     {
       "id": "auto_qra_1d57da12",
       "category": "pay",
-      "title_zh": "[消费建议] Open a URL in a new tab (and not a new window) - Stack ...",
-      "title_en": "Open a URL in a new tab (and not a new window) - Stack ...",
-      "summary_zh": "来自Quora专业问答。1145 Nothing an author can do can choose to open in a new tab instead of a new window; it is a user preference. (Note that the default user preference in most browsers is for new …",
-      "summary_en": "1145 Nothing an author can do can choose to open in a new tab instead of a new window; it is a user preference. (Note that the default user preference in most browsers is for new …",
-      "quote_en": "1145 Nothing an author can do can choose to open in a new tab instead of a new window; it is a user preference",
+      "title_zh": "[消费建议] What is new without type in C#? - Stack Overflow",
+      "title_en": "What is new without type in C#? - Stack Overflow",
+      "summary_zh": "来自Quora专业问答。Oct 4, 2021 · In the specific case of throw, throw new() is a shorthand for throw new Exception(). The feature was introduced in c# 9 and you can find the documentation as Target-typed new …",
+      "summary_en": "Oct 4, 2021 · In the specific case of throw, throw new() is a shorthand for throw new Exception(). The feature was introduced in c# 9 and you can find the documentation as Target-typed new …",
+      "quote_en": "Oct 4, 2021 · In the specific case of throw, throw new() is a shorthand for throw new Exception()",
       "source_type": "quora",
       "source_url": "https://https://stackoverflow.com",
       "tags": [
         "r/quora/search",
-        "Open URL"
+        "new without"
       ],
       "date": "2026-03-18"
     },
     {
       "id": "auto_qra_1d57da12",
       "category": "pay",
-      "title_zh": "[消费建议] Move the most recent commit (s) to a new branch with Git",
-      "title_en": "Move the most recent commit (s) to a new branch with Git",
-      "summary_zh": "来自Quora专业问答。Side-comment: The question is about a very simple case. Reading the answers and all the \"don't do this because...\" and \"a better solution is...\" and \"warning with version n+...\" just after …",
-      "summary_en": "Side-comment: The question is about a very simple case. Reading the answers and all the \"don't do this because...\" and \"a better solution is...\" and \"warning with version n+...\" just after …",
-      "quote_en": "Side-comment: The question is about a very simple case",
+      "title_zh": "[消费建议] javascript - what is new () in Typescript? - Stack Overflow",
+      "title_en": "javascript - what is new () in Typescript? - Stack Overflow",
+      "summary_zh": "来自Quora专业问答。I encountered new() in the official document here about generics. Here is the code context:",
+      "summary_en": "I encountered new() in the official document here about generics. Here is the code context:",
+      "quote_en": "I encountered new() in the official document here about generics",
       "source_type": "quora",
       "source_url": "https://https://stackoverflow.com",
       "tags": [
         "r/quora/search",
-        "reading",
-        "Move most"
+        "javascript new"
       ],
       "date": "2026-03-18"
     },
     {
       "id": "auto_qra_1d57da12",
       "category": "pay",
-      "title_zh": "[消费建议] How can I add new keys to a dictionary? - Stack Overflow",
-      "title_en": "How can I add new keys to a dictionary? - Stack Overflow",
-      "summary_zh": "来自Quora专业问答。How do I add a new key to an existing dictionary? It doesn't have an .add () method. \"Is it possible to add a key to a Python dictionary after it has been created? It doesn't seem to have an .add () …",
-      "summary_en": "How do I add a new key to an existing dictionary? It doesn't have an .add () method. \"Is it possible to add a key to a Python dictionary after it has been created? It doesn't seem to have an .add () …",
-      "quote_en": "How do I add a new key to an existing dictionary",
+      "title_zh": "[消费建议] What is the Difference Between `new object()` and `new {}` in C#?",
+      "title_en": "What is the Difference Between `new object()` and `new {}` in C#?",
+      "summary_zh": "来自Quora专业问答。Jul 11, 2013 · Is there any difference between `new object ()` and `new {}` in c#? Difference between object a = new Dog () vs Dog a = new Dog () But i'm not satisfied with this answer, it's not expla",
+      "summary_en": "Jul 11, 2013 · Is there any difference between `new object ()` and `new {}` in c#? Difference between object a = new Dog () vs Dog a = new Dog () But i'm not satisfied with this answer, it's not explained …",
+      "quote_en": "Jul 11, 2013 · Is there any difference between `new object ()` and `new {}` in c#",
       "source_type": "quora",
       "source_url": "https://https://stackoverflow.com",
       "tags": [
         "r/quora/search",
-        "can add"
+        "Difference Between"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_8780a432",
+      "id": "auto_qra_1d57da12",
       "category": "pay",
-      "title_zh": "[消费建议] 소통참여 > 장수소식 > 고시·공고·예고 | 장수군청 - JANGSU",
-      "title_en": "소통참여 > 장수소식 > 고시·공고·예고 | 장수군청 - JANGSU",
-      "summary_zh": "来自Quora专业问答。장수군청 행정복지국 행정지원과 서무후생팀에서 제작한 \"고시·공고·예고\" 저작물은 \"공공누리 제 4유형 : 출처표시+상업적이용금지+변경금지\" 조건에 따라 이용할 수 있습니다. 현재 페이지에서 제공되는 …",
-      "summary_en": "장수군청 행정복지국 행정지원과 서무후생팀에서 제작한 \"고시·공고·예고\" 저작물은 \"공공누리 제 4유형 : 출처표시+상업적이용금지+변경금지\" 조건에 따라 이용할 수 있습니다. 현재 페이지에서 제공되는 …",
-      "quote_en": "장수군청 행정복지국 행정지원과 서무후생팀에서 제작한 \"고시·공고·예고\" 저작물은 \"공공누리 제 4유형 : 출처표시+상업적이용금지+변경금지\" 조건에 따라 이용할 수 있습니다",
+      "title_zh": "[消费建议] When to use \"new\" and when not to, in C++? - Stack Overflow",
+      "title_en": "When to use \"new\" and when not to, in C++? - Stack Overflow",
+      "summary_zh": "来自Quora专业问答。New is always used to allocate dynamic memory, which then has to be freed. By doing the first option, that memory will be automagically freed when scope is lost.",
+      "summary_en": "New is always used to allocate dynamic memory, which then has to be freed. By doing the first option, that memory will be automagically freed when scope is lost.",
+      "quote_en": "New is always used to allocate dynamic memory, which then has to be freed",
       "source_type": "quora",
-      "source_url": "https://https://www.jangsu.go.kr",
+      "source_url": "https://https://stackoverflow.com",
       "tags": [
         "r/quora/search",
-        "소통참여 장수소식"
+        "When use"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_8780a432",
+      "id": "auto_qra_1d57da12",
       "category": "pay",
-      "title_zh": "[消费建议] 장수안내 > 군청안내 > 청사안내 | 장수군청 - JANGSU",
-      "title_en": "장수안내 > 군청안내 > 청사안내 | 장수군청 - JANGSU",
-      "summary_zh": "来自Quora专业问答。장수군청 행정복지국 재무과 재산관리팀에서 제작한 \"청사안내\" 저작물은 \"공공누리 제 4유형 : 출처표시+상업적이용금지+변경금지\" 조건에 따라 이용할 수 있습니다. 현재 페이지에서 제공되는 …",
-      "summary_en": "장수군청 행정복지국 재무과 재산관리팀에서 제작한 \"청사안내\" 저작물은 \"공공누리 제 4유형 : 출처표시+상업적이용금지+변경금지\" 조건에 따라 이용할 수 있습니다. 현재 페이지에서 제공되는 …",
-      "quote_en": "장수군청 행정복지국 재무과 재산관리팀에서 제작한 \"청사안내\" 저작물은 \"공공누리 제 4유형 : 출처표시+상업적이용금지+변경금지\" 조건에 따라 이용할 수 있습니다",
+      "title_zh": "[消费建议] oracle database - PLSQL :NEW and :OLD - Stack Overflow",
+      "title_en": "oracle database - PLSQL :NEW and :OLD - Stack Overflow",
+      "summary_zh": "来自Quora专业问答。Oct 30, 2012 · Can anyone help me understand when to use :NEW and :OLD in PLSQL blocks, I'm finding it very difficult to understand their usage.",
+      "summary_en": "Oct 30, 2012 · Can anyone help me understand when to use :NEW and :OLD in PLSQL blocks, I'm finding it very difficult to understand their usage.",
+      "quote_en": "Oct 30, 2012 · Can anyone help me understand when to use :NEW and :OLD in PLSQL blocks, I'm finding it very difficult to understand their usage",
       "source_type": "quora",
-      "source_url": "https://https://www.jangsu.go.kr",
+      "source_url": "https://https://stackoverflow.com",
       "tags": [
         "r/quora/search",
-        "장수안내 군청안내"
+        "oracle database"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_8780a432",
-      "category": "pay",
-      "title_zh": "[消费建议] 장수안내 > 군청안내 > 행정조직 | 장수군청 - JANGSU",
-      "title_en": "장수안내 > 군청안내 > 행정조직 | 장수군청 - JANGSU",
-      "summary_zh": "来自Quora专业问答。장수군청 행정복지국 행정지원과 정보통신팀에서 제작한 \"행정조직\" 저작물은 \"공공누리 제 4유형 : 출처표시+상업적이용금지+변경금지\" 조건에 따라 이용할 수 있습니다.",
-      "summary_en": "장수군청 행정복지국 행정지원과 정보통신팀에서 제작한 \"행정조직\" 저작물은 \"공공누리 제 4유형 : 출처표시+상업적이용금지+변경금지\" 조건에 따라 이용할 수 있습니다.",
-      "quote_en": "장수군청 행정복지국 행정지원과 정보통신팀에서 제작한 \"행정조직\" 저작물은 \"공공누리 제 4유형 : 출처표시+상업적이용금지+변경금지\" 조건에 따라 이용할 수 있습니다",
+      "id": "auto_qra_c2cf3ff9",
+      "category": "hobby",
+      "title_zh": "[兴趣推荐] Premium Individual - Spotify",
+      "title_en": "Premium Individual - Spotify",
+      "summary_zh": "来自Quora专业问答。Get Premium Individual and enjoy full control of your listening. Ad-free music listening Download to listen offline Play songs in any order High audio quality Listen to music in lossless Travel abroad",
+      "summary_en": "Get Premium Individual and enjoy full control of your listening. Ad-free music listening Download to listen offline Play songs in any order High audio quality Listen to music in lossless Travel abroad with your …",
+      "quote_en": "Get Premium Individual and enjoy full control of your listening",
       "source_type": "quora",
-      "source_url": "https://https://www.jangsu.go.kr",
+      "source_url": "https://https://support.spotify.com",
       "tags": [
         "r/quora/search",
-        "장수안내 군청안내"
+        "travel",
+        "music",
+        "premium",
+        "Premium Individual"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_8780a432",
+      "id": "auto_qra_c9b8ce2d",
       "category": "pay",
-      "title_zh": "[消费建议] |장수군청 - JANGSU",
-      "title_en": "|장수군청 - JANGSU",
-      "summary_zh": "来自Quora专业问答。장수군청에서 제작한 본 저작물은 \"공공누리 공공저작물 자유이용 허락표시 적용 안함\" 조건에 따라 이용할 수 있습니다. 현재 페이지에서 제공되는 서비스에 대하여 만족하십니까? 매우만족 만족 보통 불만족 …",
-      "summary_en": "장수군청에서 제작한 본 저작물은 \"공공누리 공공저작물 자유이용 허락표시 적용 안함\" 조건에 따라 이용할 수 있습니다. 현재 페이지에서 제공되는 서비스에 대하여 만족하십니까? 매우만족 만족 보통 불만족 …",
-      "quote_en": "장수군청에서 제작한 본 저작물은 \"공공누리 공공저작물 자유이용 허락표시 적용 안함\" 조건에 따라 이용할 수 있습니다",
+      "title_zh": "[消费建议] Spotify Premium (USA) - Try 3 months for $0",
+      "title_en": "Spotify Premium (USA) - Try 3 months for $0",
+      "summary_zh": "来自Quora专业问答。Spotify Premium is a digital music service that gives you access to ad-free music listening of millions of songs. Try 3 months for $0.",
+      "summary_en": "Spotify Premium is a digital music service that gives you access to ad-free music listening of millions of songs. Try 3 months for $0.",
+      "quote_en": "Spotify Premium is a digital music service that gives you access to ad-free music listening of millions of songs",
       "source_type": "quora",
-      "source_url": "https://https://www.jangsu.go.kr",
+      "source_url": "https://https://www.spotify.com",
       "tags": [
         "r/quora/search",
-        "|장수군청 JANGSU"
+        "music",
+        "premium",
+        "Spotify Premium"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_8780a432",
+      "id": "auto_qra_c2cf3ff9",
       "category": "pay",
-      "title_zh": "[消费建议] 장수안내 > 군청안내 > 부서별전화·팩스번호 | 장수군청 - JANGSU",
-      "title_en": "장수안내 > 군청안내 > 부서별전화·팩스번호 | 장수군청 - JANGSU",
-      "summary_zh": "来自Quora专业问答。실과 ... 직속기관 ... 읍, 면 ... 장수군청 행정복지국 행정지원과 정보통신팀에서 제작한 \"부서별전화·팩스번호\" 저작물은 \"공공누리 제 4유형 : 출처표시+상업적이용금지+변경금지\" 조건에 …",
-      "summary_en": "실과 ... 직속기관 ... 읍, 면 ... 장수군청 행정복지국 행정지원과 정보통신팀에서 제작한 \"부서별전화·팩스번호\" 저작물은 \"공공누리 제 4유형 : 출처표시+상업적이용금지+변경금지\" 조건에 …",
-      "quote_en": "장수군청 행정복지국 행정지원과 정보통신팀에서 제작한 \"부서별전화·팩스번호\" 저작물은 \"공공누리 제 4유형 : 출처표시+상업적이용금지+변경금지\" 조건에 …",
+      "title_zh": "[消费建议] Premium plans - Spotify",
+      "title_en": "Premium plans - Spotify",
+      "summary_zh": "来自Quora专业问答。Premium Individual Premium Student Duo plan Family plan Spotify Kids Hulu with Premium Student Premium for Starbucks Partners Basic plans",
+      "summary_en": "Premium Individual Premium Student Duo plan Family plan Spotify Kids Hulu with Premium Student Premium for Starbucks Partners Basic plans",
+      "quote_en": "Premium Individual Premium Student Duo plan Family plan Spotify Kids Hulu with Premium Student Premium for Starbucks Partners Basic plans",
       "source_type": "quora",
-      "source_url": "https://https://www.jangsu.go.kr",
+      "source_url": "https://https://support.spotify.com",
       "tags": [
         "r/quora/search",
-        "장수안내 군청안내"
+        "premium",
+        "Premium plans"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_8780a432",
-      "category": "pay",
-      "title_zh": "[消费建议] 종합민원 > 민원안내 > 민원실안내 | 장수군청 - JANGSU",
-      "title_en": "종합민원 > 민원안내 > 민원실안내 | 장수군청 - JANGSU",
-      "summary_zh": "来自Quora专业问答。민원실 이용안내 위 치 : 전북특별자치도 장수군 장수읍 호비로 10 장수군청 민원실 1층 이용시간 (평 일) 09:00 ~ 18:00 (주말 및 공휴일) 휴무 민원실 대표전화 : 063-350-2256 민원사전예약제 (복합민원) : 063 …",
-      "summary_en": "민원실 이용안내 위 치 : 전북특별자치도 장수군 장수읍 호비로 10 장수군청 민원실 1층 이용시간 (평 일) 09:00 ~ 18:00 (주말 및 공휴일) 휴무 민원실 대표전화 : 063-350-2256 민원사전예약제 (복합민원) : 063 …",
-      "quote_en": "민원실 이용안내 위 치 : 전북특별자치도 장수군 장수읍 호비로 10 장수군청 민원실 1층 이용시간 (평 일) 09:00 ~ 18:00 (주말 및 공휴일) 휴무 민원실 대표전화 : 063-350-2256 민원사전예약제 (복합민원) : 063 …",
+      "id": "auto_qra_c2cf3ff9",
+      "category": "premium",
+      "title_zh": "[优质推荐] Your Premium Benefits - Spotify",
+      "title_en": "Your Premium Benefits - Spotify",
+      "summary_zh": "来自Quora专业问答。With Premium, you get access to exclusive features that enhance your listening experience. Ad-free music listening Download music to listen offline Offline Backup Play songs in any order Very High …",
+      "summary_en": "With Premium, you get access to exclusive features that enhance your listening experience. Ad-free music listening Download music to listen offline Offline Backup Play songs in any order Very High …",
+      "quote_en": "With Premium, you get access to exclusive features that enhance your listening experience",
       "source_type": "quora",
-      "source_url": "https://https://www.jangsu.go.kr",
+      "source_url": "https://https://support.spotify.com",
       "tags": [
         "r/quora/search",
-        "종합민원 민원안내"
+        "premium",
+        "exclusive",
+        "music",
+        "Your Premium"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_8780a432",
+      "id": "auto_qra_c9b8ce2d",
       "category": "pay",
-      "title_zh": "[消费建议] 장수군청 열린군수실 - JANGSU",
-      "title_en": "장수군청 열린군수실 - JANGSU",
-      "summary_zh": "来自Quora专业问答。이날 협약식에는 최훈식 장수군수를 비롯해 김용준 장수농협조합장, 곽점용 장계농협조합장, NH농협장수군지부 관계자 등이 참석해 상호 협력 방안을 공유하고 협약서에 서명했다.",
-      "summary_en": "이날 협약식에는 최훈식 장수군수를 비롯해 김용준 장수농협조합장, 곽점용 장계농협조합장, NH농협장수군지부 관계자 등이 참석해 상호 협력 방안을 공유하고 협약서에 서명했다.",
-      "quote_en": "이날 협약식에는 최훈식 장수군수를 비롯해 김용준 장수농협조합장, 곽점용 장계농협조합장, NH농협장수군지부 관계자 등이 참석해 상호 협력 방안을 공유하고 협약서에 서명했다",
+      "title_zh": "[消费建议] Spotify Premium (Brasil) - Experimente 3 meses por R$ 0",
+      "title_en": "Spotify Premium (Brasil) - Experimente 3 meses por R$ 0",
+      "summary_zh": "来自Quora专业问答。O Spotify Premium é um serviço de streaming digital que dá acesso a milhões de músicas sem anúncios. Experimente 3 meses por R$ 0.",
+      "summary_en": "O Spotify Premium é um serviço de streaming digital que dá acesso a milhões de músicas sem anúncios. Experimente 3 meses por R$ 0.",
+      "quote_en": "O Spotify Premium é um serviço de streaming digital que dá acesso a milhões de músicas sem anúncios",
       "source_type": "quora",
-      "source_url": "https://https://www.jangsu.go.kr",
+      "source_url": "https://https://www.spotify.com",
       "tags": [
         "r/quora/search",
-        "장수군청 열린군수실"
+        "premium",
+        "Spotify Premium"
       ],
       "date": "2026-03-18"
     },
     {
-      "id": "auto_qra_8780a432",
+      "id": "auto_qra_c2cf3ff9",
       "category": "pay",
-      "title_zh": "[消费建议] 장수군청 읍면포털 - JANGSU",
-      "title_en": "장수군청 읍면포털 - JANGSU",
-      "summary_zh": "来自Quora专业问答。장수읍 2026년 상반기 장수군 산사태취약지역 지정⋅... 2026-03-11 장수읍 2026년 건설기계 저공해조치 지원사업 안내 2026-03-10 장수읍 2026년 농민 공익수당 지원사업 신청 안내 …",
-      "summary_en": "장수읍 2026년 상반기 장수군 산사태취약지역 지정⋅... 2026-03-11 장수읍 2026년 건설기계 저공해조치 지원사업 안내 2026-03-10 장수읍 2026년 농민 공익수당 지원사업 신청 안내 …",
-      "quote_en": "2026-03-11 장수읍 2026년 건설기계 저공해조치 지원사업 안내 2026-03-10 장수읍 2026년 농민 공익수당 지원사업 신청 안내 …",
+      "title_zh": "[消费建议] Premium Standard - Spotify",
+      "title_en": "Premium Standard - Spotify",
+      "summary_zh": "来自Quora专业问答。Premium Standard Get Premium Standard and enjoy full control of your listening. Ad-free music listening Very high audio quality (up to 320kbps) Download to listen offline And many more! Let’s get you ",
+      "summary_en": "Premium Standard Get Premium Standard and enjoy full control of your listening. Ad-free music listening Very high audio quality (up to 320kbps) Download to listen offline And many more! Let’s get you …",
+      "quote_en": "Premium Standard Get Premium Standard and enjoy full control of your listening",
       "source_type": "quora",
-      "source_url": "https://https://www.jangsu.go.kr",
+      "source_url": "https://https://support.spotify.com",
       "tags": [
         "r/quora/search",
-        "장수군청 읍면포털"
-      ],
-      "date": "2026-03-18"
-    },
-    {
-      "id": "auto_qra_8780a432",
-      "category": "pay",
-      "title_zh": "[消费建议] 장수군청 통합예약 - JANGSU",
-      "title_en": "장수군청 통합예약 - JANGSU",
-      "summary_zh": "来自Quora专业问答。장수군청소년문화의집 겨울방학특강 수강생모집 2025-01-03 장수군청소년문화의집 다함께 크리스마스 프로그램... 2024-11-29 2024년 임산부,예비부모 대상 프로그램 참여... 2024-10-02 …",
-      "summary_en": "장수군청소년문화의집 겨울방학특강 수강생모집 2025-01-03 장수군청소년문화의집 다함께 크리스마스 프로그램... 2024-11-29 2024년 임산부,예비부모 대상 프로그램 참여... 2024-10-02 …",
-      "quote_en": "장수군청소년문화의집 겨울방학특강 수강생모집 2025-01-03 장수군청소년문화의집 다함께 크리스마스 프로그램",
-      "source_type": "quora",
-      "source_url": "https://https://www.jangsu.go.kr",
-      "tags": [
-        "r/quora/search",
-        "장수군청 통합예약"
+        "music",
+        "premium",
+        "Premium Standard"
       ],
       "date": "2026-03-18"
     },

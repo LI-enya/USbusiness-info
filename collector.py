@@ -573,7 +573,7 @@ def fetch_quora_question(query):
     Quora直接访问返回403，从Bing搜索结果中提取
     高质量女性消费相关的Q&A和编辑内容。
     """
-    bing_url = f"https://www.bing.com/search?q={quote(query + ' women recommendation')}&count=10"
+    bing_url = f"https://www.bing.com/search?q={quote(query + ' women recommendation')}&count=10&setlang=en&mkt=en-US"
     print(f"  搜索 Q&A: \"{query[:50]}\"...")
     headers = {
         "User-Agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)",
@@ -589,7 +589,10 @@ def fetch_quora_question(query):
 
     posts = []
     skip_domains = ["amazon.com", "ebay.com", "walmart.com", "target.com", "reddit.com",
-                    "bing.com", "microsoft.com", "google.com", "youtube.com"]
+                    "bing.com", "microsoft.com", "google.com", "youtube.com",
+                    "zhihu.com", "baidu.com", "bilibili.com", "csdn.net", "jianshu.com",
+                    "douban.com", "sogou.com", "163.com", "qq.com", "toutiao.com",
+                    "hatena.ne.jp", "yahoo.co.jp", "naver.com", "wikipedia.org"]
 
     # Split by b_algo class to get individual results
     parts = content.split('class="b_algo"')
@@ -644,6 +647,11 @@ def fetch_quora_question(query):
             title_clean = title_clean.replace(suffix, "")
 
         if not title_clean or len(title_clean) < 10:
+            continue
+
+        # Skip non-English content (CJK characters in title = wrong language results)
+        cjk_ratio = sum(1 for c in title_clean if '\u4e00' <= c <= '\u9fff' or '\u3040' <= c <= '\u30ff' or '\uac00' <= c <= '\ud7af') / max(len(title_clean), 1)
+        if cjk_ratio > 0.15:
             continue
 
         posts.append({
