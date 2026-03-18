@@ -490,24 +490,33 @@ def fetch_pinterest_via_bing(query, domain_hint=""):
     pins = []
     parts = content.split('class="b_algo"')
 
-    for part in parts[1:8]:
+    for part in parts[1:10]:
         block = part[:3000]
 
-        # Extract URL - prefer pinterest.com/pin/ URLs
-        href_match = re.search(r'href="[^"]*pinterest\.com/pin/(\d+)', block)
-        if href_match:
-            pin_url = f"https://www.pinterest.com/pin/{href_match.group(1)}/"
-        else:
-            # Accept any pinterest URL from cite
+        # Extract Pinterest pin URL - ONLY accept specific pin/idea URLs
+        pin_url = None
+
+        # Method 1: Find pin ID in any href or text
+        pin_match = re.search(r'pinterest\.com/pin/(\d{10,})', block)
+        if pin_match:
+            pin_url = f"https://www.pinterest.com/pin/{pin_match.group(1)}/"
+
+        # Method 2: Find /ideas/ or specific board paths from cite
+        if not pin_url:
             cite_match = re.search(r'<cite[^>]*>(.*?)</cite>', block, re.DOTALL)
             if cite_match:
                 cite_text = re.sub(r'<[^>]+>', '', cite_match.group(1)).strip()
-                if 'pinterest.com' in cite_text:
-                    pin_url = "https://" + cite_text.split()[0]
-                else:
-                    continue
-            else:
-                continue
+                # Only accept URLs with specific paths (not just pinterest.com/)
+                path_match = re.search(r'pinterest\.com(/pin/\d+|/[^/]+/[^/]+)', cite_text)
+                if path_match:
+                    raw = cite_text.split()[0]
+                    # Fix protocol: avoid https://https://
+                    raw = re.sub(r'^https?://', '', raw)
+                    pin_url = f"https://{raw}"
+
+        # Skip if no specific pin URL found (avoids generic pinterest.com links)
+        if not pin_url:
+            continue
 
         # Extract title
         h2_match = re.search(r'<h2[^>]*>.*?<a[^>]*>(.*?)</a>', block, re.DOTALL)
@@ -521,7 +530,7 @@ def fetch_pinterest_via_bing(query, domain_hint=""):
         p_match = re.search(r'<p[^>]*>(.*?)</p>', block, re.DOTALL)
         if p_match:
             desc = html_module.unescape(re.sub(r'<[^>]+>', '', p_match.group(1))).strip()
-            desc = re.sub(r'^\w{3}\s+\d+,\s+\d{4}\s*[-·]\s*', '', desc)  # Remove date prefix
+            desc = re.sub(r'^\w{3}\s+\d+,\s+\d{4}\s*[-·]\s*', '', desc)
 
         if title and len(title) > 5:
             pins.append({
@@ -745,9 +754,23 @@ def fetch_threads_tag(tag):
         # 过滤太短的
         if len(text) < 25:
             continue
-        # 粗略判断是否英文 (放宽阈值，因为emoji也算非ASCII)
+        # 确保是英文内容 (跳过印尼语/菲律宾语/西语等)
         ascii_ratio = sum(1 for c in text if ord(c) < 128) / max(len(text), 1)
-        if ascii_ratio < 0.4:
+        if ascii_ratio < 0.5:
+            continue
+        # 检查英文字母占比 (排除大量emoji+少量拉丁字母的非英语帖子)
+        alpha_chars = sum(1 for c in text if c.isascii() and c.isalpha())
+        words = text.split()
+        # 至少包含3个以上常见英文词
+        eng_markers = sum(1 for w in words if w.lower().strip('.,!?#@') in {
+            'the','a','an','is','are','was','were','my','your','our','this','that',
+            'and','or','but','not','for','with','you','she','her','they','we','it',
+            'to','in','on','of','at','from','have','has','had','do','does','did',
+            'can','will','would','should','could','been','being','just','so','if',
+            'all','no','yes','what','how','why','when','where','who','which',
+            'i','me','he','him','them','us','out','up','about','more','very',
+        })
+        if eng_markers < 3:
             continue
 
         likes = int(like_matches[i]) if i < len(like_matches) else 0
@@ -889,7 +912,7 @@ def deduplicate(insights):
 def run_collection(platforms=None):
     """执行一次完整的数据采集"""
     if platforms is None:
-        platforms = ["reddit", "pinterest", "quora", "threads"]
+        platforms = ["reddit", "quora", "threads"]  # Pinterest需要API或headless browser，暂不采集
 
     print("=" * 60)
     print(f"北美女性消费者洞察 - 多平台数据采集")
