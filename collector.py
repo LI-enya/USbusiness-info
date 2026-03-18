@@ -467,77 +467,80 @@ def fetch_url(url, retries=2):
     return None
 
 
-def fetch_pinterest_via_ddg(query, domain_hint=""):
-    """通过DuckDuckGo搜索 site:pinterest.com/pin/ 获取公开Pin页面"""
-    search_q = f"site:pinterest.com/pin/ {query}"
+def fetch_pinterest_via_bing(query, domain_hint=""):
+    """通过Bing搜索 site:pinterest.com 获取公开Pin页面"""
+    search_q = f"site:pinterest.com {query}"
     if domain_hint:
         search_q += f" {domain_hint}"
-    ddg_url = f"https://html.duckduckgo.com/html/?q={quote(search_q)}"
-    print(f"  搜索 Pinterest (via DDG): \"{query[:50]}\"...")
-    content = fetch_url(ddg_url)
-    if not content:
-        return []
+    bing_url = f"https://www.bing.com/search?q={quote(search_q)}&count=10&setlang=en&mkt=en-US"
+    print(f"  搜索 Pinterest (via Bing): \"{query[:50]}\"...")
 
-    # 从DDG结果提取Pin ID，构造URL
-    pin_ids = re.findall(r'pinterest\.com/pin/(\d{10,})', content)
-    pin_ids = list(dict.fromkeys(pin_ids))[:5]
-    if not pin_ids:
-        print(f"    未找到Pinterest链接")
+    headers = {
+        "User-Agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)",
+        "Accept": "text/html",
+    }
+    req = Request(bing_url, headers=headers)
+    try:
+        with urlopen(req, timeout=15) as resp:
+            content = resp.read().decode("utf-8", errors="replace")
+    except Exception as e:
+        print(f"    [错误] {e}")
         return []
 
     pins = []
-    for pid in pin_ids:
-        purl = f"https://www.pinterest.com/pin/{pid}/"
-        page = fetch_url(purl)
-        if not page:
-            continue
+    parts = content.split('class="b_algo"')
 
+    for part in parts[1:8]:
+        block = part[:3000]
+
+        # Extract URL - prefer pinterest.com/pin/ URLs
+        href_match = re.search(r'href="[^"]*pinterest\.com/pin/(\d+)', block)
+        if href_match:
+            pin_url = f"https://www.pinterest.com/pin/{href_match.group(1)}/"
+        else:
+            # Accept any pinterest URL from cite
+            cite_match = re.search(r'<cite[^>]*>(.*?)</cite>', block, re.DOTALL)
+            if cite_match:
+                cite_text = re.sub(r'<[^>]+>', '', cite_match.group(1)).strip()
+                if 'pinterest.com' in cite_text:
+                    pin_url = "https://" + cite_text.split()[0]
+                else:
+                    continue
+            else:
+                continue
+
+        # Extract title
+        h2_match = re.search(r'<h2[^>]*>.*?<a[^>]*>(.*?)</a>', block, re.DOTALL)
         title = ""
+        if h2_match:
+            title = html_module.unescape(re.sub(r'<[^>]+>', '', h2_match.group(1))).strip()
+            title = title.replace(" | Pinterest", "").replace(" - Pinterest", "").strip()
+
+        # Extract snippet
         desc = ""
-
-        # 提取 <title>
-        tm = re.search(r'<title>([^<]+)</title>', page)
-        if tm:
-            title = html_module.unescape(tm.group(1).replace(" | Pinterest", "").strip())
-
-        # 提取 og:description 或 meta description (属性顺序不定)
-        dm = re.search(r'content="([^"]*)"[^>]*property="og:description"', page)
-        if not dm:
-            dm = re.search(r'property="og:description"[^>]*content="([^"]*)"', page)
-        if not dm:
-            dm = re.search(r'<meta\s+name="description"\s+content="([^"]*)"', page)
-        if dm:
-            desc = html_module.unescape(dm.group(1))
-
-        # 尝试从嵌入JSON提取更多数据
-        repin_count = 0
-        comment_count = 0
-        json_m = re.search(r'"repin_count"\s*:\s*(\d+)', page)
-        if json_m:
-            repin_count = int(json_m.group(1))
-        json_c = re.search(r'"comment_count"\s*:\s*(\d+)', page)
-        if json_c:
-            comment_count = int(json_c.group(1))
+        p_match = re.search(r'<p[^>]*>(.*?)</p>', block, re.DOTALL)
+        if p_match:
+            desc = html_module.unescape(re.sub(r'<[^>]+>', '', p_match.group(1))).strip()
+            desc = re.sub(r'^\w{3}\s+\d+,\s+\d{4}\s*[-·]\s*', '', desc)  # Remove date prefix
 
         if title and len(title) > 5:
             pins.append({
                 "title": title[:200],
                 "selftext": desc[:500],
-                "url": purl,
-                "score": repin_count,
-                "num_comments": comment_count,
+                "url": pin_url,
+                "score": 0,
+                "num_comments": 0,
                 "subreddit": "pinterest/search",
                 "created_utc": time.time(),
             })
 
-        time.sleep(1.5)
-
+    time.sleep(1.5)
     return pins
 
 
 def fetch_pinterest_search(query):
-    """通过DuckDuckGo搜索获取Pinterest相关Pin (替代已失效的RSS)"""
-    return fetch_pinterest_via_ddg(query)
+    """通过Bing搜索获取Pinterest相关Pin"""
+    return fetch_pinterest_via_bing(query)
 
 
 def pinterest_post_to_insight(post, category):
@@ -592,7 +595,13 @@ def fetch_quora_question(query):
                     "bing.com", "microsoft.com", "google.com", "youtube.com",
                     "zhihu.com", "baidu.com", "bilibili.com", "csdn.net", "jianshu.com",
                     "douban.com", "sogou.com", "163.com", "qq.com", "toutiao.com",
-                    "hatena.ne.jp", "yahoo.co.jp", "naver.com", "wikipedia.org"]
+                    "hatena.ne.jp", "yahoo.co.jp", "naver.com", "wikipedia.org",
+                    # 不相关的技术/医疗/娱乐站点
+                    "stackoverflow.com", "stackexchange.com", "github.com",
+                    "mayoclinic.org", "webmd.com", "nih.gov", "medlineplus.gov",
+                    "xbox.com", "support.xbox.com", "spotify.com", "netflix.com",
+                    "weforum.org", "imf.org", "worldbank.org",
+                    "apple.com", "developer.apple.com", "docs.python.org"]
 
     # Split by b_algo class to get individual results
     parts = content.split('class="b_algo"')
@@ -937,7 +946,7 @@ def run_collection(platforms=None):
         # 1. 基于来源域名搜索 (替代已失效的RSS)
         print("\n  [1/2] 来源域名搜索...")
         for src in PINTEREST_SOURCES[:4]:  # 限制数量避免限速
-            pins = fetch_pinterest_via_ddg("women", src["source"])
+            pins = fetch_pinterest_via_bing("women", src["source"])
             for p in pins:
                 p["_hints"] = src["hints"]
             pin_posts.extend(pins)

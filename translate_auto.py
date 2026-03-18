@@ -113,6 +113,28 @@ TOPIC_RULES = [
     (r'\b(politics|political|election|policy)\b', '女性关注的社会政策与政治议题'),
     (r'\b(safety|harassment|assault|creep)\b', '女性安全：日常生活中的隐患与应对'),
     (r'\b(therapy|healing|trauma|ptsd)\b', '创伤疗愈：女性的心理重建之路'),
+
+    # --- Pinterest/Quora常见内容 ---
+    (r'\b(ponytail|hairstyle|braid|updo|hair look|blowout)\b', '发型灵感与造型推荐'),
+    (r'\b(gift|gifts)\b.*\b(women|her|mom|wife|girlfriend)\b', '送给女性的礼物推荐清单'),
+    (r'\b(gift|gifts)\b', '礼物推荐与送礼灵感'),
+    (r'\b(beauty routine|beauty ritual|beauty tip|beauty secret)\b', '美容秘诀与日常护理'),
+    (r'\b(night.*routine|morning.*routine|bedtime)\b', '日常作息与护理流程分享'),
+    (r'\b(DIY|handmade|homemade|craft)\b', 'DIY手工与创意生活'),
+    (r'\b(basket|care package|care kit)\b', '关怀礼包与生活好物组合'),
+    (r'\b(organization|organize|declutter|tidy|clean)\b', '收纳整理与居家生活'),
+    (r'\b(wellness|well.being|holistic)\b', '身心健康与全面养生'),
+    (r'\b(trend|trending)\b.*\b(product|2026|2025)\b', '热门消费趋势与新品发现'),
+    (r'\b(best|top|must.have)\b.*\b(product|brand|item|tool|gadget)\b', '必备好物与产品推荐'),
+    (r'\b(broke|break|struggle|overcome|resilience|strong)\b.*\b(women|woman|life)\b', '女性力量：逆境中的成长故事'),
+    (r'\b(empower|empowerment|inspire|inspiration|motivat)\b', '女性赋能与励志故事'),
+    (r'\b(mompreneur|girl boss|boss babe|women.*business)\b', '女性创业者的成功之路'),
+    (r'\b(clean eating|organic food|meal prep|healthy eating)\b', '健康饮食与营养搭配'),
+    (r'\b(glow|dewy|radiant|luminous)\b.*\b(skin|face)\b', '光泽肌养成：打造自然好气色'),
+    (r'\b(sell|selling|ecommerce|e.commerce|online.*store)\b', '电商与线上销售趋势'),
+    (r'\bbeauty\b', '美容护理与好物推荐'),
+    (r'\b(women|woman)\b.*\b(30s|40s|over 30|over 40)\b', '30+女性的生活智慧与选择'),
+    (r'\b(working mom|working mother|working parent)\b', '职场妈妈的日常与挑战'),
 ]
 
 # Subreddit上下文
@@ -131,6 +153,16 @@ SUB_CONTEXT = {
     "FrugalFemaleFashion": "女性平价时尚",
     "femalefashionadvice": "女性穿搭建议",
     "SubscriptionBoxes": "订阅盒子社区",
+}
+
+# 来源平台上下文
+SOURCE_CONTEXT = {
+    "pinterest": "Pinterest",
+    "quora": "专业问答平台",
+    "threads": "Threads社区",
+    "reddit": "Reddit社区",
+    "news": "新闻媒体",
+    "report": "行业报告",
 }
 
 CATEGORY_ZH = {
@@ -161,17 +193,31 @@ def generate_zh_title(title_en, category, matched_topic):
     return f"[{cat_zh}] {clean}"
 
 
-def generate_zh_summary(title_en, summary_en, category, subreddit, matched_topic):
+def generate_zh_summary(title_en, summary_en, category, subreddit, matched_topic, source_type="reddit"):
     """生成中文摘要"""
-    sub_ctx = SUB_CONTEXT.get(subreddit, "Reddit社区")
+    # 确定来源上下文
+    if source_type in ("pinterest", "quora"):
+        src_ctx = SOURCE_CONTEXT.get(source_type, source_type)
+    else:
+        src_ctx = SUB_CONTEXT.get(subreddit, "Reddit社区")
 
     # 从summary_en提取关键信息 (score/comments if in old format)
     score_match = re.search(r'(\d+)赞.*?(\d+)评论', summary_en or '')
 
     if matched_topic:
-        base = f"来自{sub_ctx}的真实讨论。{matched_topic.rstrip('？?。')}——这是北美女性群体中引发广泛共鸣的话题。"
+        if source_type == "pinterest":
+            base = f"来自{src_ctx}的消费趋势。{matched_topic.rstrip('？?。')}——北美女性群体关注的热门内容。"
+        elif source_type == "quora":
+            base = f"来自{src_ctx}的专业讨论。{matched_topic.rstrip('？?。')}——一个引发深入探讨的话题。"
+        else:
+            base = f"来自{src_ctx}的真实讨论。{matched_topic.rstrip('？?。')}——这是北美女性群体中引发广泛共鸣的话题。"
     else:
-        base = f"来自{sub_ctx}的讨论帖子，标题为\"{title_en[:80]}\"。"
+        if source_type == "pinterest":
+            base = f"来自{src_ctx}的消费灵感内容。"
+        elif source_type == "quora":
+            base = f"来自{src_ctx}的深度讨论。"
+        else:
+            base = f"来自{src_ctx}的讨论帖子。"
 
     # 添加互动数据
     if score_match:
@@ -214,7 +260,8 @@ def main():
         if alpha_ratio < 0.3:
             continue  # 已经是不错的中文
 
-        # 提取subreddit
+        # 提取来源信息
+        source_type = item.get("source_type", "reddit")
         url = item.get("source_url", "")
         sub_match = re.search(r'reddit\.com/r/(\w+)', url)
         subreddit = sub_match.group(1) if sub_match else ""
@@ -227,7 +274,7 @@ def main():
         item["title_zh"] = generate_zh_title(title_en, category, matched)
 
         # 生成中文摘要
-        item["summary_zh"] = generate_zh_summary(title_en, summary_en, category, subreddit, matched)
+        item["summary_zh"] = generate_zh_summary(title_en, summary_en, category, subreddit, matched, source_type)
 
         translated += 1
 
@@ -252,6 +299,8 @@ def main():
     print(f"通用模板: {fallback_count} 条 (分类前缀+英文)")
 
     # 示例
+    import sys, io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
     print("\n=== 翻译示例 ===")
     auto = [i for i in data["insights"] if str(i.get("id","")).startswith("auto_")]
     for item in auto[:8]:
