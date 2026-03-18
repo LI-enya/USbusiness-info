@@ -406,8 +406,16 @@ a:hover { text-decoration: underline; }
 .source-quora { background: #B92B27; color: white; }
 .source-threads { background: #000000; color: white; }
 .source-twitter { background: #1DA1F2; color: white; }
+.source-tiktok { background: #010101; color: #25F4EE; }
+.source-instagram { background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF); color: white; }
 .source-news { background: #4CAF50; color: white; }
 .source-report { background: #FF9800; color: white; }
+.source-filter-tabs { margin-top: 6px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.source-filter-label { font-size: 12px; color: var(--text-muted); font-weight: 500; white-space: nowrap; margin-right: 2px; }
+.source-filter-tabs .filter-tab { font-size: 12px; padding: 5px 12px; display: inline-flex; align-items: center; gap: 4px; }
+.source-filter-tabs .filter-tab.active { border-color: var(--primary); background: rgba(108,92,231,0.15); }
+.source-filter-tabs .source-icon { width: 16px; height: 16px; font-size: 9px; margin-right: 2px; display: inline-flex; align-items: center; justify-content: center; border-radius: 3px; vertical-align: middle; }
+.auto-label { display: inline-block; font-size: 9px; background: rgba(108,92,231,0.25); color: var(--primary-light); padding: 1px 5px; border-radius: 3px; margin-left: 6px; vertical-align: middle; }
 .card-title { font-size: 15px; font-weight: 600; margin-bottom: 8px; line-height: 1.5; }
 .card-content { font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 10px; }
 .card-original {
@@ -614,6 +622,7 @@ a:hover { text-decoration: underline; }
 <!-- Filters + Search -->
 <div class="controls-section">
   <div class="filter-tabs" id="filterTabs"></div>
+  <div class="filter-tabs source-filter-tabs" id="sourceFilterTabs"></div>
   <div class="date-filter-row" id="dateFilterRow">
     <label data-i18n="dateLabel">📅 日期筛选:</label>
     <div class="date-quick-btns">
@@ -716,6 +725,7 @@ let allInsights = [];
 let allData = null;
 let bookmarks = JSON.parse(localStorage.getItem('na-insights-bookmarks') || '{}');
 let showBookmarksOnly = false;
+let currentSourceFilter = 'all';
 let autoRefreshTimer = null;
 
 // ============================================================
@@ -749,6 +759,7 @@ const I18N = {
     relatedInsights: '相关洞察:',
     dateLabel: '📅 日期筛选:', date7d: '近7天', date30d: '近30天', date90d: '近3个月', dateClear: '✕ 清除日期',
     myBookmarks: '我的收藏',
+    sourceAll: '全部来源', sourceLabel: '来源筛选:', autoContent: '原文',
     labelAge: '年龄:', labelEthnicity: '族裔:', labelState: '所在州:',
     labelOccupation: '职业:', labelLifeStage: '人生阶段:', labelIncome: '年收入:',
     labelCoreNeeds: '核心需求:',
@@ -780,6 +791,7 @@ const I18N = {
     relatedInsights: 'Related insights:',
     dateLabel: '📅 Date Filter:', date7d: 'Last 7 days', date30d: 'Last 30 days', date90d: 'Last 3 months', dateClear: '✕ Clear Date',
     myBookmarks: 'My Bookmarks',
+    sourceAll: 'All Sources', sourceLabel: 'Source:', autoContent: 'Auto',
     labelAge: 'Age:', labelEthnicity: 'Ethnicity:', labelState: 'States:',
     labelOccupation: 'Occupation:', labelLifeStage: 'Life Stage:', labelIncome: 'Income:',
     labelCoreNeeds: 'Core Needs:',
@@ -801,10 +813,12 @@ const CATEGORY_MAP = {
 };
 const SOURCE_MAP = {
   reddit:    { label: 'Reddit',    class: 'source-reddit',    icon: 'R' },
-  pinterest: { label: 'Pinterest', class: 'source-pinterest', icon: 'P' },
-  quora:     { label: 'Quora',     class: 'source-quora',     icon: 'Q' },
   threads:   { label: 'Threads',   class: 'source-threads',   icon: 'T' },
   twitter:   { label: 'X/Twitter', class: 'source-twitter',   icon: 'X' },
+  tiktok:    { label: 'TikTok',    class: 'source-tiktok',    icon: 'Tk' },
+  instagram: { label: 'Instagram', class: 'source-instagram', icon: 'IG' },
+  pinterest: { label: 'Pinterest', class: 'source-pinterest', icon: 'P' },
+  quora:     { label: 'Quora',     class: 'source-quora',     icon: 'Q' },
   news:      { label: 'News',      class: 'source-news',      icon: 'N' },
   report:    { label: 'Report',    class: 'source-report',    icon: 'R' }
 };
@@ -921,6 +935,32 @@ function renderFilterTabs(filteredInsights) {
     </button>`;
   }
   tabs.innerHTML = html;
+}
+
+function renderSourceFilterTabs(filteredInsights) {
+  const insights = filteredInsights || allInsights;
+  const sourceCounts = {};
+  insights.forEach(i => {
+    const st = i.source_type || 'news';
+    sourceCounts[st] = (sourceCounts[st] || 0) + 1;
+  });
+  const tabs = document.getElementById('sourceFilterTabs');
+  let html = `<span class="source-filter-label">${t('sourceLabel')}</span>`;
+  html += `<button class="filter-tab ${currentSourceFilter === 'all' ? 'active' : ''}" onclick="setSourceFilter('all')">${t('sourceAll')}<span class="filter-count">(${insights.length})</span></button>`;
+  for (const [key, src] of Object.entries(SOURCE_MAP)) {
+    const count = sourceCounts[key] || 0;
+    if (count === 0) continue;
+    html += `<button class="filter-tab ${currentSourceFilter === key ? 'active' : ''}" onclick="setSourceFilter('${key}')">
+      <span class="source-icon ${src.class}">${src.icon}</span>${src.label}<span class="filter-count">(${count})</span>
+    </button>`;
+  }
+  tabs.innerHTML = html;
+}
+
+function setSourceFilter(src) {
+  currentSourceFilter = src;
+  currentPage = 1;
+  applyFilters();
 }
 
 // ============================================================
@@ -1125,6 +1165,10 @@ function getFilteredInsights() {
   if (showBookmarksOnly) {
     results = results.filter(i => bookmarks[i.id]);
   }
+  // Source filter
+  if (currentSourceFilter !== 'all') {
+    results = results.filter(i => (i.source_type || 'news') === currentSourceFilter);
+  }
   // Category filter
   if (currentFilter !== 'all') {
     results = results.filter(i => i.category === currentFilter);
@@ -1155,6 +1199,7 @@ function applyFilters() {
     updateStats(allData, dateFiltered);
     renderCharts(allData, dateFiltered);
     renderFilterTabs(dateFiltered);
+    renderSourceFilterTabs(dateFiltered);
     renderForecast(allData.forecasts || [], dateFiltered);
   }
   // Get fully filtered data (date + category + search) for cards
@@ -1182,10 +1227,26 @@ function renderCards(insights) {
     const src = SOURCE_MAP[item.source_type] || SOURCE_MAP.news;
     const isBookmarked = bookmarks[item.id];
     const globalIdx = allInsights.indexOf(item);
+    const isAuto = item.id && item.id.startsWith('auto_');
+    // For auto-collected items: title_zh/summary_zh contain English with Chinese prefix — detect and handle
+    const hasRealZh = !isAuto || (item.title_zh && /[\u4e00-\u9fff]/.test(item.title_zh.replace(/^[\[【].*?[\]】]\s*/, '').replace(/^来自\S+社区[。.]\s*/, '').slice(0, 30)));
+    // Choose display text
+    let displayTitle, displaySummary, showSubtitle = false;
+    if (hasRealZh) {
+      displayTitle = showZh ? item.title_zh : item.title_en;
+      displaySummary = showZh ? item.summary_zh : item.summary_en;
+      showSubtitle = showEn && showZh;
+    } else {
+      // Auto item without real Chinese — always show English content cleanly
+      displayTitle = item.title_en || item.title_zh;
+      displaySummary = item.summary_en || item.summary_zh;
+      showSubtitle = false;
+    }
+    const autoTag = (isAuto && !hasRealZh && showZh) ? `<span class="auto-label">${t('autoContent')}</span>` : '';
     return `
     <div class="insight-card" data-category="${item.category}" onclick="showDetail(${globalIdx})">
       <div class="card-header">
-        <span class="card-category ${cat.class}">${showZh ? cat.zh : cat.en}</span>
+        <span class="card-category ${cat.class}">${showZh ? cat.zh : cat.en}${autoTag}</span>
         <div class="card-actions">
           <button class="bookmark-btn ${isBookmarked ? 'active' : ''}" onclick="event.stopPropagation();toggleBookmark('${item.id}', this)" title="收藏">★</button>
           <div class="card-source">
@@ -1194,10 +1255,10 @@ function renderCards(insights) {
           </div>
         </div>
       </div>
-      <div class="card-title">${showZh ? item.title_zh : item.title_en}</div>
-      ${showEn && showZh ? `<div class="card-content" style="font-style:italic;color:#7788AA;font-size:12px;margin-bottom:6px;">${item.title_en}</div>` : ''}
-      <div class="card-content">${showZh ? item.summary_zh : item.summary_en}</div>
-      ${showEn && showZh ? `<div class="card-content" style="font-style:italic;color:#6677AA;font-size:11px;">${item.summary_en}</div>` : ''}
+      <div class="card-title">${displayTitle}</div>
+      ${showSubtitle ? `<div class="card-content" style="font-style:italic;color:#7788AA;font-size:12px;margin-bottom:6px;">${item.title_en}</div>` : ''}
+      <div class="card-content">${displaySummary}</div>
+      ${showSubtitle ? `<div class="card-content" style="font-style:italic;color:#6677AA;font-size:11px;">${item.summary_en}</div>` : ''}
       ${item.quote_en ? `
         <button class="toggle-original" onclick="event.stopPropagation();toggleOriginal(this)">${t('showQuote')}</button>
         <div class="card-original">"${item.quote_en}"</div>
@@ -1375,19 +1436,22 @@ function showDetail(idx) {
   const cat = CATEGORY_MAP[item.category] || CATEGORY_MAP.topic;
   const src = SOURCE_MAP[item.source_type] || SOURCE_MAP.news;
   const isBookmarked = bookmarks[item.id];
+  const isAuto = item.id && item.id.startsWith('auto_');
+  const hasRealZh = !isAuto || (item.title_zh && /[\u4e00-\u9fff]/.test(item.title_zh.replace(/^[\[【].*?[\]】]\s*/, '').replace(/^来自\S+社区[。.]\s*/, '').slice(0, 30)));
   document.getElementById('modalContent').innerHTML = `
     <button class="modal-close" onclick="document.getElementById('modalOverlay').classList.remove('show')">&times;</button>
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:15px;">
       <span class="card-category ${cat.class}">${cat.zh} / ${cat.en}</span>
+      ${isAuto && !hasRealZh ? '<span class="auto-label" style="font-size:11px;">原文 / Original</span>' : ''}
       <button class="bookmark-btn ${isBookmarked ? 'active' : ''}" onclick="toggleBookmark('${item.id}', this)" style="font-size:20px;">★</button>
     </div>
-    <h2 style="margin:0 0 6px;font-size:19px;">${item.title_zh}</h2>
-    <p style="color:var(--text-muted);font-style:italic;margin-bottom:15px;font-size:14px;">${item.title_en}</p>
-    <div style="margin-bottom:15px;line-height:1.8;font-size:14px;">
+    <h2 style="margin:0 0 6px;font-size:19px;">${hasRealZh ? item.title_zh : (item.title_en || item.title_zh)}</h2>
+    ${hasRealZh ? `<p style="color:var(--text-muted);font-style:italic;margin-bottom:15px;font-size:14px;">${item.title_en}</p>` : '<div style="margin-bottom:15px;"></div>'}
+    ${hasRealZh ? `<div style="margin-bottom:15px;line-height:1.8;font-size:14px;">
       <strong style="color:var(--accent);">${t('zhSummary')}</strong><br>${item.summary_zh}
-    </div>
-    <div style="margin-bottom:15px;line-height:1.8;color:#8899BB;font-size:14px;">
-      <strong style="color:var(--primary-light);">${t('enSummary')}</strong><br>${item.summary_en}
+    </div>` : ''}
+    <div style="margin-bottom:15px;line-height:1.8;${hasRealZh ? 'color:#8899BB;' : ''}font-size:14px;">
+      <strong style="color:var(--primary-light);">${hasRealZh ? t('enSummary') : 'Content:'}</strong><br>${item.summary_en || item.summary_zh}
     </div>
     ${item.quote_en ? `
     <div style="background:rgba(255,255,255,0.03);border-left:3px solid var(--primary);padding:14px;border-radius:0 10px 10px 0;margin-bottom:15px;">
